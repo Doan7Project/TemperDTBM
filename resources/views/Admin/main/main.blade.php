@@ -28,7 +28,7 @@
 <body>
 
 
-  <main class="d-flex flex-nowrap" style="height:100vh;">
+  <main class="d-flex flex-nowrap" style="height:auto;">
     <div class="d-flex flex-column flex-shrink-0 py-4 border border-1" style="width: 250px;">
       <div class="text-center pb-4">
         <i class="bi bi-person-workspace fs-1"></i>
