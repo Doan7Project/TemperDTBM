@@ -29,7 +29,7 @@ Route::controller(dashboardController::class)->group(function () {
 Route::controller(CategoryController::class)->group(function () {
     Route::get('Admin/pages/Category_list', 'CategoryList');
     Route::get('Admin/pages/Category_create', 'CategoryCreate');
- 
+    Route::get('Admin/pages/Category_update','CategoryUpdate');
 });
 # 3. Trang Product
 Route::controller(ProductController::class)->group(function () {
