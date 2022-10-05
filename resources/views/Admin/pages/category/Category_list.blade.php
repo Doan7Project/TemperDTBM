@@ -31,7 +31,7 @@
                 <th>Code</th>
                 <th style="width:160px ;">Category Name</th>
                 <th>Content</th>
-                <th>Thumb</th>
+                <th>Image</th>
                 <th>Function</th>
             </tr>
         </thead>

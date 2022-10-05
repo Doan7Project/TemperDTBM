@@ -21,7 +21,7 @@
             <!-- <input type="text" id="content" name="txtContent " class="form-control shadow-none"> -->
         </div>
         <div class="row-cols-md py-2">
-            <label for="thumb" class="text-black">Thumb</label>
+            <label for="thumb" class="text-black">Image</label>
             <input type="file" id="thumb" name="txtThumb " class="form-control shadow-none text-black-50" onchange="loadFile(event)">
 
         </div>

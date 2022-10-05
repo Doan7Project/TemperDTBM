@@ -158,7 +158,7 @@
       </ul>
       <a href="" class="px-4 text-decoration-none text-secondary fw-bolder"><i class="bi bi-box-arrow-left pe-2"></i>Logout</a>
     </div>
-    <div class="d-flex justify-content-center m-auto align-items-center">
+    <div class="d-flex justify-content-center m-auto align-items-center p-5">
       @yield('content')
     </div>
   </main>

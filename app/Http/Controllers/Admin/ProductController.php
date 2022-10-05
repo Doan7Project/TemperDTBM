@@ -26,6 +26,7 @@ class ProductController extends Controller
     # 4 Truy vấn lấy dữ liệu từ DB vào form và hiển thị bảng update
     public function ProductUpdate()
     {
+        return view('Admin.pages.product.Product_update');
     }
     # 5 Thực hiện lệnh chỉnh sữa dữ liệu
     public function ProductUpdateProcess()
