@@ -28,7 +28,7 @@
 <body>
 
 
-  <main class="d-flex flex-nowrap" style="height:auto;">
+  <main class="d-flex flex-nowrap" style="height:100vh;">
     <div class="d-flex flex-column flex-shrink-0 py-4 border border-1" style="width: 250px;">
       <div class="text-center pb-4">
         <i class="bi bi-person-workspace fs-1"></i>
@@ -37,11 +37,11 @@
       <h6 class="px-4 py-3 bg-success text-light">Function Controller</h6>
 
       <ul class="list-group">
-          <a href="{{url('/')}}" class="list-group-item border-0 px-4 list-group-item-action link-dark d-inline-flex text-decoration-none rounded">Home</a>
+          <a href="{{url('/')}}" class="list-group-item border-0 px-4 list-group-item-action link-dark d-inline-flex text-decoration-none rounded"><i class="bi bi-house-door pe-2"></i>Home</a>
         <!-- Product Category -->
         <li class="mb-0 list-unstyled ">
           <button class="btn btn-toggle px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#Category" aria-expanded="false">
-            Product Category
+          <i class="bi bi-basket3 pe-2"></i>Category
           </button>
           <div class="collapse" id="Category">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -54,7 +54,7 @@
         <!-- Product -->
         <li class="mb-0 list-unstyled ">
           <button class="btn btn-toggle  px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#product" aria-expanded="false">
-            Products
+          <i class="bi bi-box-seam pe-2"></i>Products
           </button>
           <div class="collapse" id="product">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -67,7 +67,7 @@
         <!-- Product Thumb -->
         <li class="mb-0 list-unstyled ">
           <button class="btn btn-toggle px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#thumb" aria-expanded="false">
-            Product Thumb
+          <i class="bi bi-card-image pe-2"></i>Product Thumb
           </button>
           <div class="collapse" id="thumb">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -80,7 +80,7 @@
         <!--about -->
         <li class="mb-0 list-unstyled ">
           <button class="btn btn-toggle  px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#about" aria-expanded="false">
-            About page
+          <i class="bi bi-file-earmark-person pe-2"></i>About page
           </button>
           <div class="collapse" id="about">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -93,7 +93,7 @@
         <!-- Product contact -->
         <li class="mb-0 list-unstyled ">
           <button class="btn btn-toggle px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#contact" aria-expanded="false">
-            Contact page
+          <i class="bi bi-person-lines-fill pe-2"></i>Contact page
           </button>
           <div class="collapse" id="contact">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -106,7 +106,7 @@
         <!-- Slide -->
         <li class="mb-0 list-unstyled mb-2">
           <button class="btn btn-toggle  px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#slide" aria-expanded="false">
-            Slides
+          <i class="bi bi-file-easel pe-2"></i>Slides
           </button>
           <div class="collapse" id="slide">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -122,7 +122,7 @@
 
         <li class="mb-0 list-unstyled ">
           <button class="btn btn-toggle  px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#order" aria-expanded="false">
-            Order Information
+          <i class="bi bi-info-square pe-2"></i>Order Information
           </button>
           <div class="collapse" id="order">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -133,7 +133,7 @@
 
         <li class="mb-0 list-unstyled ">
           <button class="btn btn-toggle px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#feedback" aria-expanded="false">
-            Feedback Information
+          <i class="bi bi-megaphone pe-2"></i>Feedback Information
           </button>
           <div class="collapse" id="feedback">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -143,7 +143,20 @@
         </li>
       </ul>
       <hr>
-      <a href="" class="px-4 text-decoration-none text-secondary fw-bolder">Logout</a>
+      <ul class="list-group">
+      <li class="mb-0 list-unstyled ">
+     <button class="btn btn-toggle px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#setting" aria-expanded="false">
+     <i class="bi bi-gear pe-2"></i>Setting
+          </button>
+          <div class="collapse" id="setting">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li><a href="{{url('Admin/pages/Feedback_list')}}" class="link-dark px-5 pt-2 d-inline-flex text-decoration-none rounded">Create Account</a></li>
+              <li><a href="{{url('Admin/pages/Feedback_list')}}" class="link-dark px-5 pt-2 d-inline-flex text-decoration-none rounded">Change Password</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+      <a href="" class="px-4 text-decoration-none text-secondary fw-bolder"><i class="bi bi-box-arrow-left pe-2"></i>Logout</a>
     </div>
     <div class="d-flex justify-content-center m-auto align-items-center">
       @yield('content')
