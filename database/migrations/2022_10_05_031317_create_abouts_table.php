@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigIncrements('AboutID')->autoIncrement()->uniqid();
             $table->string('Title');
             $table->string('Descriptin');
-            $table->string('Thumds');
+            $table->string('image');
             $table->timestamp('CreateDate')->nullable();
             $table->timestamps();
         });

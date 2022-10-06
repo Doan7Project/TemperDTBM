@@ -25,6 +25,15 @@
             <textarea id="editor1" name="txtDescription" class="form-control shadow-none "></textarea>
             <!-- <input type="text" id="content" name="txtContent " class="form-control shadow-none"> -->
         </div>
+<<<<<<< HEAD
+=======
+        <div class="row-cols-md py-2">
+            <label for="thumb" class="text-black">Image</label>
+            <input type="file" id="thumb" name="txtThumb " class="form-control shadow-none text-black-50" onchange="loadFile(event)">
+
+        </div>
+
+>>>>>>> c35a3d273be1c0ad67b1067a1e8000a3ee3cf749
         <div class="py-2">
             <div class="mt-2">
                 <input type="submit" value="Create Category" class="btn btn-primary px-4 pt-2">
