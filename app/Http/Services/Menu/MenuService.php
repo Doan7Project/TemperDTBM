@@ -14,15 +14,35 @@ class MenuService
     {
         try {
             ProductCategory::create([
-                'CategoryCode' => (string) $request->input('txtCategoryCode'),
-                'Name' => (string) $request->input('txtCategory'),
+                'CategoryName' => (string) $request->input('txtCategoryName'),
                 'Description' => (string) $request->input('txtDescription'),
+                'Detail' => (string) $request->input('txtDetail'),
             ]);
-        //    Session::flash('success','Create successfully');
+            session()->flash('success', 'Create category is successfully!');
         } catch (Exception $err) {
-        //   Session::flash('error',$err->getMessage());
+            session()->flash('error', $err->getMessage());
             return false;
         };
         return true;
+    }
+
+    public function update($request, $menu) :bool
+    {
+
+        // $menu->fill($request->input());
+ 
+        $menu->CategoryName =(string) $request->input('txtCategoryName');
+        $menu->Description = (string) $request->input('txtDescription');
+        $menu->Detail = (string) $request->input('txtDetail');
+        $menu->save();
+        session()->flash('success', 'Updated successfully!');
+        return true;
+        // ProductCategory::with('id', $id)
+
+        //     ->update([
+        //         'CategoryName' => $categoryname,
+        //         'Description' => $descriptions,
+        //         'Detail' => $detail
+        //     ]);
     }
 }

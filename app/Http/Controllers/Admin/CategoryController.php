@@ -14,16 +14,17 @@ use PhpParser\Node\Stmt\TryCatch;
 
 class CategoryController extends Controller
 {
-  protected  $menuservice;
+    protected  $menuservice;
 
-  public function __construct(MenuService $menuService)
-  {
-    $this->menuservice = $menuService;
-  }
+    public function __construct(MenuService $menuService)
+    {
+        $this->menuservice = $menuService;
+    }
     # 1 Hiển thị danh sách Category
     public function CategoryList()
     {
-        return view('Admin.pages.category.Category_list');
+        $rs = ProductCategory::all();
+        return view('Admin.pages.category.Category_list')->with(['rs' => $rs]);
     }
     # 2 Hiện thị bảng tạo thông tin
     public function CategoryCreate()
@@ -34,47 +35,56 @@ class CategoryController extends Controller
     public function CategoryCreateProcess(CreateFormRequest $request)
     {
         #3.1 Kiểm tra lỗi
-       
-            $result = $this->menuservice->create($request);
-            return redirect()->back();
+
+        $this->menuservice->create($request);
+        return redirect()->route('categorylist');
 
         // return redirect()->route('categorylist');
     }
     # 4 Truy vấn lấy dữ liệu từ DB vào form và hiển thị bảng update
-    public function CategoryUpdate()
-    {
-        return view('Admin.pages.category.Category_update');
+    public function CategoryUpdate(ProductCategory $menu)
+    {   
+        return view('Admin.pages.category.Category_update', [
+            'title' => "Category name:  " . $menu->CategoryName,
+            'menu' => $menu
+        ]);
     }
     # 5 Thực hiện lệnh chỉnh sữa dữ liệu
-    public function CategoryUpdateProcess()
+    public function CategoryUpdateProcess(ProductCategory $menu, CreateFormRequest $request)
     {
+        
+        $this->menuservice->update($request, $menu);
+        return redirect()->route('categorylist');
+
     }
     # 6 Thực hiện lệnh delete
-    public function CategoryDelete()
+    public function CategoryDelete($id)
     {
+        ProductCategory::where('id',$id)->delete();
+        return redirect()->route('categorylist');
     }
 
     public function store(CreateFormRequest $request)
     {
-    //     $validate = Validator::make(
-    //         $request->all(),
-    //         [
-    //             'txtCategoryCode' => 'required|min:5',
-    //             'txtCategory' => 'required|max:20'
-    //         ],
-    //         [
-    //             'txtCategoryCode.required' => 'Category Code is required',
-    //             'txtCategoryCode.min' => 'Category must have 5 charater',
-    //             'txtCategory.required' => 'Category is required',
-    //             'txtCategory.max' => 'Category is not greater than 20 charater',
-    //         ]
-    //     );
+        //     $validate = Validator::make(
+        //         $request->all(),
+        //         [
+        //             'txtCategoryCode' => 'required|min:5',
+        //             'txtCategory' => 'required|max:20'
+        //         ],
+        //         [
+        //             'txtCategoryCode.required' => 'Category Code is required',
+        //             'txtCategoryCode.min' => 'Category must have 5 charater',
+        //             'txtCategory.required' => 'Category is required',
+        //             'txtCategory.max' => 'Category is not greater than 20 charater',
+        //         ]
+        //     );
 
-    //     if ($validate->fails()) {
-    //         return back()->withErrors($validate->errors())->withInput();
-    //     }
+        //     if ($validate->fails()) {
+        //         return back()->withErrors($validate->errors())->withInput();
+        //     }
 
-    //     dd($request->all());
-    // }
-}
+        //     dd($request->all());
+        // }
+    }
 }

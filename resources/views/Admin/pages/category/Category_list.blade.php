@@ -4,10 +4,12 @@
     .functionIcon {
         width: 180px;
     }
+
     .functionIcon button {
         border: none;
         background-color: transparent;
     }
+
     .functionIcon a {
         text-decoration: none;
     }
@@ -22,40 +24,47 @@
         font-style: normal;
     }
 </style>
-<div class="container mt-3 table-responsive">
+<div class=" mt-3 table-responsive container">
     <h4 class="pb-4">Category List</h4>
-    <table class="table table-striped table-hover shadow-sm rounded" style="width:100% ;">
-        <thead class="table-light">
-            <tr >
-                <th>No.</th>
-                <th>Code</th>
-                <th style="width:160px ;">Category Name</th>
-                <th>Content</th>
-                <th>Image</th>
-                <th>Function</th>
+    @if (Session::has('success'))
+    <div class="alert alert-success">
+        {{Session::get('success')}}
+    </div>
+    @endif
+
+    <table class="table  shadow-sm rounded table-responsive">
+        <thead>
+            <tr>
+                <th class="px-3">No.</th>
+                <th class="px-3" style="width:150px;">Category Name</th>
+                <th class="px-3" style="width:250px;">Description</th>
+                <th class="px-3">Detail</th>
+                <th class="px-3">Function</th>
             </tr>
         </thead>
-        <tbody>
+        @foreach($rs as $key => $data)
+        <tbody class="p-2">
+
             <tr>
-                <td VALIGN=Middle Align=Left>1</td>
-                <td VALIGN=Middle Align=Left>H001</td>
-                <td VALIGN=Middle Align=Left>Sofa</td>
-                <td VALIGN=Middle Align=Left>Lorem ipsum dolor sit amet consectetur Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit molestias rem quia cupiditate nesciunt perspiciatis inventore eaque alias assumenda excepturi. Atque omnis, placeat quo in suscipit voluptatibus consequuntur est voluptates. </td>
-                <td VALIGN=Middle Align=Left>@../image/pic 1</td>
-                <td class="functionIcon pe-3" VALIGN=Middle Align=Left>
+                <td class="px-3" VALIGN=Middle Align=Left>{{$data->id}}</td>
+                <td class="px-3" VALIGN=Middle Align=Left>{{$data->CategoryName}}</td>
+                <td class="px-3" VALIGN=Middle Align=Left>{{$data->Description}}</td>
+                <td class="px-3" VALIGN=Middle Align=Left>{{$data->Detail}}</td>
+                <td class="functionIcon " VALIGN=Middle Align=Left>
                     <button name="edit">
-                        <a href="{{url('Admin/pages/Category_update')}}" style="color: cadetblue;">
-                            <i class="bi bi-pencil-fill pe-3"> Update</i>
+                        <a href="{{url("Admin/pages/Category_update/{$data->id}")}}" style="color: cadetblue;">
+                            <i class="bi bi-pencil-square" pe-3"> Update</i>
                         </a>
                     </button>
-                    <button name="delete">
-                        <a href="" onclick="return confirm('Are you sure to delet')" style="color: orangered;">
+                    <button class="pe-2" name="delete">
+                        <a href="{{url("Admin/pages/delete/{$data->id}")}}" onclick="return confirm('Are you sure to delete {{$data->CategoryName}}')" style="color: orangered;">
                             <i class="bi bi-trash3"> Delete</i>
                         </a>
                     </button>
                 </td>
             </tr>
         </tbody>
+        @endforeach
     </table>
 </div>
 

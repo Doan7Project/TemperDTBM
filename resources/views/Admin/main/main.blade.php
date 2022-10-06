@@ -159,11 +159,7 @@
       </ul>
       <a href="" class="px-4 text-decoration-none text-secondary fw-bolder"><i class="bi bi-box-arrow-left pe-2"></i>Logout</a>
     </div>
-<<<<<<< HEAD
     <div class="mt-5 container">
-=======
-    <div class="d-flex justify-content-center m-auto align-items-center p-5">
->>>>>>> c35a3d273be1c0ad67b1067a1e8000a3ee3cf749
       @yield('content')
     </div>
   </main>

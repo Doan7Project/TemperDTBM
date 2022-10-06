@@ -24,18 +24,18 @@ class CreateFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'txtCategoryCode' => 'required|min:5',
-            'txtCategory' => 'required|max:20'
+            'txtCategoryName' => 'required|min:2',
+            'txtDescription' => 'required|max:200'
         ];
     }
 
     public function messages()
     {
         return [
-            'txtCategoryCode.required' => 'Category Code is required',
-            'txtCategoryCode.min' => 'Category must have 5 charater',
-            'txtCategory.required' => 'Category is required',
-            'txtCategory.max' => 'Category is not greater than 20 charater',
+            'txtCategoryName.required' => 'Category Code is required',
+            'txtCategoryName.min' => 'Category must have 2 charater',
+            'txtDescription.required' => 'Description is required',
+            'txtDescription.max' => 'Description is not greater than 200 charater',
         ];
     }
 }
