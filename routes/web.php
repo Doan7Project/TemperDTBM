@@ -27,9 +27,11 @@ Route::controller(dashboardController::class)->group(function () {
 });
 # 2. Trang Category
 Route::controller(CategoryController::class)->group(function () {
-    Route::get('Admin/pages/Category_list', 'CategoryList');
-    Route::get('Admin/pages/Category_create', 'CategoryCreate');
-    Route::get('Admin/pages/Category_update','CategoryUpdate');
+    Route::get('Admin/pages/Category_list', 'CategoryList')->name('categorylist');
+    Route::get('Admin/pages/Category_create', 'CategoryCreate')->name('category');
+    Route::post('Admin/pages/save', 'CategoryCreateProcess')->name('form.store');
+    Route::get('Admin/pages/Category_update', 'CategoryUpdate');
+    // Route::post('Admin/pages/save','store')->name('form.store');
 });
 # 3. Trang Product
 Route::controller(ProductController::class)->group(function () {

@@ -16,6 +16,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   <meta name="theme-color" content="#712cf9">
+  <script src="/ckeditor/ckeditor.js"></script>
   <style>
     * {
       padding: 0;
@@ -37,11 +38,11 @@
       <h6 class="px-4 py-3 bg-success text-light">Function Controller</h6>
 
       <ul class="list-group">
-          <a href="{{url('/')}}" class="list-group-item border-0 px-4 list-group-item-action link-dark d-inline-flex text-decoration-none rounded"><i class="bi bi-house-door pe-2"></i>Home</a>
+        <a href="{{url('/')}}" class="list-group-item border-0 px-4 list-group-item-action link-dark d-inline-flex text-decoration-none rounded"><i class="bi bi-house-door pe-2"></i>Home</a>
         <!-- Product Category -->
         <li class="mb-0 list-unstyled ">
           <button class="btn btn-toggle px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#Category" aria-expanded="false">
-          <i class="bi bi-basket3 pe-2"></i>Category
+            <i class="bi bi-basket3 pe-2"></i>Category
           </button>
           <div class="collapse" id="Category">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -54,7 +55,7 @@
         <!-- Product -->
         <li class="mb-0 list-unstyled ">
           <button class="btn btn-toggle  px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#product" aria-expanded="false">
-          <i class="bi bi-box-seam pe-2"></i>Products
+            <i class="bi bi-box-seam pe-2"></i>Products
           </button>
           <div class="collapse" id="product">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -67,7 +68,7 @@
         <!-- Product Thumb -->
         <li class="mb-0 list-unstyled ">
           <button class="btn btn-toggle px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#thumb" aria-expanded="false">
-          <i class="bi bi-card-image pe-2"></i>Product Thumb
+            <i class="bi bi-card-image pe-2"></i>Product Thumb
           </button>
           <div class="collapse" id="thumb">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -80,7 +81,7 @@
         <!--about -->
         <li class="mb-0 list-unstyled ">
           <button class="btn btn-toggle  px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#about" aria-expanded="false">
-          <i class="bi bi-file-earmark-person pe-2"></i>About page
+            <i class="bi bi-file-earmark-person pe-2"></i>About page
           </button>
           <div class="collapse" id="about">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -93,7 +94,7 @@
         <!-- Product contact -->
         <li class="mb-0 list-unstyled ">
           <button class="btn btn-toggle px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#contact" aria-expanded="false">
-          <i class="bi bi-person-lines-fill pe-2"></i>Contact page
+            <i class="bi bi-person-lines-fill pe-2"></i>Contact page
           </button>
           <div class="collapse" id="contact">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -106,7 +107,7 @@
         <!-- Slide -->
         <li class="mb-0 list-unstyled mb-2">
           <button class="btn btn-toggle  px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#slide" aria-expanded="false">
-          <i class="bi bi-file-easel pe-2"></i>Slides
+            <i class="bi bi-file-easel pe-2"></i>Slides
           </button>
           <div class="collapse" id="slide">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -122,7 +123,7 @@
 
         <li class="mb-0 list-unstyled ">
           <button class="btn btn-toggle  px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#order" aria-expanded="false">
-          <i class="bi bi-info-square pe-2"></i>Order Information
+            <i class="bi bi-info-square pe-2"></i>Order Information
           </button>
           <div class="collapse" id="order">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -133,7 +134,7 @@
 
         <li class="mb-0 list-unstyled ">
           <button class="btn btn-toggle px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#feedback" aria-expanded="false">
-          <i class="bi bi-megaphone pe-2"></i>Feedback Information
+            <i class="bi bi-megaphone pe-2"></i>Feedback Information
           </button>
           <div class="collapse" id="feedback">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -144,9 +145,9 @@
       </ul>
       <hr>
       <ul class="list-group">
-      <li class="mb-0 list-unstyled ">
-     <button class="btn btn-toggle px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#setting" aria-expanded="false">
-     <i class="bi bi-gear pe-2"></i>Setting
+        <li class="mb-0 list-unstyled ">
+          <button class="btn btn-toggle px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#setting" aria-expanded="false">
+            <i class="bi bi-gear pe-2"></i>Setting
           </button>
           <div class="collapse" id="setting">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -158,10 +159,20 @@
       </ul>
       <a href="" class="px-4 text-decoration-none text-secondary fw-bolder"><i class="bi bi-box-arrow-left pe-2"></i>Logout</a>
     </div>
+<<<<<<< HEAD
+    <div class="mt-5 container">
+=======
     <div class="d-flex justify-content-center m-auto align-items-center p-5">
+>>>>>>> c35a3d273be1c0ad67b1067a1e8000a3ee3cf749
       @yield('content')
     </div>
   </main>
+  <script>
+     // Replace the <textarea id="editor1"> with a CKEditor 4
+                // instance, using default configuration.
+                CKEDITOR.replace( 'editor1' );
+  </script>
+
 </body>
 
 </html>
