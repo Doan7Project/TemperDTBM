@@ -39,7 +39,7 @@ Route::controller(CategoryController::class)->group(function () {
 Route::controller(ProductController::class)->group(function () {
     Route::get('Admin/pages/Product_list', 'ProductList');
     Route::get('Admin/pages/Product_create', 'ProductCreate');
-    Route::get('Admin/pages/Product_update', 'ProductUpdate');
+    Route::post('Admin/pages/Product_create', 'ProductCreateProcess');
 });
 # 4. Trang Thumb
 Route::controller(ThumbController::class)->group(function () {

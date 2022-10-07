@@ -4,37 +4,51 @@
 <div class="card shadow-sm" style="width: 800px ;">
     <h4 class="text-center pt-5 text-black-50">Product Create</h4>
     <p class="text-center text-black-50">Create the information to product</p>
-    <form action="" class="card-body">
+    <form action="" method="POST" class="card-body">
+    @csrf
         <div class="row pt-2">
-            <div class="col-md-3">
-                <label for="categoryID" class="form-label text-black">Category Code</label>
-                <select class="form-control shadow-none" name="txtCategoryCode" id="categoryID">
-                    <option value="1">--choose--</option>
-                    <option>H001</option>
-                    <option>H002</option>
-                </select>
-            </div>
             <div class="col-md-5">
-                <label for="categoryName" class="form-label text-black-50">Category Name</label>
-                <input type="text" id="categoryName" class="form-control shadow-none" name="txtCategoryName" readonly>
+                <label for="categoryname" class="form-label text-black">Category Name</label>
+                <select class="form-control shadow-none" name="txtCategoryName" id="categoryname">
+                    <option value="">Please choose category...</option>
+                   @foreach($Menus as $key=> $data)
+                    <option value="{{$data->id}}">{{$data->CategoryName}}</option>
+                    @endforeach
+                </select>
+                @error('txtCategoryName')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
             </div>
-            <div class="col-md-4">
+    
+            <div class="col-md-7">
                 <label for="productCode" class="form-label text-black">Product Code</label>
-                <input type="text" id="productCode" class="form-control shadow-none" name="txtProductCode">
+                <input type="text" id="productCode" class="form-control shadow-none" name="txtProductCode" placeholder="Enter product code [XX-000]">
+                @error('txtProductCode')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
             </div>
         </div>
         <div class="row pt-2">
             <div class="col-md-3">
                 <label for="price" class="form-label text-black">Price</label>
                 <input type="number" id="price" class="form-control shadow-none" name="txtPrice">
+                @error('txtPrice')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
             </div>
             <div class="col-md-2">
                 <label for="unit" class="form-label text-black">Unit</label>
                 <input type="text" id="unit" class="form-control shadow-none" name="txtUnit">
+                @error('txtUnit')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
             </div>
             <div class="col-md-2">
                 <label for="quantity" class="form-label text-black">Quantity</label>
                 <input type="number" id="quantity" class="form-control shadow-none" name="txtQuantity">
+                @error('txtQuantity')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
             </div>
             <div class="col-md-2">
                 <label for="discount" class="form-label text-black">Discount</label>
@@ -46,42 +60,33 @@
             </div>
         </div>
         <div class="row pt-2">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <label for="status" class="form-label text-black">Status</label>
                 <select class="form-control shadow-none" name="txtStatus" id="status">
-                    <option value="1">--choose--</option>
+                    <option value="1">Please choose Status...</option>
                     <option>Active</option>
                     <option>Unactive</option>
                 </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <label for="models" class="form-label text-black">Models</label>
                 <select class="form-control shadow-none" name="txtModels" id="models">
-                    <option value="1">--choose--</option>
+                    <option value="">Please choose Models...</option>
                     <option>Trending</option>
                     <option>New Arrival</option>
                     <option>Features</option>
                     <option>Top</option>
                 </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <label for="madein" class="form-label text-black">Made In</label>
                 <select class="form-control shadow-none" name="txtMadein" id="madein">
-                    <option value="1">--choose--</option>
+                    <option value="1">Please choose country...</option>
                     <option>VietName</option>
                     <option>Japan</option>
                     <option>Thailand</option>
                     <option>China</option>
                 </select>
-            </div>
-            <div class="col-md-3">
-                <label for="madein" class="form-label text-black">VAT</label>
-                <div class="pt-2">
-                    <input type="radio" name="txtVat">
-                    <label class="form-label pe-3" for="">YES</label>
-                    <input type="radio" name="txtVat">
-                    <label class="form-label " for="">NO</label>
-                </div>
             </div>
         </div>
         <div class="row pt-2">
@@ -116,6 +121,8 @@
             output.src = URL.createObjectURL(event.target.files[0]);
             console.log(output.src);
         }
+
     </script>
+   
 </div>
-@stop
+@endsection

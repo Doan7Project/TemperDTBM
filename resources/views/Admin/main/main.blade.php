@@ -30,12 +30,12 @@
 
 
   <main class="d-flex flex-nowrap" style="height:100vh;">
-    <div class="d-flex flex-column flex-shrink-0 py-4 border border-1" style="width: 250px;">
+    <div class="d-flex flex-column flex-shrink-0 py-4 border border-1" style="width: 240px;">
       <div class="text-center pb-4">
         <i class="bi bi-person-workspace fs-1"></i>
         <h5>Administration</h5>
       </div>
-      <h6 class="px-4 py-3 bg-success text-light">Function Controller</h6>
+      <h6 class="px-4 py-3 bg-secondary bg-gradient text-light">Function Controller</h6>
 
       <ul class="list-group">
         <a href="{{url('/')}}" class="list-group-item border-0 px-4 list-group-item-action link-dark d-inline-flex text-decoration-none rounded"><i class="bi bi-house-door pe-2"></i>Home</a>
@@ -119,7 +119,7 @@
         <!-- End Slide-->
         <!-- information detail -->
 
-        <h6 class="px-4 py-3 bg-success text-light">Information</h6>
+        <h6 class="px-4 py-3 bg-secondary bg-gradient text-light">Information</h6>
 
         <li class="mb-0 list-unstyled ">
           <button class="btn btn-toggle  px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#order" aria-expanded="false">
@@ -159,16 +159,13 @@
       </ul>
       <a href="" class="px-4 text-decoration-none text-secondary fw-bolder"><i class="bi bi-box-arrow-left pe-2"></i>Logout</a>
     </div>
-    <div class="mt-5 container">
+    <div class="mt-5 p-4 m-auto">
       @yield('content')
     </div>
   </main>
   <script>
-     // Replace the <textarea id="editor1"> with a CKEditor 4
-                // instance, using default configuration.
                 CKEDITOR.replace( 'editor1' );
   </script>
-
 </body>
 
 </html>

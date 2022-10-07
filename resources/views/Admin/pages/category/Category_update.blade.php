@@ -1,13 +1,17 @@
 @extends('Admin.main.main')
 @section('content')
 <div class="shadow-sm card">
-    <h4 class="text-center pt-5 text-black-50">Update Category</h4>
+    <h4 class="text-center bg-primary bg-gradient p-3 text-white">Update Category</h4>
     <p class="text-center text-black-50">{{$title}}</p>
     <form class="card-body" method="POST" action="">
     @csrf
         <div class="row-cols-md py-2">
             <label for="categoryName" class="form-label text-black fw-bolder">ID</label>
             <input type="text" id="categoryName"  class="form-control shadow-none" value="{{$menu->id}}" readonly>
+        </div>
+        <div class="row-cols-md py-2">
+            <label for="categorycode" class="form-label text-black fw-bolder">Category Name</label>
+            <input type="text" id="categorycode" name="txtCategoryCode" class="form-control shadow-none" value="{{$menu->CategoryCode}}" placeholder="Enter category code">
         </div>
         <div class="row-cols-md py-2">
             <label for="categoryName" class="form-label text-black fw-bolder">Category Name</label>

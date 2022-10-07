@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Menu\CreateFormRequest;
-use App\Http\Services\Menu\MenuService;
+use App\Http\Services\Menu\CategoryService;
 use App\Models\ProductCategory;
 use Exception;
 use Illuminate\Support\Facades\Validator;
@@ -14,17 +14,23 @@ use PhpParser\Node\Stmt\TryCatch;
 
 class CategoryController extends Controller
 {
-    protected  $menuservice;
+    protected  $categoryservice;
 
-    public function __construct(MenuService $menuService)
+    public function __construct(CategoryService $categoryservice)
     {
-        $this->menuservice = $menuService;
+        $this->categoryservice = $categoryservice;
     }
     # 1 Hiển thị danh sách Category
     public function CategoryList()
     {
-        $rs = ProductCategory::all();
-        return view('Admin.pages.category.Category_list')->with(['rs' => $rs]);
+        // $rs = ProductCategory::all();
+        // return view('Admin.pages.category.Category_list')->with(['rs' => $rs]);
+
+        return view('Admin.pages.category.Category_list',[
+            'title' => 'Danh sach moi',
+            'rs' => $this->categoryservice->getAll()
+
+        ]);
     }
     # 2 Hiện thị bảng tạo thông tin
     public function CategoryCreate()
@@ -36,7 +42,7 @@ class CategoryController extends Controller
     {
         #3.1 Kiểm tra lỗi
 
-        $this->menuservice->create($request);
+        $this->categoryservice->create($request);
         return redirect()->route('categorylist');
 
         // return redirect()->route('categorylist');
@@ -53,7 +59,7 @@ class CategoryController extends Controller
     public function CategoryUpdateProcess(ProductCategory $menu, CreateFormRequest $request)
     {
         
-        $this->menuservice->update($request, $menu);
+        $this->categoryservice->update($request, $menu);
         return redirect()->route('categorylist');
 
     }

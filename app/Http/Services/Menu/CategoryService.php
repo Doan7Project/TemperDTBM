@@ -7,18 +7,25 @@ use App\Models\ProductCategory;
 use Exception;
 use Illuminate\Contracts\Session\Session;
 
-class MenuService
+class CategoryService
 {
+
+    public function getAll(){
+
+       return ProductCategory::orderbyDesc('id')->paginate(20);
+
+    }
 
     public function create($request)
     {
         try {
             ProductCategory::create([
+                'CategoryCode' => (string) $request->input('txtCategoryCode'),
                 'CategoryName' => (string) $request->input('txtCategoryName'),
                 'Description' => (string) $request->input('txtDescription'),
                 'Detail' => (string) $request->input('txtDetail'),
             ]);
-            session()->flash('success', 'Create category is successfully!');
+            session()->flash('success', 'Create category is successfully: '.$request->input('txtCategoryName'));
         } catch (Exception $err) {
             session()->flash('error', $err->getMessage());
             return false;
@@ -30,7 +37,7 @@ class MenuService
     {
 
         // $menu->fill($request->input());
- 
+        $menu->CategoryCode =(string) $request->input('txtCategoryCode');
         $menu->CategoryName =(string) $request->input('txtCategoryName');
         $menu->Description = (string) $request->input('txtDescription');
         $menu->Detail = (string) $request->input('txtDetail');

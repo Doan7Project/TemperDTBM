@@ -1,8 +1,8 @@
 @extends('Admin.main.main')
 @section('content')
 
-<div class="shadow-sm card">
-    <h4 class="text-center pt-5 text-black-50">New Category Creating</h4>
+<div class="shadow-sm card" style="width: 100%;">
+    <h4 class="text-center bg-primary bg-gradient p-3 text-white">New Category Creating</h4>
     <p class="text-center text-black-50">Create the information to category</p>
     <form action="" class="card-body" method="post">
 
@@ -12,6 +12,13 @@
         </div>
         @endif
         <div class="row-cols-md py-2">
+            <label for="categorycode" class="form-label text-black fw-bolder">Category Code</label>
+            <input type="text" id="categorycode" name="txtCategoryCode" class="form-control shadow-none" value="{{old('txtCategoryCode')}}" placeholder="Enter category Code">
+            @error('txtCategoryCode')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+        </div>
+        <div class="row-cols-md py-2">
             <label for="categoryName" class="form-label text-black fw-bolder">Category Name</label>
             <input type="text" id="categoryName" name="txtCategoryName" class="form-control shadow-none" value="{{old('txtCategoryName')}}" placeholder="Enter category name">
             @error('txtCategoryName')
@@ -20,14 +27,14 @@
         </div>
         <div class="row-cols-md py-2">
             <label for="category" class="form-label text-black fw-bolder">Description</label>
-            <textarea rows="4" id="category" name="txtDescription" class="form-control shadow-none" value="{{old('txtDescription')}}" placeholder="Description is not greater than 200 charater"></textarea>
+            <textarea rows="4" id="category" name="txtDescription" class="form-control shadow-none" placeholder="Description is not greater than 200 charater">{{old('txtDescription')}}</textarea>
             @error('txtDescription')
             <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
         <div class="row-cols-md py-2" >
             <label for="content" class="text-black fw-bolder">Details</label>
-            <textarea id="editor1" name="txtDetail" value="{{old('txtDetail')}}"></textarea>
+            <textarea id="editor1" name="txtDetail">{{old('txtDetail')}}</textarea>
             <!-- <input type="text" id="content" name="txtContent " class="form-control shadow-none"> -->
         </div>
         <div class="py-2">
