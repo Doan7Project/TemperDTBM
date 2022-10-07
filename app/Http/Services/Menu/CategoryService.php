@@ -20,7 +20,6 @@ class CategoryService
     {
         try {
             ProductCategory::create([
-                'CategoryCode' => (string) $request->input('txtCategoryCode'),
                 'CategoryName' => (string) $request->input('txtCategoryName'),
                 'Description' => (string) $request->input('txtDescription'),
                 'Detail' => (string) $request->input('txtDetail'),
@@ -37,7 +36,7 @@ class CategoryService
     {
 
         // $menu->fill($request->input());
-        $menu->CategoryCode =(string) $request->input('txtCategoryCode');
+        // $menu->CategoryCode =(string) $request->input('txtCategoryCode');
         $menu->CategoryName =(string) $request->input('txtCategoryName');
         $menu->Description = (string) $request->input('txtDescription');
         $menu->Detail = (string) $request->input('txtDetail');

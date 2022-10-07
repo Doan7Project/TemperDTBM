@@ -7,7 +7,7 @@ use App\Models\ProductCategory;
 
 class ProductService
 {
-    public function getAll()
+    public function getCategoryName()
     {
 
         return ProductCategory::orderbyDesc('id')->paginate(20);

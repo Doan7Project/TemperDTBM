@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 */
 # 1. Trang chủ
 Route::controller(dashboardController::class)->group(function () {
-    Route::get('/', 'index');
+    Route::get('/', 'index')->name('index');
 });
 # 2. Trang Category
 Route::controller(CategoryController::class)->group(function () {
@@ -35,12 +35,24 @@ Route::controller(CategoryController::class)->group(function () {
     Route::get('Admin/pages/delete/{id}', 'CategoryDelete');
     // Route::post('Admin/pages/save','store')->name('form.store');
 });
+
+
 # 3. Trang Product
 Route::controller(ProductController::class)->group(function () {
-    Route::get('Admin/pages/Product_list', 'ProductList');
-    Route::get('Admin/pages/Product_create', 'ProductCreate');
-    Route::post('Admin/pages/Product_create', 'ProductCreateProcess');
+    #1. Hiển thị danh sách tất cả sản phẩm
+    Route::get('product/list', 'list')->name('list');
+    #2. Hiển thị form tạo sản phẩm
+    Route::get('product/create', 'create');
+    #3. Thực hiện lữu dữ liệu
+    Route::post('product/create', 'store');
+    #4. Hiển thị thông tin sản phẩm theo ID
+    Route::get('product/show/{id}', 'show');
+    #5. Thực hiện chỉnh sữa dữ liệu
+    Route::post('product/edit/{id}', 'edit');
+    #6. Thực hiện xóa dữ liệu
+    Route::get('product/destroy/{id}', 'destroy');
 });
+
 # 4. Trang Thumb
 Route::controller(ThumbController::class)->group(function () {
 

@@ -1,17 +1,24 @@
 @extends('Admin.main.main')
 @section('content')
+<style>
+.txtback{
+
+color: gray;
+transition: 0.4s;
+
+}
+</style>
 <div class="shadow-sm card">
     <h4 class="text-center bg-primary bg-gradient p-3 text-white">Update Category</h4>
     <p class="text-center text-black-50">{{$title}}</p>
     <form class="card-body" method="POST" action="">
+    <div class="text-end">
+            <a href="{{route('categorylist')}}" class="txtback fs-5 text-decoration-none"><i class="bi bi-reply-fill fs-4"></i>Back</a>
+        </div>
     @csrf
         <div class="row-cols-md py-2">
             <label for="categoryName" class="form-label text-black fw-bolder">ID</label>
             <input type="text" id="categoryName"  class="form-control shadow-none" value="{{$menu->id}}" readonly>
-        </div>
-        <div class="row-cols-md py-2">
-            <label for="categorycode" class="form-label text-black fw-bolder">Category Name</label>
-            <input type="text" id="categorycode" name="txtCategoryCode" class="form-control shadow-none" value="{{$menu->CategoryCode}}" placeholder="Enter category code">
         </div>
         <div class="row-cols-md py-2">
             <label for="categoryName" class="form-label text-black fw-bolder">Category Name</label>
@@ -27,9 +34,12 @@
             <textarea id="editor1" name="txtDetail">{{$menu->Detail}}</textarea>
             <!-- <input type="text" id="content" name="txtContent " class="form-control shadow-none"> -->
         </div>
-        <div class="py-2">
-            <div class="mt-2">
-                <input type="submit" value="Update Category" onclick="return confirm('Are you sure to update data')" class="btn btn-primary px-4 pt-2">
+        <div class="py-2 d-flex">
+            <div class="">
+                <input type="submit" value="Update Category" onclick="return confirm('Are you sure to update data')" class="btn btn-primary">
+            </div>
+            <div class="mx-2">
+                <a href="{{route('index')}}" style="width:100px ;" type="submit" class="btn btn-secondary ">Close</a>
             </div>
         </div>
     </form>

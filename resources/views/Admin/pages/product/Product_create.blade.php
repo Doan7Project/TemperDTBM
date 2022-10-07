@@ -1,31 +1,31 @@
 @extends('Admin.main.main')
 @section('content')
 
-<div class="card shadow-sm" style="width: 800px ;">
-    <h4 class="text-center pt-5 text-black-50">Product Create</h4>
+<div class="card shadow-sm" style="width:100% ;">
+    <h4 class="text-center bg-primary bg-gradient p-3 text-white">Create Product Table</h4>
     <p class="text-center text-black-50">Create the information to product</p>
     <form action="" method="POST" class="card-body">
-    @csrf
+        @csrf
         <div class="row pt-2">
             <div class="col-md-5">
                 <label for="categoryname" class="form-label text-black">Category Name</label>
                 <select class="form-control shadow-none" name="txtCategoryName" id="categoryname">
                     <option value="">Please choose category...</option>
-                   @foreach($Menus as $key=> $data)
+                    @foreach($Menus as $key=> $data)
                     <option value="{{$data->id}}">{{$data->CategoryName}}</option>
                     @endforeach
                 </select>
                 @error('txtCategoryName')
-            <span class="text-danger">{{$message}}</span>
-            @enderror
+                <span class="text-danger">{{$message}}</span>
+                @enderror
             </div>
-    
+
             <div class="col-md-7">
                 <label for="productCode" class="form-label text-black">Product Code</label>
                 <input type="text" id="productCode" class="form-control shadow-none" name="txtProductCode" placeholder="Enter product code [XX-000]">
                 @error('txtProductCode')
-            <span class="text-danger">{{$message}}</span>
-            @enderror
+                <span class="text-danger">{{$message}}</span>
+                @enderror
             </div>
         </div>
         <div class="row pt-2">
@@ -33,22 +33,22 @@
                 <label for="price" class="form-label text-black">Price</label>
                 <input type="number" id="price" class="form-control shadow-none" name="txtPrice">
                 @error('txtPrice')
-            <span class="text-danger">{{$message}}</span>
-            @enderror
+                <span class="text-danger">{{$message}}</span>
+                @enderror
             </div>
             <div class="col-md-2">
                 <label for="unit" class="form-label text-black">Unit</label>
                 <input type="text" id="unit" class="form-control shadow-none" name="txtUnit">
                 @error('txtUnit')
-            <span class="text-danger">{{$message}}</span>
-            @enderror
+                <span class="text-danger">{{$message}}</span>
+                @enderror
             </div>
             <div class="col-md-2">
                 <label for="quantity" class="form-label text-black">Quantity</label>
                 <input type="number" id="quantity" class="form-control shadow-none" name="txtQuantity">
                 @error('txtQuantity')
-            <span class="text-danger">{{$message}}</span>
-            @enderror
+                <span class="text-danger">{{$message}}</span>
+                @enderror
             </div>
             <div class="col-md-2">
                 <label for="discount" class="form-label text-black">Discount</label>
@@ -63,20 +63,27 @@
             <div class="col-md-4">
                 <label for="status" class="form-label text-black">Status</label>
                 <select class="form-control shadow-none" name="txtStatus" id="status">
-                    <option value="1">Please choose Status...</option>
+                    <option value="">Please choose Status...</option>
                     <option>Active</option>
                     <option>Unactive</option>
                 </select>
+                @error('txtStatus')
+                <span class="text-danger">{{$message}}</span>
+                @enderror
             </div>
             <div class="col-md-4">
                 <label for="models" class="form-label text-black">Models</label>
                 <select class="form-control shadow-none" name="txtModels" id="models">
                     <option value="">Please choose Models...</option>
+                    <option>Default</option>
                     <option>Trending</option>
                     <option>New Arrival</option>
                     <option>Features</option>
                     <option>Top</option>
                 </select>
+                @error('txtModels')
+                <span class="text-danger">{{$message}}</span>
+                @enderror
             </div>
             <div class="col-md-4">
                 <label for="madein" class="form-label text-black">Made In</label>
@@ -106,12 +113,17 @@
         <div class="row pt-2">
             <div class="col-md-12">
                 <label for="content" class="form-label text-black">Description</label>
-                <textarea class="form-control shadow-none" name="txtContent" id="content" cols="30" rows="3"></textarea>
+                <textarea class="form-control shadow-none" name="txtContent" id="editor1" cols="30" rows="3"></textarea>
             </div>
         </div>
-        <div class="row p-2 pt-3">
+        <div class="pt-3 d-flex">
+            <div class="">
+                <input  type="submit" class="btn btn-primary p-2" name="" id="" value="Create Product">
+            </div>
+            <div class="mx-2">
+                <a href="{{route('index')}}" style="width:100px ;" type="submit" class="btn btn-secondary p-2">Close</a>
+            </div>
 
-            <input type="submit" class="btn btn-primary p-2" name="" id="" value="Create">
 
         </div>
     </form>
@@ -121,8 +133,7 @@
             output.src = URL.createObjectURL(event.target.files[0]);
             console.log(output.src);
         }
-
     </script>
-   
+
 </div>
 @endsection

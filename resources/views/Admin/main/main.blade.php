@@ -60,7 +60,7 @@
           <div class="collapse" id="product">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
               <li><a href="{{url('Admin/pages/Product_list')}}" class="link-dark px-5 pt-2 d-inline-flex text-decoration-none rounded">List Product</a></li>
-              <li><a href="{{url('Admin/pages/Product_create')}}" class="link-dark px-5 pt-2 d-inline-flex text-decoration-none rounded">Create Product</a></li>
+              <li><a href="{{url('product/create')}}" class="link-dark px-5 pt-2 d-inline-flex text-decoration-none rounded">Create Product</a></li>
             </ul>
           </div>
         </li>

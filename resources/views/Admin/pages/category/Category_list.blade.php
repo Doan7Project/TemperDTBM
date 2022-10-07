@@ -38,7 +38,7 @@
             <thead>
                 <tr>
                     <th class="px-3">No.</th>
-                    <th class="px-3" style="width:150px;">Category Code</th>
+
                     <th class="px-3" style="width:150px;">Category Name</th>
                     <th class="px-3" style="width:250px;">Description</th>
                     <th class="px-3">Detail</th>
@@ -49,7 +49,7 @@
             <tbody class="p-2">
                 <tr>
                     <td class="px-3" VALIGN=Middle Align=Left>{{$data->id}}</td>
-                    <td class="px-3" VALIGN=Middle Align=Left>{{$data->CategoryCode}}</td>
+
                     <td class="px-3" VALIGN=Middle Align=Left>{{$data->CategoryName}}</td>
                     <td class="px-3" VALIGN=Middle Align=Left>{{$data->Description}}</td>
                     <td class="px-3" VALIGN=Middle Align=Left>{{$data->Detail}}</td>
