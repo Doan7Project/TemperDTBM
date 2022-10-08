@@ -74,8 +74,7 @@
             <div class="col-md-4">
                 <label for="models" class="form-label text-black">Models</label>
                 <select class="form-control shadow-none" name="txtModels" id="models">
-                    <option value="">Please choose Models...</option>
-                    <option>Default</option>
+                    <option value="Default">Default</option>
                     <option>Trending</option>
                     <option>New Arrival</option>
                     <option>Features</option>
@@ -118,7 +117,7 @@
         </div>
         <div class="pt-3 d-flex">
             <div class="">
-                <input  type="submit" class="btn btn-primary p-2" name="" id="" value="Create Product">
+                <input type="submit" class="btn btn-primary p-2" name="" id="" value="Create Product">
             </div>
             <div class="mx-2">
                 <a href="{{route('index')}}" style="width:100px ;" type="submit" class="btn btn-secondary p-2">Close</a>
