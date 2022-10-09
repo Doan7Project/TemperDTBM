@@ -24,14 +24,19 @@ class CreateFormProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'txtCategoryName' => 'required',
+            'txtCategoryID' => 'required',
             'txtProductCode' => 'required|min:4|max:10|',
-            'txtPrice' => 'required',
-            'txtUnit' => 'required',
-            'txtQuantity' => 'required',
-            'txtStatus' => 'required',
-            'txtModels' =>'required',
-            'txtPrice' => 'required'
+            'txtProductName' => 'required',
+            'txtUnit' => 'regex:/([A-Za-z])/',
         ];
+    }
+    public function messages()
+    {
+       return [
+        'txtCategoryID.required'=>'Category is required',
+        'txtProductCode.required'=>'Product code is required',
+        'txtProductName.required'=>'Product name is required',
+        'txtUnit.regex'=>'Field is not format',        
+       ];
     }
 }

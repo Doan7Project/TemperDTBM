@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Menu\CreateFormProductRequest;
 use App\Http\Services\Menu\ProductService;
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 class ProductController extends Controller
 {
@@ -23,9 +24,11 @@ class ProductController extends Controller
      */
     public function list()
     {
-       
-        return view('Admin.pages.product.Product_list');
-       
+
+        return view('Admin.pages.product.Product_list', [
+            'title' => "Product List",
+            'items' => $this->productservice->getAll(),
+        ]);
     }
 
     /**
@@ -34,10 +37,10 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
-        return view('Admin.pages.product.Product_create', [
 
+    {
+
+        return view('Admin.pages.product.Product_create', [
             'title' => 'Category Name',
             'Menus' => $this->productservice->getCategoryName()
         ]);
@@ -51,8 +54,9 @@ class ProductController extends Controller
      */
     public function store(CreateFormProductRequest $request)
     {
-        dd($request->input());
-        $result =   $this->productservice->create($request);
+
+        $this->productservice->insert($request);
+        return redirect()->route('list');
     }
 
     /**

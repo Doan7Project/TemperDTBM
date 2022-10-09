@@ -59,7 +59,7 @@
           </button>
           <div class="collapse" id="product">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="{{url('Admin/pages/Product_list')}}" class="link-dark px-5 pt-2 d-inline-flex text-decoration-none rounded">List Product</a></li>
+              <li><a href="{{url('product/list')}}" class="link-dark px-5 pt-2 d-inline-flex text-decoration-none rounded">List Product</a></li>
               <li><a href="{{url('product/create')}}" class="link-dark px-5 pt-2 d-inline-flex text-decoration-none rounded">Create Product</a></li>
             </ul>
           </div>
@@ -159,12 +159,12 @@
       </ul>
       <a href="" class="px-4 text-decoration-none text-secondary fw-bolder"><i class="bi bi-box-arrow-left pe-2"></i>Logout</a>
     </div>
-    <div class="mt-5 p-4 m-auto">
+    <div class="mt-5 container">
       @yield('content')
     </div>
   </main>
   <script>
-                CKEDITOR.replace( 'editor1' );
+CKEDITOR.replace( 'editor1' );
   </script>
 </body>
 

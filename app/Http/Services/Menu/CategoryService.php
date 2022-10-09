@@ -25,7 +25,7 @@ class CategoryService
                 'Detail' => (string) $request->input('txtDetail'),
             ]);
             session()->flash('success', 'Create category is successfully: '.$request->input('txtCategoryName'));
-        } catch (Exception $err) {
+        } catch (\Exception $err) {
             session()->flash('error', $err->getMessage());
             return false;
         };

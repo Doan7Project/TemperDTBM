@@ -1,21 +1,23 @@
 @extends('Admin.main.main')
 @section('content')
 <style>
-.txtback{
+    .txtback {
 
-color: gray;
-transition: 0.4s;
+        color: gray;
+        transition: 0.4s;
 
-}
+    }
 </style>
 <div class="shadow-sm card" style="width: 100%;">
     <h4 class="text-center bg-primary bg-gradient p-3 text-white">New Category Creating</h4>
     <p class="text-center text-black-50">Create the information to category</p>
 
     <form action="" class="card-body" method="post">
-        <div class="text-end">
-            <a href="{{route('categorylist')}}" class="txtback fs-5 text-decoration-none"><i class="bi bi-reply-fill fs-4"></i>Back</a>
-        </div>
+    <div class=" text-end">
+        <a class="text-decoration-none btn btn-success text-light" href="{{route('categorylist')}}">
+        <i class="bi bi-card-list pe-2"></i>List Item
+        </a>
+    </div>
         @if (Session::has('success'))
         <div class="alert alert-success opacity-100">
             {{Session::get('success')}}
