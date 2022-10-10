@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ThumbController;
+use App\Http\Controllers\Admin\UploadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +27,7 @@ Route::controller(dashboardController::class)->group(function () {
     Route::get('/', 'index')->name('index');
 });
 # 2. Trang Category
- Route::controller(CategoryController::class)->group(function () {
+Route::controller(CategoryController::class)->group(function () {
     Route::get('Admin/pages/Category_list', 'CategoryList')->name('categorylist');
     Route::get('Admin/pages/Category_create', 'CategoryCreate')->name('category');
     Route::post('Admin/pages/Category_create', 'CategoryCreateProcess')->name('form.store');
@@ -51,8 +52,12 @@ Route::controller(ProductController::class)->group(function () {
     #6. Thực hiện xóa dữ liệu
     Route::get('product/destroy/{id}', 'destroy');
     #7 Search
-    Route::get('/search','search');
+    Route::get('/search', 'search');
+    #8 upload image
 });
+
+
+    Route::post('upload-images', [UploadController::class,'store'])->name('store-images');
 
 # 4. Trang Thumb
 Route::controller(ThumbController::class)->group(function () {

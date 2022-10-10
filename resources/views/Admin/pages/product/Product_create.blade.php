@@ -1,6 +1,5 @@
 @extends('Admin.main.main')
 @section('content')
-
 <div class="card shadow-sm" style="width:100% ;">
     <h4 class="text-center bg-primary bg-gradient p-3 text-white">Create Product Table</h4>
     <p class="text-center text-black-50">Create the information to product</p>
@@ -101,8 +100,8 @@
         </div>
         <div class="row pt-2">
             <div class="col-md-6">
-                <label for="image" class="form-label text-black">Image</label>
-                <input type="file" class="form-control shadow-none" name="txtImage" id="image" cols="30" rows="3" onchange="loadFile(event)">
+                <label for="upload" class="form-label text-black">Image</label>
+                <input type="file" class="form-control shadow-none" name="txtImage" id="upload" cols="30" rows="3" onchange="loadFile(event)">
                 <div class="shadow-sm d-flex position-relative rounded border-0 mt-2" style="width: 100% ; height:185px;">
                     <span style="z-index: 1 ;" class="align-self-center text-black-50 position-absolute top-50 start-50 translate-middle fs-4">Image Review...</span>
                     <img class="w-100" class="p-1" id="output" style="z-index: 2;">
@@ -135,18 +134,37 @@
         </div>
 
     </form>
-    <script>
-        var loadFile = function(event) {
-            var output = document.getElementById('output');
-            output.src = URL.createObjectURL(event.target.files[0]);
-            console.log(output.src);
-        }
 
-        // function myFunction() {
-        //     var categoryname = document.getElementById("categoryname").value;
-        //     document.getElementById("categoryCode").value = categoryname;
-        // }
-    </script>
 
 </div>
+<script type="text/javascript">
+    $.ajaxSetup({
+headers: {
+
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+
+}
+});
+    var loadFile = function(event) {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+    }
+    $(document).ready(function() {
+        $('#upload').change(function() {
+            let form = new FormData();
+            form.append('file', $(this)[0].files[0]);
+            $.ajax({
+                processData: false,
+                contentType: false,
+               
+                type: 'POST',
+                data: form,
+                url: '/upload-images',
+                success: function(results) {
+                    console.log(results);
+                }
+            });
+        });
+    })
+</script>
 @endsection

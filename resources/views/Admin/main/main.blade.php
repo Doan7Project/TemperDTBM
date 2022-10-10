@@ -5,8 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Hugo 0.104.2">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>Administation</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <!-- CSS only -->
@@ -23,19 +22,29 @@
       margin: 0;
       box-sizing: border-box;
     }
+
+    .position-absolute {
+
+      left: 1%;
+    }
   </style>
 </head>
 
 <body>
-
-
+  <div class="position-relative p-3 shadow-sm">
+    <!-- Nav tabs -->
+    <div class="text-start">
+      <label for="" class="fs-5">DMTB Furniture Project</label>
+    </div>
+  </div>
+  <!-- ---------------------------End----------------------------- -->
   <main class="d-flex flex-nowrap" style="height:100vh;">
-    <div class="d-flex flex-column flex-shrink-0 py-4 border border-1" style="width: 240px;">
+    <div class="d-flex flex-column flex-shrink-0 py-4 shadow-sm" style="width: 240px;">
       <div class="text-center pb-4">
         <i class="bi bi-person-workspace fs-1"></i>
         <h5>Administration</h5>
       </div>
-      <h6 class="px-4 py-3 bg-secondary bg-gradient text-light">Function Controller</h6>
+      <h6 class="px-4 py-3 bg-primary bg-gradient text-light">Function Controller</h6>
 
       <ul class="list-group">
         <a href="{{url('/')}}" class="list-group-item border-0 px-4 list-group-item-action link-dark d-inline-flex text-decoration-none rounded"><i class="bi bi-house-door pe-2"></i>Home</a>
@@ -119,7 +128,7 @@
         <!-- End Slide-->
         <!-- information detail -->
 
-        <h6 class="px-4 py-3 bg-secondary bg-gradient text-light">Information</h6>
+        <h6 class="px-4 py-3 bg-primary bg-gradient text-light">Information</h6>
 
         <li class="mb-0 list-unstyled ">
           <button class="btn btn-toggle  px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#order" aria-expanded="false">
@@ -160,12 +169,16 @@
       <a href="" class="px-4 text-decoration-none text-secondary fw-bolder"><i class="bi bi-box-arrow-left pe-2"></i>Logout</a>
     </div>
     <div class="mt-5 m-auto">
+
       @yield('content')
     </div>
   </main>
   <script>
-CKEDITOR.replace( 'editor1' );
+    CKEDITOR.replace('editor1');
+    var triggerEl = document.querySelector('#navId a')
+    bootstrap.Tab.getInstance(triggerEl).show() // Select tab by name
   </script>
+  
 </body>
 
 </html>
