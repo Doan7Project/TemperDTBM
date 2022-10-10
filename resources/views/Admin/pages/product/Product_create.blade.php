@@ -106,6 +106,7 @@
                     <span style="z-index: 1 ;" class="align-self-center text-black-50 position-absolute top-50 start-50 translate-middle fs-4">Image Review...</span>
                     <img class="w-100" class="p-1" id="output" style="z-index: 2;">
                 </div>
+                <input type="hidden" name="txtImage" id="file">
                 @error('txtImage')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
@@ -139,12 +140,12 @@
 </div>
 <script type="text/javascript">
     $.ajaxSetup({
-headers: {
+        headers: {
 
-    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 
-}
-});
+        }
+    });
     var loadFile = function(event) {
         var output = document.getElementById('output');
         output.src = URL.createObjectURL(event.target.files[0]);
@@ -156,12 +157,19 @@ headers: {
             $.ajax({
                 processData: false,
                 contentType: false,
-               
+                dataType: 'JSON',
                 type: 'POST',
                 data: form,
                 url: '/upload-images',
                 success: function(results) {
-                    console.log(results);
+                    if (results.error == false) {
+                        $('#file').val(results.url);
+
+                    } else {
+                        alert('Upload error');
+                    }
+
+
                 }
             });
         });

@@ -88,7 +88,7 @@
                     <td VALIGN=Middle Align=Left>{{$data->models}}</td>
                     <td VALIGN=Middle Align=Left>{{$data->made_in}}</td>
                     <td VALIGN=Middle Align=Middle>{{$data->category_id}}</td>
-                    <td VALIGN=Middle Align=Left>{{$data->image}}</td>
+                    <td VALIGN=Middle Align=Left><img  src="{{$data->image}}" style="width: 100%;" alt=""></td>
                     <td VALIGN=Middle Align=Left>{{$data->content}}</td>
                     <td VALIGN=Middle Align=Left>{{$data->description}}</td>
                     <td VALIGN=Middle Align=Middle>

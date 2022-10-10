@@ -54,10 +54,11 @@ Route::controller(ProductController::class)->group(function () {
     #7 Search
     Route::get('/search', 'search');
     #8 upload image
+  
 });
 
 
-    Route::post('upload-images', [UploadController::class,'store'])->name('store-images');
+Route::post('upload-images', [UploadController::class,'store'])->name('store-images');
 
 # 4. Trang Thumb
 Route::controller(ThumbController::class)->group(function () {
