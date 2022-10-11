@@ -26,13 +26,14 @@
         font-style: normal;
     }
 </style>
-<div class=" mt-5 table-responsive border border-1 rounded container">
-    <h4 class="bg-primary bg-gradient text-white p-3 px-3">Category list information</h4>
-    @if (Session::has('success'))
+@if (Session::has('success'))
     <div class="alert alert-success">
         {{Session::get('success')}}
     </div>
     @endif
+<div class=" m-5 table-responsive border border-1 rounded ">
+    <h4 class="bg-primary bg-gradient text-white p-3 px-3">Category list information</h4>
+
 
     <div class="p-2">
         <table class="table border border-1 rounded">

@@ -6,46 +6,25 @@
     <form action="" method="post" class="card-body">
         @csrf
         <div class="row pt-2">
-            <!-- --------------------------- -->
-            <!-- Button trigger modal -->
-
-
-            <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Category List</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <select class="form-select shadow-none " id="txtcategorylist" multiple aria-label="multiple select example">
-                                @foreach($Menus as $key=> $data)
-                                <option class="p-1 px-3 rounded" value="{{$data->id}}">{{$data->CategoryName}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" id="btn" class="btn btn-primary" data-bs-dismiss="modal">Change</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <!-- --------------------------------- -->
             <div class="col-md-4">
+
                 <label for="categoryid" class="form-label text-black">Category preferences</label>
-                <div class="input-group mb-3">
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        Change
-                    </button>
+                <select class="form-select shadow-none" name="txtCategoryID" id="categoryid">
                     @foreach ($Menus as $key => $data)
-                    @if($data->id == $menu->category_id)
-                    <input type="text" value="{{$data->CategoryName}}" class="form-control shadow-none " id="txtTmpCateID" readonly>
+                    @if($data->id== $menu->category_id)
+                    <option value="{{$data->id}}" selected>{{$data->CategoryName}}</option>
+                    @else
+                    <option value="{{$data->id}}">{{$data->CategoryName}}</option>
                     @endif
                     @endforeach
-                </div>
-                <input type="text" class="form-control" name="txtTmpID" id="tmpID">
+                </select>
+                @error('txtCategoryID')
+                <span class="text-danger">{{$message}}</span>
+                @enderror
+
+
+
             </div>
 
             <div class="col-md-3">
@@ -168,12 +147,6 @@
 
 </div>
 <script type="text/javascript">
-
-    $('#btn').click(function() {
-        var catelist = document.getElementById('txtcategorylist').value;
-        document.getElementById('tmpID').value = catelist;
-    });
-
     $.ajaxSetup({
         headers: {
 
