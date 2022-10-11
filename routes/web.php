@@ -46,7 +46,7 @@ Route::controller(ProductController::class)->group(function () {
     #3. Thực hiện lữu dữ liệu
     Route::post('product/create', 'store');
     #4. Hiển thị thông tin sản phẩm theo ID
-    Route::get('product/show/{id}', 'show');
+    Route::get('product/show/{data}', 'show');
     #5. Thực hiện chỉnh sữa dữ liệu
     Route::post('product/edit/{id}', 'edit');
     #6. Thực hiện xóa dữ liệu

@@ -92,7 +92,7 @@
                     <td VALIGN=Middle Align=Left>{{$data->content}}</td>
                     <td VALIGN=Middle Align=Left>{{$data->description}}</td>
                     <td VALIGN=Middle Align=Middle>
-                        <a class="btn btn-primary" href="{{url("Admin/pages/Category_update/{$data->id}")}}">
+                        <a class="btn btn-primary" href="{{url("product/show/{$data->id}")}}">
                             <i class="bi bi-pencil-square text-white pe-2"></i>Edit
                         </a>
                     </td>

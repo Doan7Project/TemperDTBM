@@ -95,9 +95,14 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $data)
     {
         //
+        return view('Admin.pages.product.product_update',[
+            'title' => 'Product Update',
+            'Menus' => $this->productservice->getCategoryName(),
+            'menu' =>$data
+        ]);
     }
 
     /**
