@@ -25,7 +25,6 @@ class CreateFormProductRequest extends FormRequest
     {
         return [
             'txtCategoryID' => 'required',
-            'txtProductCode' => 'required|min:4|max:10|',
             'txtProductName' => 'required',
             'txtUnit' => 'regex:/([A-Za-z])/',
         ];
@@ -34,7 +33,6 @@ class CreateFormProductRequest extends FormRequest
     {
        return [
         'txtCategoryID.required'=>'Category is required',
-        'txtProductCode.required'=>'Product code is required',
         'txtProductName.required'=>'Product name is required',
         'txtUnit.regex'=>'Field is not format',        
        ];

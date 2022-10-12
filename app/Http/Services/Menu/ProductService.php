@@ -27,12 +27,12 @@ class ProductService
         // $request->except('_token');
 
         // Product::create($request->all());
-
+        $unique_id ='FNI-'. floor(time()-999999999);
         try {
 
             Product::create([
                 'product_name' => $request->input('txtProductName'),
-                'product_code' => $request->input('txtProductCode'),
+                'product_code' => $unique_id,
                 'price' => $request->input('txtPrice'),
                 'unit' => $request->input('txtUnit'),
                 'quantity' =>  $request->input('txtQuantity'),

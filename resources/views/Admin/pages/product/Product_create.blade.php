@@ -176,14 +176,14 @@
                 @enderror
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-3 d-none">
                 <label for="productCode" class="form-label text-black">Product Code</label>
-                <input type="text" id="productCode" class="form-control shadow-none" name="txtProductCode" placeholder="Enter product code" style="text-transform:uppercase;" value="{{old('txtProductCode')}}">
+                <input disabled type="text" id="productCode" class="form-control shadow-none" name="txtProductCode" placeholder="Enter product code" style="text-transform:uppercase;" value="{{old('txtProductCode')}}">
                 @error('txtProductCode')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
-            <div class="col-md-5">
+            <div class="col-md-8">
                 <label for="productname" class="form-label text-black">Product Name</label>
                 <input type="text" id="productname" class="form-control shadow-none" name="txtProductName" placeholder="Enter product name">
                 @error('txtProductName')

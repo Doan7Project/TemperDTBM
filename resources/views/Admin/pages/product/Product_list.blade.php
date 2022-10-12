@@ -69,7 +69,7 @@
         </a>
     </div>
 </div>
-<div class="mt-6  border border-1 rounded ">
+<div class="mt-6  border border-1 rounded" style="width: 1000px;">
     <h5 class="bg-primary bg-gradient text-white p-3">Product list information</h5>
     <div class="table-responsive p-3 shadow-sm container" style="width: auto;">
         <table class="table table-bordered display ui celled " id="table">
