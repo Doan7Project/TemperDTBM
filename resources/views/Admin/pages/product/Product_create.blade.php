@@ -1,9 +1,166 @@
 @extends('Admin.main.main')
 @section('content')
+<?php
+
+
+    $arrdiscount = [
+        [
+            'id' => '0',
+            'discount' => 0
+        ],
+        [
+            'id' => '1',
+            'discount' => 5
+        ],
+        [
+            'id' => '2',
+            'discount' => 10
+        ],
+        [
+            'id' => '3',
+            'discount' => 15
+        ],
+        [
+            'id' => '4',
+            'discount' => 20
+        ],
+        [
+            'id' => '5',
+            'discount' => 25
+        ],
+        [
+            'id' => '6',
+            'discount' => 30
+        ],
+        [
+            'id' => '7',
+            'discount' => 35
+        ],
+        [
+            'id' => '8',
+            'discount' => 40
+        ],
+        [
+            'id' => '9',
+            'discount' => 45
+        ],
+        [
+            'id' => '10',
+            'discount' => 50
+        ],
+        [
+            'id' => '11',
+            'discount' => 55
+        ],
+        [
+            'id' => '12',
+            'discount' => 60
+        ],
+        [
+            'id' => '13',
+            'discount' => 65
+        ],
+        [
+            'id' => '14',
+            'discount' => 70
+        ],
+        [
+            'id' => '15',
+            'discount' => 75
+        ],
+        [
+            'id' => '16',
+            'discount' => 80
+        ],
+        [
+            'id' => '17',
+            'discount' => 85
+        ],
+        [
+            'id' => '18',
+            'discount' => 90
+        ],
+        [
+            'id' => '19',
+            'discount' => 95
+        ],
+        [
+            'id' => '20',
+            'discount' => 100
+        ],
+
+    ];
+    $arrstatus = [
+        [
+    
+            'id' => '1',
+            'status' => 'Active'
+        ],
+        [
+    
+            'id' => '2',
+            'status' => 'Unative'
+        ]
+    
+    
+        ];
+
+        $arrmodels = [
+            [
+                'id'=>'1',
+                'model'=>'Default'
+            ],
+            [
+                'id'=>'2',
+                'model'=>'Trending'
+            ],
+            [
+                'id'=>'3',
+                'model'=>'New arrival'
+            ],
+            [
+                'id'=>'4',
+                'model'=>'Feature'
+            ],
+            [
+                'id'=>'5',
+                'model'=>'Top'
+            ]
+            ];
+            
+        $arrmade = [
+            [
+                'id'=>'1',
+                'madein'=>'Viet Nam'
+            ],
+            [
+                'id'=>'2',
+                'madein'=>'Thailand'
+            ],
+            [
+                'id'=>'3',
+                'madein'=>'Singapore'
+            ],
+            [
+                'id'=>'4',
+                'madein'=>'Japan'
+            ],
+            [
+                'id'=>'5',
+                'madein'=>'China'
+            ]
+        ]
+?>
 <div class="card shadow-sm" style="width:100% ;">
     <h4 class="text-center bg-primary bg-gradient p-3 text-white">Create Product Table</h4>
     <p class="text-center text-black-50">Create the information to product</p>
+    
     <form action="" method="post" class="card-body">
+    <div class=" text-end">
+        <a class="text-decoration-none btn btn-success text-light" href="{{route('list')}}">
+        <i class="bi bi-card-list pe-2"></i>List Item
+        </a>
+    </div>
         @csrf
         <div class="row pt-2">
             <div class="col-md-4">
@@ -54,10 +211,10 @@
             </div>
             <div class="col-md-2">
                 <label for="discount" class="form-label text-black">Discount</label>
-                <!-- <input type="number" id="discount" class="form-control shadow-none" name="txtDiscount"> -->
                 <select class="form-select shadow-none" name="txtDiscount" id="discount">
-                    @for($i=0;$i<= 20;$i++) <option value="{{$i*5}}">{{$i*5}}%</option>
-                        @endfor
+                    @foreach($arrdiscount as $value)
+                    <option value="{{$value['discount']}}">{{$value['discount']}}%</option>
+                    @endforeach
                 </select>
             </div>
             <div class="col-md-3">
@@ -70,19 +227,19 @@
                 <label for="status" class="form-label text-black">Status</label>
                 <select class="form-select shadow-none" name="txtStatus" id="status">
                     <option value="">Please choose Status...</option>
-                    <option>Active</option>
-                    <option>Unactive</option>
+                    @foreach($arrstatus as $value)
+                    <option value="{{$value['status']}}">{{$value['status']}}</option>
+                    @endforeach
                 </select>
 
             </div>
             <div class="col-md-4">
                 <label for="models" class="form-label text-black">Models</label>
                 <select class="form-select shadow-none" name="txtModel" id="models">
-                    <option value="Default">Default</option>
-                    <option>Trending</option>
-                    <option>New Arrival</option>
-                    <option>Features</option>
-                    <option>Top</option>
+               
+                    @foreach($arrmodels as $value)
+                    <option value="{{$value['model']}}">{{$value['model']}}</option>
+                    @endforeach
                 </select>
 
             </div>
@@ -90,10 +247,9 @@
                 <label for="madein" class="form-label text-black">Made In</label>
                 <select class="form-select shadow-none" name="txtMadein" id="madein">
                     <option value="">Please choose country...</option>
-                    <option>VietName</option>
-                    <option>Japan</option>
-                    <option>Thailand</option>
-                    <option>China</option>
+                    @foreach($arrmade as $value)
+                    <option value="{{$value['madein']}}">{{$value['madein']}}</option>
+                    @endforeach
                 </select>
 
             </div>
@@ -101,8 +257,8 @@
         <div class="row pt-2">
             <div class="col-md-6">
                 <label for="upload" class="form-label text-black">Image</label>
-                <input type="file" class="form-control shadow-none" name="txtImage" id="upload" cols="30" rows="3" onchange="loadFile(event)">
-                <div class="shadow-sm d-flex position-relative rounded border-0 mt-2" style="width: 100% ; height:185px;">
+                <input type="file" class="form-control shadow-none" name="txtImage" id="upload" onchange="loadFile(event)">
+                <div class="shadow-sm d-flex position-relative rounded border-0 mt-2" style="width: 100% ; height:280px;">
                     <span style="z-index: 1 ;" class="align-self-center text-black-50 position-absolute top-50 start-50 translate-middle fs-4">Image Review...</span>
                     <img class="w-100" class="p-1" id="output" style="z-index: 2;">
                 </div>
@@ -113,7 +269,7 @@
             </div>
             <div class="col-md-6">
                 <label for="content" class="form-label text-black">Content</label>
-                <textarea class="form-control shadow-none" name="txtContent" id="content" cols="30" rows="9"></textarea>
+                <textarea class="form-control shadow-none" name="txtContent" id="content" cols="30" rows="13"></textarea>
 
             </div>
         </div>

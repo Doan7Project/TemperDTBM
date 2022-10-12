@@ -27,15 +27,20 @@
     }
 </style>
 @if (Session::has('success'))
-    <div class="alert alert-success">
-        {{Session::get('success')}}
-    </div>
-    @endif
-<div class=" m-5 table-responsive border border-1 rounded ">
-    <h4 class="bg-primary bg-gradient text-white p-3 px-3">Category list information</h4>
+<div class="alert alert-success">
+    {{Session::get('success')}}
+</div>
+@endif
 
 
-    <div class="p-2">
+<div class=" m-5 table-responsive  rounded ">
+<a class="btn btn-success mb-3" href="{{url("Admin/pages/Category_create")}}">
+    <i class="bi bi-plus-square text-white" pe-3"></i> Add more
+</a>
+    <h4 class="bg-primary bg-gradient text-white p-3 px-3 rounded">Category list information</h4>
+
+
+    <div class="p-2 border border-1 rounded">
         <table class="table border border-1 rounded">
             <thead>
                 <tr>
@@ -49,7 +54,7 @@
             @foreach($rs as $key => $data)
             <tbody class="p-2">
                 <tr>
-                    <td class="px-3" VALIGN=Middle Align=Left>{{$data->id}}</td>
+                    <td class="px-3" VALIGN=Middle Align=Left>{{$key+1}}</td>
 
                     <td class="px-3" VALIGN=Middle Align=Left>{{$data->CategoryName}}</td>
                     <td class="px-3" VALIGN=Middle Align=Left>{{$data->Description}}</td>

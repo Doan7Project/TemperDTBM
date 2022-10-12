@@ -46,11 +46,11 @@ Route::controller(ProductController::class)->group(function () {
     #3. Thực hiện lữu dữ liệu
     Route::post('product/create', 'store');
     #4. Hiển thị thông tin sản phẩm theo ID
-    Route::get('product/show/{data}', 'show');
+    Route::get('product/show/{data}', 'show')->name('show');
     #5. Thực hiện chỉnh sữa dữ liệu
-    Route::post('product/edit/{id}', 'edit');
+    Route::post('product/show/{data}', 'edit');
     #6. Thực hiện xóa dữ liệu
-    Route::get('product/destroy/{id}', 'destroy');
+    Route::get('product/destroy/{id}', 'destroy')->name('destroy');
     #7 Search
     Route::get('/search', 'search');
     #8 upload image

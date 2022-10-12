@@ -30,7 +30,6 @@
     }
   </style>
 </head>
-
 <body>
   <div class="position-relative p-3 shadow-sm">
     <!-- Nav tabs -->
@@ -170,7 +169,6 @@
       <a href="" class="px-4 text-decoration-none text-secondary fw-bolder"><i class="bi bi-box-arrow-left pe-2"></i>Logout</a>
     </div>
     <div class="mt-5 m-auto">
-
       @yield('content')
     </div>
   </main>
@@ -179,7 +177,5 @@
     var triggerEl = document.querySelector('#navId a')
     bootstrap.Tab.getInstance(triggerEl).show() // Select tab by name
   </script>
-  
 </body>
-
 </html>
