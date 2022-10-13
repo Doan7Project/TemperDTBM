@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\dashboardController;
 use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProductImageController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ThumbController;
 use App\Http\Controllers\Admin\UploadController;
@@ -35,6 +36,7 @@ Route::controller(CategoryController::class)->group(function () {
     Route::post('Admin/pages/Category_update/{menu}', 'CategoryUpdateProcess');
     Route::get('Admin/pages/delete/{id}', 'CategoryDelete');
     // Route::post('Admin/pages/save','store')->name('form.store');
+    Route::get('category/view/{menu}','view')->name('view');
 });
 
 # 3. Trang Product
@@ -53,19 +55,42 @@ Route::controller(ProductController::class)->group(function () {
     Route::get('product/destroy/{id}', 'destroy')->name('destroy');
     #7 Search
     Route::get('/search', 'search');
-    #8 upload image
-  
+    #8 view
+    Route::get('product/view/{data}', 'view');
 });
-
 
 Route::post('upload-images', [UploadController::class,'store'])->name('store-images');
 
-# 4. Trang Thumb
-Route::controller(ThumbController::class)->group(function () {
+#4. Product_image
 
-    Route::get('Admin/pages/Thumb_list', 'ThumbList');
-    Route::get('Admin/pages/Thumb_create', 'ThumbCreate');
+Route::controller(ProductImageController::class)->group(function(){
+
+    #1. Hiển thị danh sách tất cả sản phẩm
+    Route::get('image/list', 'list')->name('listimage');
+    #2. Hiển thị form tạo sản phẩm
+    Route::get('image/create', 'create');
+    #3. Thực hiện lữu dữ liệu
+    Route::post('image/create', 'store');
+    #4. Hiển thị thông tin sản phẩm theo ID
+    Route::get('image/show/{data}', 'show')->name('show');
+    #5. Thực hiện chỉnh sữa dữ liệu
+    Route::post('image/show/{data}', 'edit');
+    #6. Thực hiện xóa dữ liệu
+    Route::get('image/destroy/{id}', 'destroy')->name('destroy');
+    #7 Search
+    Route::get('/search', 'search');
+    #8 view
+    Route::get('image/view/{data}', 'view');
+
 });
+
+
+// # 4. Trang Thumb
+// Route::controller(ThumbController::class)->group(function () {
+
+//     Route::get('Admin/pages/Thumb_list', 'ThumbList');
+//     Route::get('Admin/pages/Thumb_create', 'ThumbCreate');
+// });
 # 5. Trang About
 Route::controller(AboutController::class)->group(function () {
 

@@ -81,8 +81,8 @@
           </button>
           <div class="collapse" id="thumb">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="{{url('Admin/pages/Thumb_list')}}" class="link-dark px-5 pt-2 d-inline-flex text-decoration-none rounded">List Thumb</a></li>
-              <li><a href="{{url('Admin/pages/Thumb_create')}}" class="link-dark px-5 pt-2 d-inline-flex text-decoration-none rounded">Create Thumb</a></li>
+              <li><a href="{{url('image/list')}}" class="link-dark px-5 pt-2 d-inline-flex text-decoration-none rounded">List Thumb</a></li>
+              <li><a href="{{url('image/create')}}" class="link-dark px-5 pt-2 d-inline-flex text-decoration-none rounded">Create Thumb</a></li>
             </ul>
           </div>
         </li>

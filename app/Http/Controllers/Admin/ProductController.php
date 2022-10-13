@@ -36,14 +36,14 @@ class ProductController extends Controller
     {
         $output = "";
         $product = Product::where('product_name', 'LIKE', '%' . $request->search . '%')
-        ->orWhere('product_code', 'LIKE', '%' . $request->search . '%')
-        ->orWhere('status', 'LIKE', '%' . $request->search . '%')
-        ->orWhere('models', 'LIKE', '%' . $request->search . '%')
-        ->orWhere('made_in', 'LIKE', '%' . $request->search . '%')->get();
+            ->orWhere('product_code', 'LIKE', '%' . $request->search . '%')
+            ->orWhere('status', 'LIKE', '%' . $request->search . '%')
+            ->orWhere('models', 'LIKE', '%' . $request->search . '%')
+            ->orWhere('made_in', 'LIKE', '%' . $request->search . '%')->get();
         foreach ($product as $key => $data) {
             $output .=
                 '<tr>
-                <td VALIGN=Middle Align=Middle>' . $key+1 . '</td>
+                <td VALIGN=Middle Align=Middle>' . $key + 1 . '</td>
                 <td VALIGN=Middle Align=Left>' . $data->product_code . '</td>
                 <td VALIGN=Middle Align=Left>' . $data->product_name . '</td>
                 <td VALIGN=Middle Align=Left>' . $data->price . '</td>
@@ -83,6 +83,8 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(CreateFormProductRequest $request)
+    
+    
     {
         $this->productservice->insert($request);
         return redirect()->route('list');
@@ -126,9 +128,16 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
-        Product::where('id',$id)->delete();
+        Product::where('id', $id)->delete();
         return redirect()->route('list');
-       
-       
+    }
+    public function view(Product $data)
+    {
+
+        return view('Admin.pages.product.product_view', [
+            'title' => 'Product Update',
+            'Menus' => $this->productservice->getCategoryName(),
+            'menu' => $data
+        ]);
     }
 }

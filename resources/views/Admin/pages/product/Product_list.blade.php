@@ -105,7 +105,9 @@
                     <th VALIGN=Middle Align=Left>
                         <div class="text-center" style="width: 100px;">Image</div>
                     </th>
-
+                    <th VALIGN=Middle Align=Middle>
+                        <div class="text-center" style="width: 100px;">View</div>
+                    </th>
                     <th VALIGN=Middle Align=Middle>
                         <div class="text-center" style="width: 100px;">Edit</div>
                     </th>
@@ -139,14 +141,18 @@
                     <td VALIGN=Middle Align=Left>{{$data->made_in}}</td>
                     <td VALIGN=Middle Align=Middle>{{$data->category_id}}</td>
                     <td VALIGN=Middle Align=Left><img src="{{$data->image}}" style="width: 100%;" alt=""></td>
-
+                    <td VALIGN=Middle Align=Middle>
+                        <a class="btn btn-success" href="{{url("product/view/{$data->id}")}}">
+                            <i class="bi bi-pencil-square text-white pe-2"></i>View
+                        </a>
+                    </td>
                     <td VALIGN=Middle Align=Middle>
                         <a class="btn btn-primary" href="{{url("product/show/{$data->id}")}}">
                             <i class="bi bi-pencil-square text-white pe-2"></i>Edit
                         </a>
                     </td>
                     <td VALIGN=Middle Align=Middle>
-                        <a href="{{url("product/destroy/{$data->id}")}}" class="btn btn-danger text-white"  onclick="return confirm('Are you sure to delete {{$data->product_name}}')">
+                        <a href="{{url("product/destroy/{$data->id}")}}" class="btn btn-danger text-white" onclick="return confirm('Are you sure to delete {{$data->product_name}}')">
                             <i class="bi bi-trash3 pe-2"></i>Delete
                         </a>
 
