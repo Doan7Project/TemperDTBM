@@ -13,7 +13,7 @@ class ProductService
     public function getAll()
     {
 
-        return Product::paginate(20);
+        return Product::all();
     }
     public function getCategoryName()
     {
@@ -28,6 +28,7 @@ class ProductService
 
         // Product::create($request->all());
         $unique_id ='FNI-'. floor(time()-999999999);
+     
         try {
 
             Product::create([

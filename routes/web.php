@@ -76,7 +76,7 @@ Route::controller(ProductImageController::class)->group(function(){
     #5. Thực hiện chỉnh sữa dữ liệu
     Route::post('image/show/{data}', 'edit');
     #6. Thực hiện xóa dữ liệu
-    Route::get('image/destroy/{id}', 'destroy')->name('destroy');
+    Route::get('image/destroy/{data}', 'destroy')->name('destroy');
     #7 Search
     Route::get('/search', 'search');
     #8 view

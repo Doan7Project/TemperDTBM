@@ -77,17 +77,17 @@
                         </div>
                     </td>
                     <td VALIGN=Middle Align=Middle>
-                        <a class="btn btn-success" href="{{url("product/view/{$data->id}")}}">
+                        <a class="btn btn-success" href="{{url("image/view/{$data->id}")}}">
                             <i class="bi bi-pencil-square text-white pe-2"></i>View
                         </a>
                     </td>
                     <td VALIGN=Middle Align=Middle>
-                        <a class="btn btn-primary" href="{{url("product/show/{$data->id}")}}">
+                        <a class="btn btn-primary" href="{{url("image/show/{$data->id}")}}">
                             <i class="bi bi-pencil-square text-white pe-2"></i>Edit
                         </a>
                     </td>
                     <td VALIGN=Middle Align=Middle>
-                        <a href="{{url("product/destroy/{$data->id}")}}" class="btn btn-danger text-white" onclick="return confirm('Are you sure to delete {{$data->product_name}}')">
+                        <a href="{{url("image/destroy/{$data->id}")}}" class="btn btn-danger text-white" onclick="return confirm('Are you sure to delete {{$data->product_name}}')">
                             <i class="bi bi-trash3 pe-2"></i>Delete
                         </a>
 

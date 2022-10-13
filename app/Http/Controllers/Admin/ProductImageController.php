@@ -61,9 +61,16 @@ class ProductImageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(product_image $data)
     {
         //
+        return view('Admin.pages.product_images.Image_update',[
+
+            'title'=>'Update furniture images',
+            'menuPd' => $this->imagepdservice->getProductid(),
+            'menu' => $data
+
+        ]);
     }
 
     /**
