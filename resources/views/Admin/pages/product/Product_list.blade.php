@@ -2,74 +2,104 @@
 @section('content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js">
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.12.1/js/dataTables.semanticui.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $("#search").keyup(function() {
-            $value = $(this).val();
-            if ($value) {
+    // $(document).ready(function() {
+    //     $("#search").keyup(function() {
+    //         $value = $(this).val();
+    //         if ($value) {
 
-                $('.alldata').hide();
-                $('.searchdata').show();
-            } else {
-                $('.alldata').show();
-                $('.searchdata').hide();
+    //             $('.alldata').hide();
+    //             $('.searchdata').show();
+    //         } else {
+    //             $('.alldata').show();
+    //             $('.searchdata').hide();
+    //         }
+
+
+    //         $.ajax({
+    //             type: 'get',
+    //             url: "{{URL::to('/search')}}",
+    //             data: {
+    //                 'search': $value
+    //             },
+    //             success: function(data) {
+    //                 $('#Content').html(data);
+    //             }
+    //         });
+    //     })
+    // })
+
+
+    $(document).ready(function() {
+        var table = $('#table').DataTable({
+            // dom: 'Plfrtip',
+            language: {
+                search: '',
+                searchPlaceholder: "Ready for searching......",
             }
-
-
-            $.ajax({
-                type: 'get',
-                url: "{{URL::to('search')}}",
-                data: {
-                    'search': $value
-                },
-                success: function(data) {
-                    $('#Content').html(data);
-                }
-            });
-        })
-    })
-    $(document).ready(function() {
-        $('#table').DataTable({
-            searching: false,
-            "dom": 'rtip',
-            "paging": true,
-            "ordering": true,
-            "info": true
-        })
-
+        });
+        $('div.dataTables_filter input', table.table().container()).attr('class', 'txtInput');
     });
 </script>
 
 <style>
-    .search {
-
-        width: 400px;
+    .dataTables_filter {
+        position: relative;
+        float: left !important;
     }
+
+    .dataTables_length {
+        float: right !important;
+    }
+    .dataTables_length label{
+        color: #7C7C7C;
+    }
+    .dataTables_length label select{
+        outline: none;
+        cursor: pointer;
+
+    }
+    .dataTables_filter input {
+        width: 250px;
+        height: 34px;
+        background: #fcfcfc;
+        border: 1px solid #aaba;
+        border-radius: 5px;
+        outline: none;
+        text-indent: 10px;
+        margin: 0px 0px 10px;
+    }
+    .dataTables_filter input:hover {
+        box-shadow: 0px 0px 5px 1px #88888893;
+        transition: 0.4s;
+    }
+
+    .dataTables_filter input:focus {
+        box-shadow: 0px 0px 5px 1px #88888893;
+        transition: 0.4s;
+    }
+
 </style>
 @if (Session::has('success'))
 <div class="alert alert-success">
     {{Session::get('success')}}
 </div>
 @endif
-
-<div class="d-flex justify-content-between align-items-end">
-    <div class="search input-group mb-3 mt-5">
-        <lable class="input-group-text" for="search">Search</lable>
-        <input type="search" name="search" class="form-control shadow-none" id="search" placeholder="Please search something" aria-label="Username" aria-describedby="search">
-
-    </div>
+<div class="d-flex mt-5 justify-content-between align-items-end">
+    <!-- <div class="search input-group mb-3 mt-5 d-none">
+        <button id="search" class="input-group-text" for="search">Search</button>
+        <input type="search" name="search" class="form-control shadow-none" id="txtsearch" placeholder="Please search something" aria-label="Username" aria-describedby="search">
+    </div> -->
     <div>
         <a class="btn btn-success mb-3" href="{{url("product/create")}}">
             <i class="bi bi-plus-square text-white" pe-3"></i> Add more
         </a>
     </div>
 </div>
-<div class="mt-6  border border-1 rounded" style="width: 1000px;">
+<div class="mt-6  border border-1 rounded">
     <h5 class="bg-primary bg-gradient text-white p-3">Product list information</h5>
     <div class="table-responsive p-3 shadow-sm container" style="width: auto;">
         <table class="table table-bordered display ui celled " id="table">
@@ -127,7 +157,7 @@
                     <td VALIGN=Middle Align=Middle>{{$data->unit}}</td>
                     <td VALIGN=Middle Align=Middle>{{$data->quantity}}</td>
                     <td VALIGN=Middle Align=Middle>{{$data->discount}}%</td>
-                    @if($data->status=="Active"):
+                    @if($data->status=="Active")
                     <td VALIGN=Middle Align=Left>
                         <div class="text-center py-2 text-white rounded bg-success">{{$data->status}}</div>
                     </td>
@@ -161,8 +191,6 @@
 
                 @endforeach
             </tbody>
-
-            <tbody id="Content" class="searchdata"></tbody>
         </table>
     </div>
     <!-- --modal delete -->

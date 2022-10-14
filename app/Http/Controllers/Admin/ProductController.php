@@ -32,35 +32,35 @@ class ProductController extends Controller
             'items' => $this->productservice->getAll(),
         ]);
     }
-    public function search(Request $request)
-    {
-        $output = "";
-        $product = Product::where('product_name', 'LIKE', '%' . $request->search . '%')
-            ->orWhere('product_code', 'LIKE', '%' . $request->search . '%')
-            ->orWhere('status', 'LIKE', '%' . $request->search . '%')
-            ->orWhere('models', 'LIKE', '%' . $request->search . '%')
-            ->orWhere('made_in', 'LIKE', '%' . $request->search . '%')->get();
-        foreach ($product as $key => $data) {
-            $output .=
-                '<tr>
-                <td VALIGN=Middle Align=Middle>' . $key + 1 . '</td>
-                <td VALIGN=Middle Align=Left>' . $data->product_code . '</td>
-                <td VALIGN=Middle Align=Left>' . $data->product_name . '</td>
-                <td VALIGN=Middle Align=Left>' . $data->price . '</td>
-                <td VALIGN=Middle Align=Left>' . $data->unit . '</td>
-                <td VALIGN=Middle Align=Middle>' . $data->quantity . '</td>
-                <td VALIGN=Middle Align=Middle>' . $data->discount . '</td>
-                <td VALIGN=Middle Align=Left><div class="text-center">' . $data->status . '</div></td>
-                <td VALIGN=Middle Align=Left>' . $data->models . '</td>
-                <td VALIGN=Middle Align=Left>' . $data->made_in . '</td>
-                <td VALIGN=Middle Align=Middle>' . $data->category_id . '</td>
-                <td VALIGN=Middle Align=Left>' . '<img src="' . $data->image . '" style="width: 100%;" alt="">' . '</td>
-                <td VALIGN=Middle Align=Middle>' . '<a class="btn btn-primary" href="show/' . $data->id . '"><i class="bi bi-pencil-square text-white pe-2"></i>' . 'Edit ' . '</a></td>
-                <td VALIGN=Middle Align=Middle>' . '<a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square text-white pe-2"></i>' . 'Delete</a>' . '</td>
-               </tr>';
-        }
-        return response($output);
-    }
+    // public function search(Request $request)
+    // {
+    //     $output = "";
+    //     $product = Product::where('product_name', 'LIKE', '%' . $request->search . '%')
+    //         ->orWhere('product_code', 'LIKE', '%' . $request->search . '%')
+    //         ->orWhere('status', 'LIKE', '%' . $request->search . '%')
+    //         ->orWhere('models', 'LIKE', '%' . $request->search . '%')
+    //         ->orWhere('made_in', 'LIKE', '%' . $request->search . '%')->get();
+    //     foreach ($product as $key => $data) {
+    //         $output .=
+    //             '<tr>
+    //             <td VALIGN=Middle Align=Middle>' . $key + 1 . '</td>
+    //             <td VALIGN=Middle Align=Left>' . $data->product_code . '</td>
+    //             <td VALIGN=Middle Align=Left>' . $data->product_name . '</td>
+    //             <td VALIGN=Middle Align=Left>' . $data->price . '</td>
+    //             <td VALIGN=Middle Align=Left>' . $data->unit . '</td>
+    //             <td VALIGN=Middle Align=Middle>' . $data->quantity . '</td>
+    //             <td VALIGN=Middle Align=Middle>' . $data->discount . '</td>
+    //             <td VALIGN=Middle Align=Left><div class="text-center">' . $data->status . '</div></td>
+    //             <td VALIGN=Middle Align=Left>' . $data->models . '</td>
+    //             <td VALIGN=Middle Align=Left>' . $data->made_in . '</td>
+    //             <td VALIGN=Middle Align=Middle>' . $data->category_id . '</td>
+    //             <td VALIGN=Middle Align=Left>' . '<img src="' . $data->image . '" style="width: 100%;" alt="">' . '</td>
+    //             <td VALIGN=Middle Align=Middle>' . '<a class="btn btn-primary" href="show/' . $data->id . '"><i class="bi bi-pencil-square text-white pe-2"></i>' . 'Edit ' . '</a></td>
+    //             <td VALIGN=Middle Align=Middle>' . '<a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-pencil-square text-white pe-2"></i>' . 'Delete</a>' . '</td>
+    //            </tr>';
+    //     }
+    //     return response($output);
+    // }
     /**
      * Show the form for creating a new resource.
      *

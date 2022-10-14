@@ -54,7 +54,7 @@ Route::controller(ProductController::class)->group(function () {
     #6. Thực hiện xóa dữ liệu
     Route::get('product/destroy/{id}', 'destroy')->name('destroy');
     #7 Search
-    Route::get('/search', 'search');
+    Route::get('/search', 'search')->name('search');
     #8 view
     Route::get('product/view/{data}', 'view');
 });

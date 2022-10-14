@@ -1,47 +1,17 @@
 @extends('Admin.main.main')
 @section('content')
-<style>
-    .functionIcon {
-        width: 180px;
-    }
-
-    .functionIcon button {
-        /* border: none; */
-        padding: 5px;
-        border-radius: 5px;
-        /* color: white; */
-    }
-
-    .functionIcon a {
-        text-decoration: none;
-    }
-
-    .functionIcon a i:hover {
-        color: gray;
-        transition: 0.4s ease-in-out;
-    }
-
-    .functionIcon a i {
-        font-size: 15px;
-        font-style: normal;
-    }
-</style>
 @if (Session::has('success'))
 <div class="alert alert-success">
     {{Session::get('success')}}
 </div>
 @endif
-
-
-<div class=" m-5   rounded ">
+<div class="m-5 rounded">
     <a class="btn btn-success mb-3" href="{{url("Admin/pages/Category_create")}}">
         <i class="bi bi-plus-square text-white" pe-3"></i> Add more
     </a>
     <h4 class="bg-primary bg-gradient text-white p-3 px-3 rounded">Category list information</h4>
-
-
-    <div class="p-2 border border-1 rounded">
-        <table class="table border border-1 rounded">
+    <div class="p-2 border border-1 rounded container">
+        <table class="table border border-1 rounded display ui celled" id="table">
             <thead>
                 <tr>
                     <th class="px-3">No.</th>
@@ -80,4 +50,4 @@
     </div>
 </div>
 
-@stop
+@endsection

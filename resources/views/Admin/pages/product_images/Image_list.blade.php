@@ -2,30 +2,60 @@
 @section('content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js">
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.12.1/js/dataTables.semanticui.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#table').DataTable({
-
-            // searching: search,
-            // "dom": 'rtip',
-            "paging": true,
-            "ordering": true,
-            "info": true
-        })
+        var table = $('#table').DataTable({
+            // dom: 'Plfrtip',
+            language: {
+                search: '',
+                searchPlaceholder: "Ready for searching......",
+            }
+        });
+        $('div.dataTables_filter input', table.table().container()).attr('class', 'txtInput');
 
     });
 </script>
 
 <style>
-    .search {
-
-        width: 400px;
+  .dataTables_filter {
+        position: relative;
+        float: left !important;
     }
+
+    .dataTables_length {
+        float: right !important;
+    }
+    .dataTables_length label{
+        color: #7C7C7C;
+    }
+    .dataTables_length label select{
+        outline: none;
+        cursor: pointer;
+
+    }
+    .dataTables_filter input {
+        width: 250px;
+        height: 34px;
+        background: #fcfcfc;
+        border: 1px solid #aaba;
+        border-radius: 5px;
+        outline: none;
+        text-indent: 10px;
+        margin: 0px 0px 10px;
+    }
+    .dataTables_filter input:hover {
+        box-shadow: 0px 0px 5px 1px #88888893;
+        transition: 0.4s;
+    }
+
+    .dataTables_filter input:focus {
+        box-shadow: 0px 0px 5px 1px #88888893;
+        transition: 0.4s;
+    }
+
 </style>
 @if (Session::has('success'))
 <div class="alert alert-success">
