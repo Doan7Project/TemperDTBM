@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\auth\LoginController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\dashboardController;
@@ -23,47 +24,60 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+#login pages
+
+Route::controller(LoginController::class)->group(function () {
+
+    Route::get('/', 'login')->name('login');
+    Route::post('auth/login', 'store');
+    Route::get('auth/logout','logout');
+    Route::get('auth/registration','registration')->name('registration');
+});
 # 1. Trang chủ
 Route::controller(dashboardController::class)->group(function () {
-    Route::get('/', 'index')->name('index');
+    Route::get('Admin/index', 'index')->name('index')->middleware('auth');
 });
 # 2. Trang Category
 Route::controller(CategoryController::class)->group(function () {
-    Route::get('Admin/pages/Category_list', 'CategoryList')->name('categorylist');
-    Route::get('Admin/pages/Category_create', 'CategoryCreate')->name('category');
-    Route::post('Admin/pages/Category_create', 'CategoryCreateProcess')->name('form.store');
-    Route::get('Admin/pages/Category_update/{menu}', 'CategoryUpdate');
-    Route::post('Admin/pages/Category_update/{menu}', 'CategoryUpdateProcess');
-    Route::get('Admin/pages/delete/{id}', 'CategoryDelete');
-    // Route::post('Admin/pages/save','store')->name('form.store');
-    Route::get('category/view/{menu}','view')->name('view');
+    Route::middleware(['auth'])->group(function () {
+        Route::get('Admin/pages/Category_list', 'CategoryList')->name('categorylist');
+        Route::get('Admin/pages/Category_create', 'CategoryCreate')->name('category');
+        Route::post('Admin/pages/Category_create', 'CategoryCreateProcess')->name('form.store');
+        Route::get('Admin/pages/Category_update/{menu}', 'CategoryUpdate');
+        Route::post('Admin/pages/Category_update/{menu}', 'CategoryUpdateProcess');
+        Route::get('Admin/pages/delete/{id}', 'CategoryDelete');
+        // Route::post('Admin/pages/save','store')->name('form.store');
+        Route::get('category/view/{menu}', 'view')->name('view');
+    });
 });
 
 # 3. Trang Product
 Route::controller(ProductController::class)->group(function () {
-    #1. Hiển thị danh sách tất cả sản phẩm
-    Route::get('product/list', 'list')->name('list');
-    #2. Hiển thị form tạo sản phẩm
-    Route::get('product/create', 'create');
-    #3. Thực hiện lữu dữ liệu
-    Route::post('product/create', 'store');
-    #4. Hiển thị thông tin sản phẩm theo ID
-    Route::get('product/show/{data}', 'show')->name('show');
-    #5. Thực hiện chỉnh sữa dữ liệu
-    Route::post('product/show/{data}', 'edit');
-    #6. Thực hiện xóa dữ liệu
-    Route::get('product/destroy/{id}', 'destroy')->name('destroy');
-    #7 Search
-    Route::get('/search', 'search')->name('search');
-    #8 view
-    Route::get('product/view/{data}', 'view');
+    Route::middleware(['auth'])->group(function () {
+        #1. Hiển thị danh sách tất cả sản phẩm
+        Route::get('product/list', 'list')->name('list');
+        #2. Hiển thị form tạo sản phẩm
+        Route::get('product/create', 'create');
+        #3. Thực hiện lữu dữ liệu
+        Route::post('product/create', 'store');
+        #4. Hiển thị thông tin sản phẩm theo ID
+        Route::get('product/show/{data}', 'show')->name('show');
+        #5. Thực hiện chỉnh sữa dữ liệu
+        Route::post('product/show/{data}', 'edit');
+        #6. Thực hiện xóa dữ liệu
+        Route::get('product/destroy/{id}', 'destroy')->name('destroy');
+        #7 Search
+        Route::get('/search', 'search')->name('search');
+        #8 view
+        Route::get('product/view/{data}', 'view');
+    });
 });
 
-Route::post('upload-images', [UploadController::class,'store'])->name('store-images');
+Route::post('upload-images', [UploadController::class, 'store'])->name('store-images');
 
 #4. Product_image
 
-Route::controller(ProductImageController::class)->group(function(){
+Route::controller(ProductImageController::class)->group(function () {
 
     #1. Hiển thị danh sách tất cả sản phẩm
     Route::get('image/list', 'list')->name('listimage');
@@ -81,7 +95,6 @@ Route::controller(ProductImageController::class)->group(function(){
     Route::get('/search', 'search');
     #8 view
     Route::get('image/view/{data}', 'view');
-
 });
 
 

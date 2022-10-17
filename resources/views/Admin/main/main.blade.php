@@ -15,7 +15,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   <meta name="theme-color" content="#712cf9">
-  
+
   <script src="/ckeditor/ckeditor.js"></script>
   <style>
     * {
@@ -30,11 +30,29 @@
     }
   </style>
 </head>
+
 <body>
-  <div class="position-relative p-3 shadow-sm">
+  <div class="position-relative p-3 shadow-sm d-flex justify-content-between">
     <!-- Nav tabs -->
     <div class="text-start">
       <label for="" class="fs-5">DMTB Furniture Project</label>
+    </div>
+    <div>
+      <div class="btn-group">
+        <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-person-circle pe-2"></i>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="{{url('Admin/pages/Feedback_list')}}">Register</a></li>
+          <li><a class="dropdown-item" href="{{url('Admin/pages/Feedback_list')}}">Change Password</a></li>
+
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <a href="{{url('auth/logout')}}" class="dropdown-item"><i class="bi bi-box-arrow-left pe-2"></i>Logout</a>
+
+        </ul>
+      </div>
     </div>
   </div>
   <!-- ---------------------------End----------------------------- -->
@@ -47,7 +65,7 @@
       <h6 class="px-4 py-3 bg-primary bg-gradient text-light">Function Controller</h6>
 
       <ul class="list-group">
-        <a href="{{url('/')}}" class="list-group-item border-0 px-4 list-group-item-action link-dark d-inline-flex text-decoration-none rounded"><i class="bi bi-house-door pe-2"></i>Home</a>
+        <a href="{{url('Admin/index')}}" class="list-group-item border-0 px-4 list-group-item-action link-dark d-inline-flex text-decoration-none rounded"><i class="bi bi-house-door pe-2"></i>Home</a>
         <!-- Product Category -->
         <li class="mb-0 list-unstyled ">
           <button class="btn btn-toggle px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#Category" aria-expanded="false">
@@ -153,20 +171,8 @@
         </li>
       </ul>
       <hr>
-      <ul class="list-group">
-        <li class="mb-0 list-unstyled ">
-          <button class="btn btn-toggle px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#setting" aria-expanded="false">
-            <i class="bi bi-gear pe-2"></i>Setting
-          </button>
-          <div class="collapse" id="setting">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="{{url('Admin/pages/Feedback_list')}}" class="link-dark px-5 pt-2 d-inline-flex text-decoration-none rounded">Create Account</a></li>
-              <li><a href="{{url('Admin/pages/Feedback_list')}}" class="link-dark px-5 pt-2 d-inline-flex text-decoration-none rounded">Change Password</a></li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-      <a href="" class="px-4 text-decoration-none text-secondary fw-bolder"><i class="bi bi-box-arrow-left pe-2"></i>Logout</a>
+
+
     </div>
     <div class="mt-5 m-auto">
       @yield('content')
@@ -178,4 +184,5 @@
     bootstrap.Tab.getInstance(triggerEl).show() // Select tab by name
   </script>
 </body>
+
 </html>
