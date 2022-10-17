@@ -12,6 +12,8 @@ use App\Http\Controllers\Admin\ProductImageController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ThumbController;
 use App\Http\Controllers\Admin\UploadController;
+use App\Http\Controllers\User\HomeController;
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,27 +29,26 @@ use Illuminate\Support\Facades\Route;
 #login pages
 
 Route::controller(LoginController::class)->group(function () {
-
-    Route::get('/', 'login')->name('login');
-    Route::post('auth/login', 'store');
-    Route::get('auth/logout','logout');
-    Route::get('auth/registration','registration')->name('registration');
+    Route::get('/admin', 'login')->name('login');
+    Route::post('/auth/login', 'store');
+    Route::get('/auth/logout','logout');
+    Route::get('/auth/registration','registration')->name('registration');
 });
 # 1. Trang chủ
 Route::controller(dashboardController::class)->group(function () {
-    Route::get('Admin/index', 'index')->name('index')->middleware('auth');
+    Route::get('/Admin/index', 'index')->name('index')->middleware('auth');
 });
 # 2. Trang Category
 Route::controller(CategoryController::class)->group(function () {
     Route::middleware(['auth'])->group(function () {
-        Route::get('Admin/pages/Category_list', 'CategoryList')->name('categorylist');
-        Route::get('Admin/pages/Category_create', 'CategoryCreate')->name('category');
-        Route::post('Admin/pages/Category_create', 'CategoryCreateProcess')->name('form.store');
-        Route::get('Admin/pages/Category_update/{menu}', 'CategoryUpdate');
-        Route::post('Admin/pages/Category_update/{menu}', 'CategoryUpdateProcess');
-        Route::get('Admin/pages/delete/{id}', 'CategoryDelete');
+        Route::get('/Admin/pages/Category_list', 'CategoryList')->name('categorylist');
+        Route::get('/Admin/pages/Category_create', 'CategoryCreate')->name('category');
+        Route::post('/Admin/pages/Category_create', 'CategoryCreateProcess')->name('form.store');
+        Route::get('/Admin/pages/Category_update/{menu}', 'CategoryUpdate');
+        Route::post('/Admin/pages/Category_update/{menu}', 'CategoryUpdateProcess');
+        Route::get('/Admin/pages/delete/{id}', 'CategoryDelete');
         // Route::post('Admin/pages/save','store')->name('form.store');
-        Route::get('category/view/{menu}', 'view')->name('view');
+        // Route::get('category/view/{menu}', 'view')->name('view');
     });
 });
 
@@ -55,21 +56,21 @@ Route::controller(CategoryController::class)->group(function () {
 Route::controller(ProductController::class)->group(function () {
     Route::middleware(['auth'])->group(function () {
         #1. Hiển thị danh sách tất cả sản phẩm
-        Route::get('product/list', 'list')->name('list');
+        Route::get('/product/list', 'list')->name('list');
         #2. Hiển thị form tạo sản phẩm
-        Route::get('product/create', 'create');
+        Route::get('/product/create', 'create');
         #3. Thực hiện lữu dữ liệu
-        Route::post('product/create', 'store');
+        Route::post('/product/create', 'store');
         #4. Hiển thị thông tin sản phẩm theo ID
-        Route::get('product/show/{data}', 'show')->name('show');
+        Route::get('/product/show/{data}', 'show')->name('show');
         #5. Thực hiện chỉnh sữa dữ liệu
-        Route::post('product/show/{data}', 'edit');
+        Route::post('/product/show/{data}', 'edit');
         #6. Thực hiện xóa dữ liệu
-        Route::get('product/destroy/{id}', 'destroy')->name('destroy');
+        Route::get('/product/destroy/{id}', 'destroy')->name('destroy');
         #7 Search
         Route::get('/search', 'search')->name('search');
         #8 view
-        Route::get('product/view/{data}', 'view');
+        // Route::get('product/view/{data}', 'view');
     });
 });
 
@@ -80,21 +81,21 @@ Route::post('upload-images', [UploadController::class, 'store'])->name('store-im
 Route::controller(ProductImageController::class)->group(function () {
 
     #1. Hiển thị danh sách tất cả sản phẩm
-    Route::get('image/list', 'list')->name('listimage');
+    Route::get('/image/list', 'list')->name('listimage');
     #2. Hiển thị form tạo sản phẩm
-    Route::get('image/create', 'create');
+    Route::get('/image/create', 'create');
     #3. Thực hiện lữu dữ liệu
-    Route::post('image/create', 'store');
+    Route::post('/image/create', 'store');
     #4. Hiển thị thông tin sản phẩm theo ID
-    Route::get('image/show/{data}', 'show')->name('show');
+    Route::get('/image/show/{data}', 'show')->name('show');
     #5. Thực hiện chỉnh sữa dữ liệu
-    Route::post('image/show/{data}', 'edit');
+    Route::post('/image/show/{data}', 'edit');
     #6. Thực hiện xóa dữ liệu
-    Route::get('image/destroy/{data}', 'destroy')->name('destroy');
+    Route::get('/image/destroy/{data}', 'destroy')->name('destroy');
     #7 Search
     Route::get('/search', 'search');
     #8 view
-    Route::get('image/view/{data}', 'view');
+    // Route::get('image/view/{data}', 'view');
 });
 
 
@@ -129,4 +130,11 @@ Route::controller(OrderController::class)->group(function () {
 Route::controller(FeedbackController::class)->group(function () {
 
     Route::get('Admin/pages/Feedback_list', 'FeedbackList');
+});
+# II User
+
+Route::controller(HomeController::class)->group(function(){
+
+    route::get('/','index')->name('userIndex');
+
 });

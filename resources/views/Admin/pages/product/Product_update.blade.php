@@ -237,6 +237,7 @@ $arrstatus = [
             </div>
         </div>
         <div class="row pt-2">
+
             <div class="col-md-4">
                 <label for="status" class="form-label text-black">Status</label>
                 <select class="form-select shadow-none" name="txtStatus" id="status">
@@ -249,6 +250,7 @@ $arrstatus = [
                     @endforeach
                 </select>
             </div>
+            
             <div class="col-md-4">
                 <label for="models" class="form-label text-black">Models</label>
                 <select class="form-select shadow-none" name="txtModel" id="models">
@@ -303,7 +305,7 @@ $arrstatus = [
         </div>
         <div class="pt-3 d-flex">
             <div class="">
-                <input type="submit" class="btn btn-primary p-2" name="" id="" value="Create Product">
+           <input type="submit" class="btn btn-primary p-2" name="" id="" value="Edit" style="width: 100px ;">
             </div>
             <div class="mx-2">
                 <a href="{{route('index')}}" style="width:100px ;" type="submit" class="btn btn-secondary p-2">Close</a>

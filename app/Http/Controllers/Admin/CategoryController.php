@@ -70,13 +70,13 @@ class CategoryController extends Controller
         return redirect()->route('categorylist');
     }
     #.7 view
-    public function view(ProductCategory $menu){
-        return view('Admin.pages.category.Category_view', [
-            'title' => "Category name:  " . $menu->CategoryName,
-            'menu' => $menu
-        ]);
+    // public function view(ProductCategory $menu){
+    //     return view('Admin.pages.category.Category_view', [
+    //         'title' => "Category name:  " . $menu->CategoryName,
+    //         'menu' => $menu
+    //     ]);
         
-    }
+    // }
     public function store(CreateFormRequest $request)
     {
         //     $validate = Validator::make(

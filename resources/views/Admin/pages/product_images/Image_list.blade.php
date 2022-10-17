@@ -1,10 +1,5 @@
 @extends('Admin.main.main')
 @section('content')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
-<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         var table = $('#table').DataTable({
@@ -14,7 +9,7 @@
                 searchPlaceholder: "Ready for searching......",
             }
         });
-        $('div.dataTables_filter input', table.table().container()).attr('class', 'txtInput');
+        // $('div.dataTables_filter input', table.table().container()).attr('class', 'txtInput');
 
     });
 </script>
@@ -73,7 +68,9 @@
 <div class="mt-6  border border-1 rounded" style="width: 1000px;">
     <h5 class="bg-primary bg-gradient text-white p-3">Product list information</h5>
     <div class="table-responsive p-3 shadow-sm container" style="width: auto;">
+
         <table class="table table-bordered display ui celled " id="table">
+            
             <thead class="bg-primary bg-opacity-75 text-white">
                 <tr VALIGN=Middle Align=Middle>
                     <th VALIGN=Middle Align=Middle>No.</th>
@@ -84,9 +81,6 @@
                         <div class="text-center">Image</div>
                     </th>
 
-                    <th VALIGN=Middle Align=Middle>
-                        <div class="text-center">View</div>
-                    </th>
                     <th VALIGN=Middle Align=Middle>
                         <div class="text-center ">Edit</div>
                     </th>
@@ -106,11 +100,7 @@
                             <img src="{{$data->image}}" style="width: 100%;" alt="">
                         </div>
                     </td>
-                    <td VALIGN=Middle Align=Middle>
-                        <a class="btn btn-success" href="{{url("image/view/{$data->id}")}}">
-                            <i class="bi bi-pencil-square text-white pe-2"></i>View
-                        </a>
-                    </td>
+          
                     <td VALIGN=Middle Align=Middle>
                         <a class="btn btn-primary" href="{{url("image/show/{$data->id}")}}">
                             <i class="bi bi-pencil-square text-white pe-2"></i>Edit

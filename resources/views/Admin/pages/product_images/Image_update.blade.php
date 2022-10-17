@@ -59,7 +59,7 @@
 
         <div class="py-2 d-flex">
             <div class="">
-                <input type="submit" value="Create" class="btn btn-primary ">
+                <input type="submit" value="Edit" class="btn btn-primary ">
             </div>
             <div class="mx-2">
                 <a href="{{route('index')}}" style="width:100px ;" type="submit" class="btn btn-secondary ">Close</a>

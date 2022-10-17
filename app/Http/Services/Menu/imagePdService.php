@@ -36,4 +36,15 @@ class imagePdService
         };
         return true;
     }
+    public function edit($request, $data): bool
+    {
+
+        $data->product_id  = $request->input('txtProductID');
+        $data->image = $request->input('txtImage');
+        $data->content = $request->input('txtContent');
+        $data->save();
+        session()->flash('success', 'Updated successfully! ' . $data->product_id);
+        return true;
+    }
+
 }

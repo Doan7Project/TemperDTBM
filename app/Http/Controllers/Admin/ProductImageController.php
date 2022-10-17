@@ -79,22 +79,14 @@ class ProductImageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(product_image $data, imageRequest $request)
     {
         //
+        $this->imagepdservice->edit($request, $data);
+        return redirect()->route('listimage');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+
 
     /**
      * Remove the specified resource from storage.
@@ -105,5 +97,7 @@ class ProductImageController extends Controller
     public function destroy($id)
     {
         //
+        product_image::where('id', $id)->delete();
+        return redirect()->route('listimage');
     }
 }
