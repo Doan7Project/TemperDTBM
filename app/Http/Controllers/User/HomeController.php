@@ -10,6 +10,6 @@ class HomeController extends Controller
     //
     public function index(){
 
-        return view('User.main.main');
+        return view('User.pages.home.index');
     }
 }

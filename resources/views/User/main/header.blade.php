@@ -1,10 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS only -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <!-- --------mdb-------- -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <style>
+    .navstyle {
+      padding: 0px 100px 0px 100px;
+    }
+
+    .navbar {
+      background-color: #DB0AB8;
+
+    }
+
+    .offcanvas-body ul li a {
+      color: #FFFFFFD8;
+    }
+
+    .dropbgcolor {
+      background-color: #DB0AB8F3;
+      border: none;
+    }
+  </style>
 </head>
+
+<body>
+  <nav class="navbar bg-gradient navbar-expand-lg ">
+    <div class="container-fluid navstyle ">
+      <a class="navbar-brand text-white" href="#"><span class="fw-bolder">DTBM</span> Furniture</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" id="navbarSupportedContent">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+          <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item ">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Furniture
+              </a>
+              <ul class="dropdown-menu dropbgcolor">
+                <li><a class="dropdown-item" href="#">Products</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">About us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link">Contact us</a>
+            </li>
+          </ul>
+          <div class="">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a href="#" class="nav-link"><i class="bi bi-cart-fill"></i></a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link"><i class="bi bi-megaphone-fill"></i></a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Sign up</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Register</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">Feedback</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle pe-1"></i>Acount</a>
+                <ul class="dropdown-menu dropbgcolor">
+                <li><a class="dropdown-item" href="#"><i class="bi bi-person pe-1"></i>Account detail</a></li>
+                  <li><a class="dropdown-item" href="#"><i class="bi bi-cart pe-1"></i>Orders</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-left pe-1"></i>Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form> -->
+        </div>
+
+      </div>
+    </div>
+  </nav>
