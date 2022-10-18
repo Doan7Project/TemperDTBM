@@ -1,8 +1,9 @@
+
 <section class="pt-5 pb-5">
   <div class="container shadow-sm p-3 mb-5 bg-body rounded">
   <h3 class="mb-3 text-center">Features Product</h3>
     <div class="row">
-      <div class="text-right pe-3">
+      <div class="text-right pe-4">
         <a class="btn btn-outline-secondary shadow-none mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
           <i class="bi bi-caret-left-fill"></i>
         </a>
@@ -142,11 +143,6 @@
 
               </div>
             </div>
-
-
-
-
-
           </div>
         </div>
       </div>
@@ -154,8 +150,5 @@
   </div>
 </section>
 
-<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+

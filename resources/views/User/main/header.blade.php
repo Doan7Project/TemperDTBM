@@ -8,16 +8,19 @@
   <!-- CSS only -->
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  <!-- --------mdb-------- -->
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     .navstyle {
-      padding: 0px 60px 0px 60px;
+      padding: 5px 60px 5px 60px;
     }
 
     .navbar,
     .offcanvas {
-      background-color: #DB0AB8;
+      background-color: #4D9385;
 
     }
 
@@ -27,10 +30,10 @@
     }
 
     .dropbgcolor {
-      background-color: #DB0AB8F3;
+      background-color: #4D9385;
       border: none;
     }
-  
+
 
     @media only screen and (max-width: 1050px) {
       .navstyle {
@@ -49,12 +52,13 @@
     }
   </style>
 </head>
+
 <body>
   <nav class="navbar bg-gradient navbar-expand-lg">
     <div class="container-fluid navstyle">
-      <a class="navbar-brand text-white" href="#"><span class="fw-bolder">DTBM</span> Furniture</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <a class="navbar-brand text-white pb-2" href="#"><span class="fw-bolder">DTBM</span> Furniture</a>
+      <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="bi bi-list fs-3"></i>
       </button>
       <div class="offcanvas offcanvas-end" id="navbarSupportedContent">
         <div class="offcanvas-header">
@@ -71,8 +75,8 @@
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Furniture
               </a>
-      
-              <ul class="dropdown-menu dropbgcolor">
+
+              <ul class="dropdown-menu  dropbgcolor">
                 <li><a class="dropdown-item" href="#">Products</a></li>
                 <li><a class="dropdown-item" href="#">Another action</a></li>
                 <li>
@@ -109,7 +113,7 @@
                     <hr class="dropdown-divider">
                   </li>
                   <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-left pe-1"></i>Logout</a></li>
-                  
+
                 </ul>
               </li>
               <li class="nav-item">

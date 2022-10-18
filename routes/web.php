@@ -131,6 +131,7 @@ Route::controller(FeedbackController::class)->group(function () {
 
     Route::get('Admin/pages/Feedback_list', 'FeedbackList');
 });
+
 # II User
 
 Route::controller(HomeController::class)->group(function(){
@@ -138,3 +139,4 @@ Route::controller(HomeController::class)->group(function(){
     route::get('/index','index')->name('userIndex');
 
 });
+
