@@ -135,6 +135,6 @@ Route::controller(FeedbackController::class)->group(function () {
 
 Route::controller(HomeController::class)->group(function(){
 
-    route::get('/','index')->name('userIndex');
+    route::get('/index','index')->name('userIndex');
 
 });

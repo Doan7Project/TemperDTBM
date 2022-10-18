@@ -12,28 +12,46 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   <style>
     .navstyle {
-      padding: 0px 100px 0px 100px;
+      padding: 0px 60px 0px 60px;
     }
 
-    .navbar {
+    .navbar,
+    .offcanvas {
       background-color: #DB0AB8;
 
     }
 
     .offcanvas-body ul li a {
       color: #FFFFFFD8;
+      position: relative;
     }
 
     .dropbgcolor {
       background-color: #DB0AB8F3;
       border: none;
     }
+  
+
+    @media only screen and (max-width: 1050px) {
+      .navstyle {
+        padding: 0px 10px 0px 10px;
+      }
+
+      .offcanvas {
+        background-color: #524C4CD8;
+        padding-left: 10px;
+      }
+
+      .dropbgcolor {
+        background-color: transparent;
+        border: 1px solid #464646E7;
+      }
+    }
   </style>
 </head>
-
 <body>
-  <nav class="navbar bg-gradient navbar-expand-lg ">
-    <div class="container-fluid navstyle ">
+  <nav class="navbar bg-gradient navbar-expand-lg">
+    <div class="container-fluid navstyle">
       <a class="navbar-brand text-white" href="#"><span class="fw-bolder">DTBM</span> Furniture</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -53,6 +71,7 @@
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Furniture
               </a>
+      
               <ul class="dropdown-menu dropbgcolor">
                 <li><a class="dropdown-item" href="#">Products</a></li>
                 <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -63,20 +82,15 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link">About us</a>
+              <a href="#" class="nav-link">About us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link">Contact us</a>
+              <a href="#" class="nav-link">Contact us</a>
             </li>
           </ul>
-          <div class="">
+          <div class="#">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a href="#" class="nav-link"><i class="bi bi-cart-fill"></i></a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link"><i class="bi bi-megaphone-fill"></i></a>
-              </li>
+
               <li class="nav-item">
                 <a href="#" class="nav-link">Sign up</a>
               </li>
@@ -89,13 +103,20 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle pe-1"></i>Acount</a>
                 <ul class="dropdown-menu dropbgcolor">
-                <li><a class="dropdown-item" href="#"><i class="bi bi-person pe-1"></i>Account detail</a></li>
+                  <li><a class="dropdown-item" href="#"><i class="bi bi-person pe-1"></i>Account detail</a></li>
                   <li><a class="dropdown-item" href="#"><i class="bi bi-cart pe-1"></i>Orders</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
                   <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-left pe-1"></i>Logout</a></li>
+                  
                 </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link"><i class="bi bi-cart-fill"></i></a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link"><i class="bi bi-megaphone-fill"></i></a>
               </li>
             </ul>
           </div>

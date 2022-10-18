@@ -1,10 +1,6 @@
 @extends('User.main.main')
 @section('content')
-<style>
-    .carousel-item {
-        height: 600px;
-    }
-</style>
+
 <div>
     @include('User.pages.home.slide')
 </div>
@@ -15,7 +11,7 @@
 <script>
     const myCarouselElement = document.querySelector('#myCarousel')
     const carousel = new bootstrap.Carousel(myCarouselElement, {
-        interval: 2000,
+        interval: 2500,
         wrap: false
     })
 </script>
