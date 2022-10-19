@@ -8,11 +8,7 @@
 <div>
     @include('User.pages.home.feature')
 </div>
-<!-- <script>
-    const myCarouselElement = document.querySelector('#myCarousel')
-    const carousel = new bootstrap.Carousel(myCarouselElement, {
-        interval: 2000,
-        wrap: false
-    })
-</script> -->
+<div>
+    @include('User.pages.home.leastest')
+</div>
 @endsection
