@@ -56,7 +56,7 @@
 <body>
   <nav class="navbar bg-gradient navbar-expand-lg">
     <div class="container-fluid navstyle">
-      <a class="navbar-brand text-white pb-2" href="#"><span class="fw-bolder">DTBM</span> Furniture</a>
+      <a class="navbar-brand text-white pb-2" href="/"><span class="fw-bolder">DTBM</span> Furniture</a>
       <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <i class="bi bi-list fs-3"></i>
       </button>
@@ -72,12 +72,12 @@
             </li>
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Furniture
               </a>
 
               <ul class="dropdown-menu  dropbgcolor">
-                <li><a class="dropdown-item" href="#">Products</a></li>
+                <li><a class="dropdown-item" href="{{ url('/product') }}">Products</a></li>
                 <li><a class="dropdown-item" href="#">Another action</a></li>
                 <li>
                   <hr class="dropdown-divider">

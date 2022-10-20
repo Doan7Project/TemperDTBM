@@ -20,6 +20,7 @@ use App\Http\Controllers\User\ContactController as UserContactController;
 use App\Http\Controllers\User\FeedbackController as UserFeedbackController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\LoginController as UserLoginController;
+use App\Http\Controllers\User\ProductController as UserProductController;
 use App\Http\Controllers\User\RegisterController as UserRegisterController;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
@@ -183,6 +184,12 @@ Route::controller(CartController::class)->group(function(){
 Route::controller(AccountController::class)->group(function(){
 
     route::get('/account','account');
+
+});
+# 9 Product
+Route::controller(UserProductController::class)->group(function(){
+
+    route::get('/product','product');
 
 });
 
