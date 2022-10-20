@@ -17,6 +17,7 @@ use App\Http\Controllers\User\AboutController as UserAboutController;
 use App\Http\Controllers\User\AccountController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\ContactController as UserContactController;
+use App\Http\Controllers\User\DropListController;
 use App\Http\Controllers\User\FeedbackController as UserFeedbackController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\LoginController as UserLoginController;
@@ -40,8 +41,8 @@ use Illuminate\Support\Facades\Route;
 Route::controller(LoginController::class)->group(function () {
     Route::get('/admin', 'login')->name('login');
     Route::post('/auth/login', 'store');
-    Route::get('/auth/logout','logout');
-    Route::get('/auth/registration','registration')->name('registration');
+    Route::get('/auth/logout', 'logout');
+    Route::get('/auth/registration', 'registration')->name('registration');
 });
 # 1. Trang chủ
 Route::controller(dashboardController::class)->group(function () {
@@ -111,7 +112,6 @@ Route::controller(ProductImageController::class)->group(function () {
 #5 customer (MR Minh)
 Route::controller(CustomerController::class)->group(function () {
     Route::get('/customer/list', 'list');
-   
 });
 
 # 7. Trang Slider
@@ -136,60 +136,50 @@ Route::controller(FeedbackController::class)->group(function () {
 
 # II User---------------------------------------
 #1 Home
-Route::controller(HomeController::class)->group(function(){
+Route::controller(HomeController::class)->group(function () {
 
-    route::get('/','index')->name('userIndex');
-
+    route::get('/', 'index')->name('userIndex');
 });
 
 # 2 Feedback
-Route::controller(UserFeedbackController::class)->group(function(){
+Route::controller(UserFeedbackController::class)->group(function () {
 
-    route::get('/feedback','feedback');
-
+    route::get('/feedback', 'feedback');
 });
 
 # 3 About us
-Route::controller(UserAboutController::class)->group(function(){
+Route::controller(UserAboutController::class)->group(function () {
 
-    route::get('/about','about');
-
+    route::get('/about', 'about');
 });
 
 # 4 Contact us
-Route::controller(UserContactController::class)->group(function(){
+Route::controller(UserContactController::class)->group(function () {
 
-    route::get('/contact','contact');
-
+    route::get('/contact', 'contact');
 });
 # 5 Login
-Route::controller(UserLoginController::class)->group(function(){
+Route::controller(UserLoginController::class)->group(function () {
 
-    route::get('/login','login');
-
+    route::get('/login', 'login');
 });
 # 6 Register
-Route::controller(UserRegisterController::class)->group(function(){
+Route::controller(UserRegisterController::class)->group(function () {
 
-    route::get('/register','register');
-
+    route::get('/register', 'register');
 });
 # 7 Cart
-Route::controller(CartController::class)->group(function(){
+Route::controller(CartController::class)->group(function () {
 
-    route::get('/cart','cart');
-
+    route::get('/cart', 'cart');
 });
 # 8 Account
-Route::controller(AccountController::class)->group(function(){
+Route::controller(AccountController::class)->group(function () {
 
-    route::get('/account','account');
-
+    route::get('/account', 'account');
 });
 # 9 Product
-Route::controller(UserProductController::class)->group(function(){
+Route::controller(UserProductController::class)->group(function () {
 
-    route::get('/product','product');
-
+    route::get('/product', 'product');
 });
-
