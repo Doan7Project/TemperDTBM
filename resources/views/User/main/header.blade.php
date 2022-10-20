@@ -68,7 +68,7 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item ">
-              <a class="nav-link" aria-current="page" href="#">Home</a>
+              <a class="nav-link" aria-current="page" href="/">Home</a>
             </li>
 
             <li class="nav-item dropdown">
@@ -86,38 +86,38 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">About us</a>
+              <a href="{{ url('/about') }}" class="nav-link">About us</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Contact us</a>
+              <a href="{{ url('/contact') }}" class="nav-link">Contact us</a>
             </li>
           </ul>
           <div class="#">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
               <li class="nav-item">
-                <a href="#" class="nav-link">Sign up</a>
+                <a href="{{ url('/login') }}" class="nav-link">Login</a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">Register</a>
+                <a href="{{ url('/register') }}" class="nav-link">Register</a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">Feedback</a>
+                <a href="{{ url('/feedback') }}" class="nav-link">Feedback</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle pe-1"></i>Acount</a>
                 <ul class="dropdown-menu dropbgcolor">
-                  <li><a class="dropdown-item" href="#"><i class="bi bi-person pe-1"></i>Account detail</a></li>
-                  <li><a class="dropdown-item" href="#"><i class="bi bi-cart pe-1"></i>Orders</a></li>
+                  <li><a class="dropdown-item" href="{{ url('/account') }}"><i class="bi bi-person pe-1"></i>Account detail</a></li>
+                  <li><a class="dropdown-item" href="{{ url('/orders') }}"><i class="bi bi-cart pe-1"></i>Orders</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-                  <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-left pe-1"></i>Logout</a></li>
+                  <li><a class="dropdown-item" href="{{ url('/logout') }}"><i class="bi bi-box-arrow-left pe-1"></i>Logout</a></li>
 
                 </ul>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link"><i class="bi bi-cart-fill"></i></a>
+                <a href="{{ url('/cart') }}" class="nav-link"><i class="bi bi-cart-fill"></i></a>
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link"><i class="bi bi-megaphone-fill"></i></a>

@@ -37,13 +37,11 @@ class ProductService
                 'price' => $request->input('txtPrice'),
                 'unit' => $request->input('txtUnit'),
                 'quantity' =>  $request->input('txtQuantity'),
-                'discount' => $request->input('txtDiscount'),
-                'promotion_price' => $request->input('txtPromotionPrice'),
                 'status' => $request->input('txtStatus'),
                 'models' => $request->input('txtModel'),
                 'made_in' => $request->input('txtMadein'),
                 'category_id' => $request->input('txtCategoryID'),
-                'image' => $request->input('txtImage'),
+                'images' => $request->input('txtImage'),
                 'content' => $request->input('txtContent'),
                 'description' => $request->input('txtDescription'),
             ]);
@@ -62,13 +60,11 @@ class ProductService
         $data->price = $request->input('txtPrice');
         $data->unit = $request->input('txtUnit');
         $data->quantity = $request->input('txtQuantity');
-        $data->discount = $request->input('txtDiscount');
-        $data->promotion_price = $request->input('txtPromotionPrice');
         $data->status = $request->input('txtStatus');
         $data->models = $request->input('txtModel');
         $data->made_in = $request->input('txtMadein');
         $data->category_id = $request->input('txtCategoryID');
-        $data->image = $request->input('txtImage');
+        $data->images = $request->input('txtImage');
         $data->content = $request->input('txtContent');
         $data->description = $request->input('txtDescription');
         $data->save();

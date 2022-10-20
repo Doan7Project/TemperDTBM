@@ -86,6 +86,7 @@ class ProductController extends Controller
     
     
     {
+        // dd($request->input());
         $this->productservice->insert($request);
         return redirect()->route('list');
     }

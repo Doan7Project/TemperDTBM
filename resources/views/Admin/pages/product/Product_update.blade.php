@@ -3,93 +3,93 @@
 <?php
 
 
-$arrdiscount = [
-    [
-        'id' => '0',
-        'discount' => 0
-    ],
-    [
-        'id' => '1',
-        'discount' => 5
-    ],
-    [
-        'id' => '2',
-        'discount' => 10
-    ],
-    [
-        'id' => '3',
-        'discount' => 15
-    ],
-    [
-        'id' => '4',
-        'discount' => 20
-    ],
-    [
-        'id' => '5',
-        'discount' => 25
-    ],
-    [
-        'id' => '6',
-        'discount' => 30
-    ],
-    [
-        'id' => '7',
-        'discount' => 35
-    ],
-    [
-        'id' => '8',
-        'discount' => 40
-    ],
-    [
-        'id' => '9',
-        'discount' => 45
-    ],
-    [
-        'id' => '10',
-        'discount' => 50
-    ],
-    [
-        'id' => '11',
-        'discount' => 55
-    ],
-    [
-        'id' => '12',
-        'discount' => 60
-    ],
-    [
-        'id' => '13',
-        'discount' => 65
-    ],
-    [
-        'id' => '14',
-        'discount' => 70
-    ],
-    [
-        'id' => '15',
-        'discount' => 75
-    ],
-    [
-        'id' => '16',
-        'discount' => 80
-    ],
-    [
-        'id' => '17',
-        'discount' => 85
-    ],
-    [
-        'id' => '18',
-        'discount' => 90
-    ],
-    [
-        'id' => '19',
-        'discount' => 95
-    ],
-    [
-        'id' => '20',
-        'discount' => 100
-    ],
+// $arrdiscount = [
+//     [
+//         'id' => '0',
+//         'discount' => 0
+//     ],
+//     [
+//         'id' => '1',
+//         'discount' => 5
+//     ],
+//     [
+//         'id' => '2',
+//         'discount' => 10
+//     ],
+//     [
+//         'id' => '3',
+//         'discount' => 15
+//     ],
+//     [
+//         'id' => '4',
+//         'discount' => 20
+//     ],
+//     [
+//         'id' => '5',
+//         'discount' => 25
+//     ],
+//     [
+//         'id' => '6',
+//         'discount' => 30
+//     ],
+//     [
+//         'id' => '7',
+//         'discount' => 35
+//     ],
+//     [
+//         'id' => '8',
+//         'discount' => 40
+//     ],
+//     [
+//         'id' => '9',
+//         'discount' => 45
+//     ],
+//     [
+//         'id' => '10',
+//         'discount' => 50
+//     ],
+//     [
+//         'id' => '11',
+//         'discount' => 55
+//     ],
+//     [
+//         'id' => '12',
+//         'discount' => 60
+//     ],
+//     [
+//         'id' => '13',
+//         'discount' => 65
+//     ],
+//     [
+//         'id' => '14',
+//         'discount' => 70
+//     ],
+//     [
+//         'id' => '15',
+//         'discount' => 75
+//     ],
+//     [
+//         'id' => '16',
+//         'discount' => 80
+//     ],
+//     [
+//         'id' => '17',
+//         'discount' => 85
+//     ],
+//     [
+//         'id' => '18',
+//         'discount' => 90
+//     ],
+//     [
+//         'id' => '19',
+//         'discount' => 95
+//     ],
+//     [
+//         'id' => '20',
+//         'discount' => 100
+//     ],
 
-];
+// ];
 $arrstatus = [
     [
 
@@ -198,8 +198,8 @@ $arrstatus = [
             </div>
         </div>
         <div class="row pt-2">
-            <div class="col-md-3">
-                <label for="price" class="form-label text-black">Price</label>
+            <div class="col-md-2">
+                <label for="price" class="form-label text-black">Price - $</label>
                 <input type="number" id="price" class="form-control shadow-none" value="{{$menu->price}}" name="txtPrice">
 
             </div>
@@ -216,29 +216,6 @@ $arrstatus = [
 
             </div>
             <div class="col-md-2">
-                <label for="discount" class="form-label text-black">Discount</label>
-                <!-- <input type="number" id="discount" class="form-control shadow-none" name="txtDiscount"> -->
-                <select class="form-select shadow-none" name="txtDiscount" id="discount">
-
-
-                    @foreach($arrdiscount as $value)
-                    @if($value['discount']==$menu->discount)
-                    <option value="{{$value['discount']}}" selected>{{$value['discount']}}%</option>
-                    @else
-                    <option value="{{$value['discount']}}">{{$value['discount']}}%</option>
-                    @endif
-                    @endforeach
-
-                </select>
-            </div>
-            <div class="col-md-3">
-                <label for="promotionPrice" class="form-label text-black">Promotion Price</label>
-                <input type="number" id="promotionPrice" class="form-control shadow-none" name="txtPromotionPrice" value="{{$menu->promotion_price}}">
-            </div>
-        </div>
-        <div class="row pt-2">
-
-            <div class="col-md-4">
                 <label for="status" class="form-label text-black">Status</label>
                 <select class="form-select shadow-none" name="txtStatus" id="status">
                     @foreach($arrstatus as $value)
@@ -250,8 +227,7 @@ $arrstatus = [
                     @endforeach
                 </select>
             </div>
-            
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <label for="models" class="form-label text-black">Models</label>
                 <select class="form-select shadow-none" name="txtModel" id="models">
                         @foreach($arrmodels as $value)
@@ -264,7 +240,7 @@ $arrstatus = [
                 </select>
 
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <label for="madein" class="form-label text-black">Made In</label>
                 <select class="form-select shadow-none" name="txtMadein" id="madein">
                 @foreach($arrmade as $value)

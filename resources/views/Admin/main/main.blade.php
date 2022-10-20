@@ -113,18 +113,17 @@
         <!--about -->
         <li class="mb-0 list-unstyled ">
           <button class="btn btn-toggle  px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#about" aria-expanded="false">
-            <i class="bi bi-file-earmark-person pe-2"></i>About page
+            <i class="bi bi-file-earmark-person pe-2"></i>Customer
           </button>
           <div class="collapse" id="about">
             <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li><a href="{{url('Admin/pages/About_list')}}" class="link-dark px-5 pt-2 d-inline-flex text-decoration-none rounded">List Information</a></li>
-              <li><a href="{{url('Admin/pages/About_create')}}" class="link-dark px-5 pt-2 d-inline-flex text-decoration-none rounded">Create Information</a></li>
+              <li><a href="{{url('/customer/list')}}" class="link-dark px-5 pt-2 d-inline-flex text-decoration-none rounded">List Information</a></li>
             </ul>
           </div>
         </li>
         <!-- End about-->
         <!-- Product contact -->
-        <li class="mb-0 list-unstyled ">
+        {{-- <li class="mb-0 list-unstyled ">
           <button class="btn btn-toggle px-4 d-inline-flex align-items-center rounded border-0 list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#contact" aria-expanded="false">
             <i class="bi bi-person-lines-fill pe-2"></i>Contact page
           </button>
@@ -134,7 +133,7 @@
               <li><a href="{{url('Admin/pages/Contact_create')}}" class="link-dark px-5 pt-2 d-inline-flex text-decoration-none rounded">Create Information</a></li>
             </ul>
           </div>
-        </li>
+        </li> --}}
         <!-- End contact-->
         <!-- Slide -->
         <li class="mb-0 list-unstyled mb-2">

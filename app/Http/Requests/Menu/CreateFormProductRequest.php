@@ -26,7 +26,14 @@ class CreateFormProductRequest extends FormRequest
         return [
             'txtCategoryID' => 'required',
             'txtProductName' => 'required',
-            'txtUnit' => 'regex:/([A-Za-z])/',
+            'txtUnit' => 'required|regex:/([A-Za-z])/',
+            'txtPrice' => 'required',
+            'txtQuantity' => 'required',
+            'txtImage' => 'required',
+            'txtContent' => 'required',
+            'txtMadein' => 'required',
+            'txtDescription' => 'required',
+            
         ];
     }
     public function messages()
@@ -34,7 +41,12 @@ class CreateFormProductRequest extends FormRequest
        return [
         'txtCategoryID.required'=>'Category is required',
         'txtProductName.required'=>'Product name is required',
-        'txtUnit.regex'=>'Field is not format',        
+        'txtPrice.required' => 'Price is required',
+        'txtUnit.required'=>'Unit is required',   
+        'txtUnit.regex'=>'Unit is not format', 
+        'txtQuantity.required' => 'Qty is required',  
+        'txtContent.required' => 'Content is required',  
+        'txtDescription.required' => 'Description is required',       
        ];
     }
 }

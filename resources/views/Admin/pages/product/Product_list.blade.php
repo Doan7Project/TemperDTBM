@@ -117,7 +117,6 @@
                         <th VALIGN=Middle Align=Middle>
                             <div class="text-center" style="width: 50px;">Qty</div>
                         </th>
-                        <th VALIGN=Middle Align=Middle>Discount</th>
                         <th VALIGN=Middle Align=Middle>
                             <div class="text-center" style="width: 70px;">Status</div>
                         </th>
@@ -149,7 +148,6 @@
                         <td VALIGN=Middle Align=Left>{{$data->price}}</td>
                         <td VALIGN=Middle Align=Middle>{{$data->unit}}</td>
                         <td VALIGN=Middle Align=Middle>{{$data->quantity}}</td>
-                        <td VALIGN=Middle Align=Middle>{{$data->discount}}%</td>
                         @if($data->status=="Active")
                         <td VALIGN=Middle Align=Left>
                             <div class="text-center py-2 text-white rounded bg-success">{{$data->status}}</div>
@@ -163,8 +161,7 @@
                         <td VALIGN=Middle Align=Left>{{$data->models}}</td>
                         <td VALIGN=Middle Align=Left>{{$data->made_in}}</td>
                         <td VALIGN=Middle Align=Middle>{{$data->category_id}}</td>
-                        <td VALIGN=Middle Align=Left><img src="{{$data->image}}" style="width: 100%;" alt=""></td>
-             
+                        <td VALIGN=Middle Align=Left><img src="{{$data->images}}" style="width: 100%;" alt=""></td>             
                         <td VALIGN=Middle Align=Middle>
                             <a class="btn btn-primary" href="{{url("product/show/{$data->id}")}}">
                                 <i class="bi bi-pencil-square text-white pe-2"></i>Edit

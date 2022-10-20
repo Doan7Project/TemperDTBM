@@ -29,4 +29,13 @@ class imageRequest extends FormRequest
             'txtImage' =>'required'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            //
+            'txtProductID.required' =>'Product Name is required',
+            'txtImage.required' =>'Product image  is required'
+        ];
+    }
 }

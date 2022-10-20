@@ -25,11 +25,11 @@
         @endif
 
         <div class="row-cols-md py-2">
-            <label for="productid" class="form-label text-black fw-bolder">Product ID</label>
+            <label for="productid" class="form-label text-black fw-bolder">Product Name</label>
             <select class="form-select shadow-none" name="txtProductID" id="productid">
                 <option value="">Please choose product name...</option>
                 @foreach($menu as $data)
-                <option value="{{$data->product_code}}">{{$data->product_name}}</option>
+                <option value="{{$data->product_code}}" {{ old('txtProductID') == $data->product_code ? 'selected' : '' }}>{{$data->product_name}}</option>
                 @endforeach
             </select>
             @error('txtProductID')

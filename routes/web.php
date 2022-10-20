@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\auth\LoginController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\dashboardController;
 use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\OrderController;
@@ -12,7 +13,14 @@ use App\Http\Controllers\Admin\ProductImageController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ThumbController;
 use App\Http\Controllers\Admin\UploadController;
+use App\Http\Controllers\User\AboutController as UserAboutController;
+use App\Http\Controllers\User\AccountController;
+use App\Http\Controllers\User\CartController;
+use App\Http\Controllers\User\ContactController as UserContactController;
+use App\Http\Controllers\User\FeedbackController as UserFeedbackController;
 use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\User\LoginController as UserLoginController;
+use App\Http\Controllers\User\RegisterController as UserRegisterController;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 
@@ -99,27 +107,20 @@ Route::controller(ProductImageController::class)->group(function () {
 });
 
 
-// # 4. Trang Thumb
-// Route::controller(ThumbController::class)->group(function () {
-
-//     Route::get('Admin/pages/Thumb_list', 'ThumbList');
-//     Route::get('Admin/pages/Thumb_create', 'ThumbCreate');
-// });
-# 5. Trang About
-Route::controller(AboutController::class)->group(function () {
-
-    Route::get('Admin/pages/About_list', 'AboutList');
-    Route::get('Admin/pages/About_create', 'AboutCreate');
+#5 customer (MR Minh)
+Route::controller(CustomerController::class)->group(function () {
+    Route::get('/customer/list', 'list');
+   
 });
-# 6. Trang Contact
-Route::controller(ContactController::class)->group(function () {
-    Route::get('Admin/pages/Contact_list', 'ContactList');
-    Route::get('Admin/pages/Contact_create', 'ContactCreate');
-});
+
 # 7. Trang Slider
 Route::controller(SliderController::class)->group(function () {
-    Route::get('Admin/pages/Slider_list', 'SliderList');
+    Route::get('Admin/pages/Slider_list', 'SliderList')->name('listslide');
     Route::get('Admin/pages/Slider_create', 'SliderCreate');
+    Route::post('Admin/pages/Slider_create_process', 'SliderCreateProcess');
+    Route::get('Admin/pages/Slider_delete/{id}', 'SliderDeleteProcess');
+    Route::get('Admin/pages/Slider_update/{id}', 'SliderUpdate');
+    Route::put('Admin/pages/Slider_update_process/{id}', 'SliderUpdateProcess');
 });
 # 8. Trang Order
 Route::controller(OrderController::class)->group(function () {
@@ -132,11 +133,56 @@ Route::controller(FeedbackController::class)->group(function () {
     Route::get('Admin/pages/Feedback_list', 'FeedbackList');
 });
 
-# II User
-
+# II User---------------------------------------
+#1 Home
 Route::controller(HomeController::class)->group(function(){
 
-    route::get('/index','index')->name('userIndex');
+    route::get('/','index')->name('userIndex');
+
+});
+
+# 2 Feedback
+Route::controller(UserFeedbackController::class)->group(function(){
+
+    route::get('/feedback','feedback');
+
+});
+
+# 3 About us
+Route::controller(UserAboutController::class)->group(function(){
+
+    route::get('/about','about');
+
+});
+
+# 4 Contact us
+Route::controller(UserContactController::class)->group(function(){
+
+    route::get('/contact','contact');
+
+});
+# 5 Login
+Route::controller(UserLoginController::class)->group(function(){
+
+    route::get('/login','login');
+
+});
+# 6 Register
+Route::controller(UserRegisterController::class)->group(function(){
+
+    route::get('/register','register');
+
+});
+# 7 Cart
+Route::controller(CartController::class)->group(function(){
+
+    route::get('/cart','cart');
+
+});
+# 8 Account
+Route::controller(AccountController::class)->group(function(){
+
+    route::get('/account','account');
 
 });
 
