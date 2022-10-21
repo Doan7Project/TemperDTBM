@@ -99,14 +99,14 @@ $arrmade = [
             </div>
             <div class="col-md-5">
                 <label for="productname" class="form-label text-black">Product Name</label>
-                <input type="text" id="productname" class="form-control shadow-none" name="txtProductName" placeholder="Enter product name">
+                <input type="text" id="productname" value="{{ old('txtProductName') }}" class="form-control shadow-none" name="txtProductName" placeholder="Enter product name">
                 @error('txtProductName')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
             <div class="col-md-3">
                 <label for="price" class="form-label text-black">Price - $</label>
-                <input type="number" id="price" class="form-control shadow-none" name="txtPrice">
+                <input type="number" id="price" class="form-control shadow-none" name="txtPrice" value="{{ old('txtPrice') }}">
                 @error('txtPrice')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
@@ -115,14 +115,14 @@ $arrmade = [
         <div class="row pt-2">        
             <div class="col-md-2">
                 <label for="unit" class="form-label text-black">Unit</label>
-                <input type="text" id="unit" class="form-control shadow-none" name="txtUnit">
+                <input type="text" id="unit" class="form-control shadow-none" name="txtUnit" value="{{ old('txtUnit') }}">
                 @error('txtUnit')
                 <span class="text-danger">{{$message}}</span>
                 @enderror
             </div>
             <div class="col-md-2">
                 <label for="quantity" class="form-label text-black">Quantity</label>
-                <input type="number" id="quantity" class="form-control shadow-none" name="txtQuantity">
+                <input type="number" id="quantity" class="form-control shadow-none" name="txtQuantity" value="{{ old('txtQuantity') }}">
                 @error('txtQuantity')
                 <span class="text-danger">{{$message}}</span>
                 @enderror

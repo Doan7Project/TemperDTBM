@@ -13,7 +13,7 @@
   }
 
   .cover {
-    background-color: #41867c48;
+    background-color: #59616048;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -34,32 +34,33 @@
     cursor: pointer;
   }
 
-  .imgstyle input {
+  .imgstyle .btn {
     position: absolute;
     left: 50%;
-    bottom: 10%;
-    transform: translate(-50%, -10%);
+    top:  100%;
+    transform: translate(-50%, -100%);
     border: none;
-    background-color: #4d9385e8;
+    background-color: #2da9beb0;
     border-radius: 5px;
     color: white;
-    padding: 5px 10px;
+    padding: 6px 10px;
     transition: 0.4s;
     opacity: 0;
   }
 
-  .imgstyle input:hover {
-    background-color: #4d9385;
+  .imgstyle .btn:hover {
+    background-color: #50a4aff6;
   }
 
-  .card:hover input {
+  .card:hover .btn {
     opacity: 1;
     z-index: 2;
   }
 </style>
-<section class="pt-5 pb-5">
+<section class="pt-5 pb-2">
   <div class="container shadow-sm p-3 mb-5 bg-body rounded">
-    <h3 class="mt-3 text-start">FEATURED PRODUCTS<i class="bi bi-award px-2 text-success"></i></h3>
+    <h3 class="mt-3 text-start fw-bolder">FEATURED PRODUCTS<i class="bi bi-award px-2 text-success"></i></h3>
+    <hr>
     <div class="row">
       <div class="text-right pe-4">
         <a class="btn btn-outline-secondary shadow-none mb-3 mr-1" href="#carouselExampleIndicators2" role="button"
@@ -79,16 +80,18 @@
             <div class="carousel-item active">
               <div class="row ">
                 {{-- --repeat --}}
+                <?php $count = 1 ?>
                 @foreach ($menuchild as $key => $data)
-                @if ($data->models == "Feature" && $data->status == "Active" && $key < 4) <div class="col-md-3 mb-3">
+                @if ($data->models == "Feature" && $data->status == "Active" && $count <= 4) <div class="col-md-3 mb-3">
                   <div class="card">
                     <div class="cover">
 
                     </div>
-                    <span class="d-none"> {{ $key++ }}</span>
+                    <span class=""><?php echo $count++?></span>
                     <div class="imgstyle">
                       <img class="img-fluid" alt="100%x280" src="{{ $data->images }}">
-                      <input type="button" value="View detail">
+
+                      <a href="{{url("/orderdetail/{$data->id}")}}" class="btn btn-success shadow-none">View Detail</a>
                     </div>
                     <div class="card-body text-center">
                       <div>
@@ -111,7 +114,7 @@
                       </div>
                     </div>
                   </div>
-
+          
               </div>
 
               @endif
@@ -123,16 +126,16 @@
           <div class="carousel-item">
             <div class="row ">
               @foreach ($menuchild as $key => $data)
-              @if ($data->models == "Feature" && $data->status == "Active" && (4 <= $key && $key < 8)) 
+              @if ($data->models == "Feature" && $data->status == "Active" && $key == $count) 
               <div class="col-md-3 mb-3">
                 <div class="card">
                   <div class="cover">
 
                   </div>
-                  <span class="d-none"> {{ $key++ }}</span>
+                  <span class=""><?php echo $count++?></span>
                   <div class="imgstyle">
                     <img class="img-fluid" alt="100%x280" src="{{ $data->images }}">
-                    <input type="button" value="View detail">
+                    <a href="{{url("/orderdetail/{$data->id}")}}" class="btn btn-success shadow-none">View Detail</a>
                   </div>
                   <div class="card-body text-center">
                     <div>

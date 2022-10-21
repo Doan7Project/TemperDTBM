@@ -45,18 +45,22 @@
         color: rgb(97, 93, 93);
         opacity: .9;
         transition: opacity .6s ease;
-        
+
     }
-   .carousel-indicators [data-bs-target]:hover {
+
+    .carousel-indicators [data-bs-target]:hover {
         color: rgb(16, 152, 214);
         transition: 0.4s ease-in-out;
     }
-      .carousel-indicators [data-bs-target]:focus {
+
+    .carousel-indicators [data-bs-target]:focus {
         color: rgb(16, 152, 214);
     }
-    .carousel-indicators .active{
+
+    .carousel-indicators .active {
         color: rgb(16, 152, 214);
     }
+
     .icons {
         position: absolute;
         left: 8%;
@@ -76,10 +80,10 @@
         background-color: rgba(233, 233, 233, 0.267);
     }
 </style>
-<section id="carouselExampleCaptions" class="carousel slide " data-bs-ride="false">
+<section id="carouselExampleCaptions" class="carousel slide pb-3" data-bs-ride="false">
     <div class="container  mb-5 bg-body rounded pt-5 pb-5">
         <h3 class="mb-3 text-center"><i class="bi bi-award pe-2 text-success"></i>Leatest Products</h3>
-
+        <hr>
         <div class="carousel-indicators">
             <button id="no1" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1">New Arrival</button>
@@ -231,6 +235,6 @@
     </div>
 
     </div>
-
+    <hr>
     </div>
 </section>

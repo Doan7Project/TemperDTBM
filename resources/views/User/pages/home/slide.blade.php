@@ -5,14 +5,23 @@
 
     .btns {
         position: absolute;
-        top: 40%;
+        top: 50%;
         left: 30%;
+        transform: translate(-30%,-50%);
+        background-color:rgba(100, 108, 110, 0.404) ;
+        cursor: pointer;
     }
     .btns div{
-        width: 500px;
+        width: 600px;
+       
     }
-    .btns div h2{
-       color: rgb(192, 13, 153);
+    .btns div h1{
+       color: rgb(255, 255, 255);
+       font-weight: bolder;
+    }
+    .btns:hover h1{
+        text-shadow: 2px 2px rgb(92, 139, 170);
+        transition: 0.4s ease-in-out;
     }
     .btns input{
         background-color:rgba(15, 155, 190, 0.596);
@@ -44,9 +53,9 @@
         @foreach ($slide as $key=> $data)
         <div class=" carousel-item active contentBtn">
             <img src=" {{asset('/assets/images/slideshow/'.$data ->image)}}" class="d-block w-100" alt="...">
-            <div class="btns">
+            <div class="btns shadow-lg p-5 pb-5 rounded">
                 <div>
-                    <h2>{{ $data->name }}</h3>
+                    <h1 class="">{{ $data->name }}</h3>
                     <p class="text-white">{{ $data->description }}</p>
                 </div>
                 
