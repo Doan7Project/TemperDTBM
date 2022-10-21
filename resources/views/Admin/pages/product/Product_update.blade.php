@@ -2,94 +2,6 @@
 @section('content')
 <?php
 
-
-// $arrdiscount = [
-//     [
-//         'id' => '0',
-//         'discount' => 0
-//     ],
-//     [
-//         'id' => '1',
-//         'discount' => 5
-//     ],
-//     [
-//         'id' => '2',
-//         'discount' => 10
-//     ],
-//     [
-//         'id' => '3',
-//         'discount' => 15
-//     ],
-//     [
-//         'id' => '4',
-//         'discount' => 20
-//     ],
-//     [
-//         'id' => '5',
-//         'discount' => 25
-//     ],
-//     [
-//         'id' => '6',
-//         'discount' => 30
-//     ],
-//     [
-//         'id' => '7',
-//         'discount' => 35
-//     ],
-//     [
-//         'id' => '8',
-//         'discount' => 40
-//     ],
-//     [
-//         'id' => '9',
-//         'discount' => 45
-//     ],
-//     [
-//         'id' => '10',
-//         'discount' => 50
-//     ],
-//     [
-//         'id' => '11',
-//         'discount' => 55
-//     ],
-//     [
-//         'id' => '12',
-//         'discount' => 60
-//     ],
-//     [
-//         'id' => '13',
-//         'discount' => 65
-//     ],
-//     [
-//         'id' => '14',
-//         'discount' => 70
-//     ],
-//     [
-//         'id' => '15',
-//         'discount' => 75
-//     ],
-//     [
-//         'id' => '16',
-//         'discount' => 80
-//     ],
-//     [
-//         'id' => '17',
-//         'discount' => 85
-//     ],
-//     [
-//         'id' => '18',
-//         'discount' => 90
-//     ],
-//     [
-//         'id' => '19',
-//         'discount' => 95
-//     ],
-//     [
-//         'id' => '20',
-//         'discount' => 100
-//     ],
-
-// ];
 $arrstatus = [
     [
 
@@ -260,9 +172,9 @@ $arrstatus = [
                 <input type="file" class="form-control shadow-none" name="txtImage" id="upload"  onchange="loadFile(event)">
                 <div class="shadow-sm d-flex position-relative rounded border-0 mt-2" style="width: 100% ; height:280px;">
                     <span style="z-index: 1 ;" class="align-self-center text-black-50 position-absolute top-50 start-50 translate-middle fs-4">Image Review...</span>
-                    <img src="{{$menu->image}}" class="w-100" class="p-1" id="output" style="z-index: 2;">
+                    <img src="{{$menu->images}}" class="w-100" class="p-1" id="output" style="z-index: 2;">
                 </div>
-                <input type="hidden" name="txtImage" id="file" value="{{$menu->image}}">
+                <input type="hidden" name="txtImage" id="file" value="{{$menu->images}}">
                 @error('txtImage')
                 <span class="text-danger">{{$message}}</span>
                 @enderror

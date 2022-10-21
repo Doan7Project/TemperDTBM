@@ -1,5 +1,11 @@
 
 <style>
+  .navbar{
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    background-color: #5ea0aa ;
+  }
   .navbar-dark .navbar-nav .nav-link {
     color: rgb(219, 219, 219);
     font-size: 16px;
