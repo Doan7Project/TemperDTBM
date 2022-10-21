@@ -1,8 +1,8 @@
 
 <style>
   .navbar{
-    position: fixed;
-    z-index: 2;
+    /* position: fixed;
+    z-index: 2; */
     width: 100%;
     background-color: #5ea0aa ;
   }

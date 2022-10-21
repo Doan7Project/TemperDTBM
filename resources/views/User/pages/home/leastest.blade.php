@@ -23,6 +23,7 @@
     .carousel-indicators {
         position: relative;
         top: 0px;
+        z-index: 0;
     }
 
 
@@ -45,6 +46,7 @@
         color: rgb(97, 93, 93);
         opacity: .9;
         transition: opacity .6s ease;
+
 
     }
 
@@ -87,23 +89,62 @@
         <div class="carousel-indicators">
             <button id="no1" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1">New Arrival</button>
-            <button id="no2" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2">Best
-                Seller</button>
+            <button id="no2" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2">Trending</button>
             <button id="no3" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
                 aria-label="Slide 3">Featured</button>
-            <button id="no4" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4">Specail
-                Offer</button>
+            <button id="no4" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                aria-label="Slide 4">Top</button>
         </div>
         <div class="pt-5">
             <div class="carousel-inner">
                 <div class="carousel-item active ">
                     <div class="row m-auto justify-content-center">
-                        @for($i = 0;$i <6; $i++) <div class="cardStyle col-md-3 m-2 pt-2 px-2 card border-0">
-                            <img class="img-fluid" alt="100%x280" src="images/armchair2.webp">
+                        @foreach ($menuchild as $key => $data)
+                        @if ($data->models == "New arrival" && $data->status == "Active")
+                        <div class="cardStyle col-md-3 m-2 pt-2 px-2 card border-0">
+                            <img class="img-fluid" alt="100%x280" src="{{ $data->images }}">
                             <div class="icons">
                                 <ul class="list-unstyled">
                                     <li>
-                                        <i class="bi bi-eye "></i>
+                                        <a href="{{url("/orderdetail/{$data->id}")}}"><i class="bi bi-eye "></i></a>
+                                    </li>
+                                    <li>
+                                        <i class="bi bi-cart2"></i>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <div class="pt-2">
+                                <ul class="d-flex justify-content-between list-unstyled">
+                                    <li>
+                                        <span>{{ $data->product_name }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="fw-bolder" style="color: rgb(236, 157, 157)">${{ $data->price
+                                            }}.00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        @endif
+                        @endforeach
+
+
+                    </div>
+
+                </div>
+                {{-- best seller --}}
+                <div class="carousel-item  ">
+                    <div class="row m-auto justify-content-center">
+                        @foreach ($menuchild as $key => $data)
+                        @if ($data->models == "Trending" && $data->status == "Active") <div
+                            class="cardStyle col-md-3 m-2 pt-2 px-2 card border-0">
+                            <img class="img-fluid" alt="100%x280" src="{{ $data->images }}">
+                            <div class="icons">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="{{url("/orderdetail/{$data->id}")}}"><i class="bi bi-eye "></i></a>
                                     </li>
                                     <li>
                                         <i class="bi bi-cart2"></i>
@@ -113,126 +154,100 @@
                             <div class="pt-2">
                                 <ul class="d-flex justify-content-between list-unstyled">
                                     <li>
-                                        <span>Product name</span>
+                                        <span>{{ $data->product_name }}</span>
                                     </li>
                                     <li>
-                                        <span class="fw-bolder" style="color: rgb(236, 157, 157)">$ 20.00</span>
+                                        <span class="fw-bolder" style="color: rgb(236, 157, 157)">${{ $data->price
+                                            }}.00</span>
                                     </li>
                                 </ul>
                             </div>
-                    </div>
-
-                    @endfor
-
-
-                </div>
-
-            </div>
-            {{-- best seller --}}
-            <div class="carousel-item  ">
-                <div class="row m-auto justify-content-center">
-                    @for($i = 0;$i <6; $i++) <div class="cardStyle col-md-3 m-2 pt-2 px-2 card border-0">
-                        <img class="img-fluid" alt="100%x280" src="images/armchair.webp">
-                        <div class="icons">
-                            <ul class="list-unstyled">
-                                <li>
-                                    <i class="bi bi-eye "></i>
-                                </li>
-                                <li>
-                                    <i class="bi bi-cart2"></i>
-                                </li>
-                            </ul>
                         </div>
-                        <div class="pt-2">
-                            <ul class="d-flex justify-content-between list-unstyled">
-                                <li>
-                                    <span>Product name</span>
-                                </li>
-                                <li>
-                                    <span class="fw-bolder" style="color: rgb(236, 157, 157)">$ 20.00</span>
-                                </li>
-                            </ul>
+                        @endif
+                        @endforeach
+
+
+                    </div>
+
+                </div>
+                {{-- end best seller --}}
+                {{-- Featured --}}
+                <div class="carousel-item  ">
+                    <div class="row m-auto justify-content-center">
+                        @foreach ($menuchild as $key => $data)
+                        @if ($data->models == "Featured" && $data->status == "Active") <div
+                            class="cardStyle col-md-3 m-2 pt-2 px-2 card border-0">
+                            <img class="img-fluid" alt="100%x280" src="{{ $data->images }}">
+                            <div class="icons">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="{{url("/orderdetail/{$data->id}")}}"><i class="bi bi-eye "></i></a>
+                                    </li>
+                                    <li>
+                                        <i class="bi bi-cart2"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="pt-2">
+                                <ul class="d-flex justify-content-between list-unstyled">
+                                    <li>
+                                        <span>{{ $data->product_name }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="fw-bolder" style="color: rgb(236, 157, 157)">${{ $data->price
+                                            }}.00</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
+                        @endif
+                        @endforeach
+
+
+                    </div>
+
                 </div>
+                {{-- end featured --}}
+                {{-- specail offer --}}
+                <div class="carousel-item  ">
+                    <div class="row m-auto justify-content-center">
+                        @foreach ($menuchild as $key => $data)
+                        @if ($data->models == "Top" && $data->status == "Active") <div
+                            class="cardStyle col-md-3 m-2 pt-2 px-2 card border-0">
+                            <img class="img-fluid" alt="100%x280" src="{{ $data->images }}">
+                            <div class="icons">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="{{url("/orderdetail/{$data->id}")}}"><i class="bi bi-eye "></i></a>
+                                    </li>
+                                    <li>
+                                        <i class="bi bi-cart2"></i>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="pt-2">
+                                <ul class="d-flex justify-content-between list-unstyled">
+                                    <li>
+                                        <span>{{ $data->product_name }}</span>
+                                    </li>
+                                    <li>
+                                        <span class="fw-bolder" style="color: rgb(236, 157, 157)">${{ $data->price
+                                            }}.00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        @endif
+                        @endforeach
 
-                @endfor
 
+                    </div>
 
+                </div>
+                {{-- end specail offer --}}
             </div>
 
         </div>
-        {{-- end best seller --}}
-        {{-- Featured --}}
-        <div class="carousel-item  ">
-            <div class="row m-auto justify-content-center">
-                @for($i = 0;$i <6; $i++) <div class="cardStyle col-md-3 m-2 pt-2 px-2 card border-0">
-                    <img class="img-fluid" alt="100%x280" src="images/armchair3.webp">
-                    <div class="icons">
-                        <ul class="list-unstyled">
-                            <li>
-                                <i class="bi bi-eye "></i>
-                            </li>
-                            <li>
-                                <i class="bi bi-cart2"></i>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="pt-2">
-                        <ul class="d-flex justify-content-between list-unstyled">
-                            <li>
-                                <span>Product name</span>
-                            </li>
-                            <li>
-                                <span class="fw-bolder" style="color: rgb(236, 157, 157)">$ 20.00</span>
-                            </li>
-                        </ul>
-                    </div>
-            </div>
-
-            @endfor
-
-
-        </div>
-
-    </div>
-    {{-- end featured --}}
-    {{-- specail offer --}}
-    <div class="carousel-item  ">
-        <div class="row m-auto justify-content-center">
-            @for($i = 0;$i <6; $i++) <div class="cardStyle col-md-3 m-2 pt-2 px-2 card border-0">
-                <img class="img-fluid" alt="100%x280" src="images/armchair4.webp">
-                <div class="icons">
-                    <ul class="list-unstyled">
-                        <li>
-                            <i class="bi bi-eye "></i>
-                        </li>
-                        <li>
-                            <i class="bi bi-cart2"></i>
-                        </li>
-                    </ul>
-                </div>
-                <div class="pt-2">
-                    <ul class="d-flex justify-content-between list-unstyled">
-                        <li>
-                            <span>Product name</span>
-                        </li>
-                        <li>
-                            <span class="fw-bolder" style="color: rgb(236, 157, 157)">$ 20.00</span>
-                        </li>
-                    </ul>
-                </div>
-        </div>
-
-        @endfor
-
-
-    </div>
-
-    </div>
-    {{-- end specail offer --}}
-    </div>
-
-    </div>
 
     </div>
     <hr>

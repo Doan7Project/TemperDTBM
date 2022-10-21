@@ -1,40 +1,39 @@
-
 @extends('User.main.main')
 @section('content')
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
-    * {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-        font-family: 'Open Sans', sans-serif;
-    }
 
-    body {
-        line-height: 1.5;
-    }
 
-    .card-wrapperdt {
+
+    .card-wrapper {
+        /* padding: 50px; */
         max-width: 1100px;
-        margin: 0 auto;
+        margin: 20px auto;
     }
 
     img {
         width: 100%;
         display: block;
+        margin: auto;
     }
 
     .img-display {
         overflow: hidden;
+        margin: 10px auto;
+        width: 80%;
     }
 
     .img-showcase {
         display: flex;
         width: 100%;
+        margin: auto;
         transition: all 0.5s ease;
+       
+        /* justify-content:center ; */
     }
 
     .img-showcase img {
+      
         min-width: 100%;
     }
 
@@ -52,7 +51,7 @@
     .img-item:nth-child(2),
     .img-item:nth-child(3) {
         margin-right: 0;
-      
+
     }
 
     .img-item:hover {
@@ -64,11 +63,11 @@
     }
 
     .product-title {
-        font-size: 3rem;
+        font-size: 2rem;
         text-transform: capitalize;
         font-weight: 700;
         position: relative;
-        color: #12263a;
+        color: #3f3f3f;
         margin: 1rem 0;
     }
 
@@ -76,10 +75,12 @@
         content: "";
         position: absolute;
         left: 0;
-        bottom: 0;
-        height: 4px;
-        width: 80px;
-        background: #12263a;
+        top: 100%;
+        border: none;
+        border-radius: 10px;
+        height: 5px;
+        width: 50px;
+        /* background: #0b81c5; */
     }
 
     .product-link {
@@ -171,7 +172,7 @@
         padding: 0.45rem 0.8rem;
         outline: 0;
         margin-right: 0.2rem;
-       margin-bottom: 3px;
+        margin-bottom: 3px;
     }
 
     .purchase-info input {
@@ -239,86 +240,101 @@
         }
     }
 </style>
-    <div class="card-wrapper card-wrapperdt">
-        <div class="card cards">
-            <!-- card left -->
-            <div class="product-imgs">
-                <div class="img-display">
-                    <div class="img-showcase">
-                        <img src="images/armchair.webp" alt="shoe image">
-                        <img src="images/armchair2.webp" alt="shoe image">
-                        <img src="images/armchair3.webp" alt="shoe image">
-                        <img src="images/armchair4.webp" alt="shoe image">
-                    </div>
-                </div>
-                <div class="img-select">
-                    <div class="img-item">
-                        <a href="#" data-id="1">
-                            <img class="img-fluid" src="images/armchair.webp" alt="shoe image">
-                        </a>
-                    </div>
-                    <div class="img-item">
-                        <a href="#" data-id="2">
-                            <img class="img-fluid"  src="images/armchair2.webp" alt="shoe image">
-                        </a>
-                    </div>
-                    <div class="img-item">
-                        <a href="#" data-id="3">
-                            <img class="img-fluid" src="images/armchair3.webp" alt="shoe image">
-                        </a>
-                    </div>
-                    <div class="img-item">
-                        <a href="#" data-id="4">
-                            <img class="img-fluid" src="images/armchair4.webp" alt="shoe image">
-                        </a>
-                    </div>
+<div class="card-wrapper">
+    <div class="card cards">
+        <!-- card left -->
+        <div class="product-imgs">
+            <div class="img-display">
+                <div class="img-showcase">
+                    <?php $count=1?>
+                    <img src="{{ $menudetail->images }}" alt="shoe image">
+                    @foreach ($imagedata as $data)
+                    @if ($data->product_id == $menudetail->product_code)
+                    <?php $count++?>
+                    <img src="{{ $data->image }}" alt="shoe image">
+                    @endif
+                    @endforeach
                 </div>
             </div>
-            <!-- card right -->
-            <div class="product-content">
-                <h2 class="product-title">{{ $menudetail->product_name }}</h2>
-                <a href="#" class="product-link py-1 px-4 rounded btn btn-primary">visit furniture store</a>
-                <div class="product-rating">
-                    
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-fill"></i>
-                    <i class="bi bi-star-half"></i>
-                    <span>4.7(21)</span>
+            <div class="img-select">
+                @if ($count>1)
+                <div class="img-item">
+                    <a href="#" data-id="1">
+                        <img class="img-fluid" src="{{ $menudetail->images }}" alt="shoe image">
+                    </a>
                 </div>
-                <div class="product-price">
-                    <p class="new-price">New Price: <span>${{ $menudetail->price }}</span></p>
+                @else
+                <div class="img-item d-none">
+                    <a href="#" data-id="1">
+                        <img class="img-fluid" src="{{ $menudetail->images }}" alt="shoe image">
+                    </a>
                 </div>
-                <div class="product-detail">
-                    <h2>About this item: </h2>
+                @endif
+                <?php $i=1?>
+                @foreach ($imagedata as $key=> $data)
+                @if ($data->product_id == $menudetail->product_code)
+                <?php $i++ ?>
+                <div class="img-item">
+                    <a href="#" data-id="<?= $i ?>">
+                        <img class="img-fluid" src="{{ $data->image  }}" alt="shoe image">
+                    </a>
+                </div>
+                @endif
+                @endforeach
+            </div>
+        </div>
+        <!-- card right -->
+        <div class="product-content">
+            <h2 class="product-title">{{ $menudetail->product_name }}</h2>
+            <a href="#" class="product-link py-1 px-4 rounded btn btn-primary">visit furniture store</a>
+            <div class="product-rating">
+
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+                <span>4.7(21)</span>
+            </div>
+            <div class="product-price">
+                <p class="new-price">New Price: <span>${{ $menudetail->price }}</span></p>
+            </div>
+            <div class="product-detail">
+                <h3>Product Information </h2>
                     <p>{{ $menudetail->content }}</p>
                     <div>{{ $menudetail->description }}</div>
-                    <ul>                     
+                    <ul>
                         <li>Made in: <span>{{ $menudetail->made_in }}</span></li>
-                        <li>Category: <span>Shoes</span></li>
+                        @foreach ($menu as $data)
+                        @if ($menudetail->category_id == $data->id)
+
+
+                        <li>Category: <span>{{ $data->CategoryName }}</span></li>
+                        @endif
+                        @endforeach
+                        <li>Product Code: <span>{{ $menudetail->product_code }}</span></li>
                         <li>Shipping Area: <span>All over the world</span></li>
                     </ul>
-                </div>
+            </div>
 
-                <div class="purchase-info">
-                    
-                    <button type="button" class="btn btn-primary">
-                        Add to Cart <i class="bi bi-cart-fill"></i>
-                    </button>
-                    <input type="number" min="0" value="1">
-                </div>
-               
-                <div class="social-links">
-                   
-                </div>
+            <div class="purchase-info">
+
+                <button type="button" class="btn btn-primary">
+                    Add to Cart <i class="bi bi-cart-fill"></i>
+                </button>
+                <input type="number" min="0" value="1">
+            </div>
+
+            <div class="social-links">
+
             </div>
         </div>
     </div>
+</div>
 
 
-    <script>
-        const imgs = document.querySelectorAll('.img-select a');
+<script>
+    const imgs = document.querySelectorAll('.img-select a');
 const imgBtns = [...imgs];
 let imgId = 1;
 
@@ -337,5 +353,5 @@ function slideImage(){
 }
 
 window.addEventListener('resize', slideImage);
-    </script>
+</script>
 @endsection

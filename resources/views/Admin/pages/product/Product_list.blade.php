@@ -1,34 +1,7 @@
 @extends('Admin.main.main')
 @section('content')
 <script type="text/javascript">
-    // $(document).ready(function() {
-    //     $("#search").keyup(function() {
-    //         $value = $(this).val();
-    //         if ($value) {
-
-    //             $('.alldata').hide();
-    //             $('.searchdata').show();
-    //         } else {
-    //             $('.alldata').show();
-    //             $('.searchdata').hide();
-    //         }
-
-
-    //         $.ajax({
-    //             type: 'get',
-    //             url: "{{URL::to('/search')}}",
-    //             data: {
-    //                 'search': $value
-    //             },
-    //             success: function(data) {
-    //                 $('#Content').html(data);
-    //             }
-    //         });
-    //     })
-    // })
-
-
-    $(document).ready(function() {
+     $(document).ready(function() {
         var table = $('#table').DataTable({
             // dom: 'Plfrtip',
             language: {
@@ -142,7 +115,11 @@
                 <tbody class="alldata">
                     @foreach($items as $key => $data)
                     <tr>
-                        <td VALIGN=Middle Align=Middle>{{$key+1}}</td>
+                        <td VALIGN=Middle Align=Middle>{{$key+1}}
+                            <a  href="{{url("product/show/{$data->id}")}}">
+                                <i class="bi bi-pencil-square text-primary pe-2"></i>
+                            </a>
+                        </td>
                         <td VALIGN=Middle Align=Left>{{$data->product_code}}</td>
                         <td VALIGN=Middle Align=Left>{{$data->product_name}}</td>
                         <td VALIGN=Middle Align=Left>{{$data->price}}</td>

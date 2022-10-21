@@ -13,7 +13,7 @@ $arrstatus = [
     [
 
         'id' => '2',
-        'status' => 'Unative'
+        'status' => 'Inative'
     ]
 
 
@@ -34,11 +34,20 @@ $arrmodels = [
     ],
     [
         'id' => '4',
-        'model' => 'Feature'
+        'model' => 'Featured'
     ],
     [
         'id' => '5',
         'model' => 'Top'
+    ]
+    ,
+    [
+        'id' => '6',
+        'model' => 'Featured_1'
+],
+    [
+        'id' => '7',
+        'model' => 'Featured_2'
     ]
 ];
 

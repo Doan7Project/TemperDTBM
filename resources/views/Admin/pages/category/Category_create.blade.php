@@ -8,7 +8,7 @@
 
     }
 </style>
-<div class="shadow-sm card" style="width: 100%;">
+<div class="shadow-sm card" style="width: 700px;">
     <h4 class="text-center bg-primary bg-gradient p-3 text-white">New Category Creating</h4>
     <p class="text-center text-black-50">Create the information to category</p>
 
@@ -33,14 +33,14 @@
         </div>
         <div class="row-cols-md py-2">
             <label for="category" class="form-label text-black fw-bolder">Description</label>
-            <textarea rows="4" id="category" name="txtDescription" class="form-control shadow-none" placeholder="Description is not greater than 200 charater">{{old('txtDescription')}}</textarea>
+            <textarea rows="3" id="category" name="txtDescription" class="form-control shadow-none" placeholder="Description is not greater than 200 charater">{{old('txtDescription')}}</textarea>
             @error('txtDescription')
             <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
         <div class="row-cols-md py-2">
             <label for="content" class="text-black fw-bolder">Details</label>
-            <textarea id="editor1" name="txtDetail">{{old('txtDetail')}}</textarea>
+            <textarea rows="4" class="form-control shadow-none"  id="editor1" name="txtDetail">{{old('txtDetail')}}</textarea>
             <!-- <input type="text" id="content" name="txtContent " class="form-control shadow-none"> -->
         </div>
         <div class="py-2 d-flex">
