@@ -6,6 +6,9 @@
         transition: 0.4s;
 
     }
+    #productIdConference{
+        font-size: 12px;
+    }
 </style>
 <div class="shadow-sm card" style="width: 500px;">
     <h4 class="text-center bg-primary bg-gradient p-3 text-white">{{$title}}</h4>
@@ -25,13 +28,14 @@
         @endif
 
         <div class="row-cols-md py-2">
-            <label for="productid" class="form-label text-black fw-bolder">Product ID</label>
+            <label for="productid" class="form-label text-black fw-bolder">Product Name - </label>
+            <span  id="productIdConference">{{ $menu->product_id  }}</span>
             <select class="form-select shadow-none" name="txtProductID" id="productid">
                 @foreach($menuPd as $data)
                     @if($menu->product_id ==$data->product_code)
-                    <option value="{{$data->product_code}}" selected>{{$data->product_name}}</option>
+                    <option value="{{$data->product_code}}" selected>{{$data->product_name}} - {{$data->product_code}}</option>
                     @else
-                    <option value="{{$data->product_code}}">{{$data->product_name}}</option>
+                    <option value="{{$data->product_code}}">{{$data->product_name}} - {{$data->product_code}}</option>
                     @endif
                 @endforeach
             </select>
@@ -46,7 +50,7 @@
                 <span style="z-index: 1 ;" class="align-self-center text-black-50 position-absolute top-50 start-50 translate-middle fs-4">Image Review...</span>
                 <img src="{{$menu->image}}" class="w-100" class="p-1" id="output" style="z-index: 2;">
             </div>
-            <input type="hidden" name="txtImage" id="file" ">
+            <input type="hidden" name="txtImage" id="file" value="{{$menu->image}}">
             @error('txtImage')
             <span class="text-danger">{{$message}}</span>
             @enderror
@@ -104,6 +108,13 @@
                 }
             });
         });
+
+        // $('#productid').change(function(){
+
+        //     var productid = document.getElementById('productid').value;
+        //     document.getElementById('productIdConference').innerHTML = productid;
+
+        // })
     })
 </script>
 @endsection

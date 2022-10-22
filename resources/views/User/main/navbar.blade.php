@@ -1,11 +1,11 @@
-
 <style>
-  .navbar{
+  .navbar {
     /* position: fixed;
     z-index: 2; */
     width: 100%;
-    background-color: #5ea0aa ;
+    background-color: #5ea0aa;
   }
+
   .navbar-dark .navbar-nav .nav-link {
     color: rgb(219, 219, 219);
     font-size: 16px;
@@ -35,15 +35,16 @@
   }
 
   .dropdown-menu li a:hover {
-    background-color: #51635e46;
+    background-color: #427981;
     color: white
   }
+
 
   .icon {
     position: absolute;
     transform: rotate(0deg);
     transition: 0.4s;
-    right: 5px;
+    right: 20px;
     font-size: 11px;
     top: 10px;
 
@@ -76,8 +77,8 @@
     display: none;
     position: absolute;
     left: 100%;
-    top: 2px;
-    /* background-color: #444e4c; */
+    top: -9px;
+    background-color: #2c2c2c;
   }
 
   .dropdown-menu .dropdown-submenu-left {
@@ -85,33 +86,67 @@
     left: auto;
   }
 
+
+
   .dropdown-menu>li:hover>.dropdown-submenu {
-    display: block;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    background-color: #427981;
   }
+
+  .dropdown-submenu {
+    padding-top: 70px;
+    padding-bottom: 30px;
+    width: 500px;
+  
+  }
+
+  .dropdown-submenu li a {
+    font-size: 14px;
+    color: #bdbdbd;
+  }
+
+  .parentdropdown {
+    width: 300px;
+    padding-bottom: 100px;
+  }
+  .catename {
+    width: 100%;
+    text-align: center;
+    background-color: #2c2c2c1a;
+    position: absolute;
+    left: 50%;
+    top: 4%;
+    color: rgb(255, 255, 255);
+    transform: translate(-50%, -4%);
+  }
+
 
   @media only screen and (max-width: 1050px) {
     .offcanvas-body {
-      background-color: #2c2c2c;
+      background-color: #525252;
 
     }
-
+  
     .icon {
       transform: rotate(90deg);
       right: 20px;
     }
 
     .dropdown-menu {
+      width: 100%;
       background-color: rgba(77, 77, 77, 0);
       border: 1px solid rgba(78, 78, 78, 0.555);
     }
 
     .dropdown-menu .dropdown-submenu {
-      display: none;
+      /* display: none; */
       position: relative;
       left: 0px;
       top: 0px;
       border: none;
       border-top: 1px solid rgba(78, 78, 78, 0.555);
+
     }
 
     .dropdown-menu .dropdown-submenu li a {
@@ -121,7 +156,8 @@
 
 
     .dropdown-menu>li:hover>.dropdown-submenu {
-      display: block;
+      display: grid;
+      grid-template-columns: auto;
     }
 
   }
@@ -149,27 +185,32 @@
               aria-expanded="false">
               Furniture <i class="iconfur bi bi-caret-down-fill"></i>
             </a>
-            <ul class="dropdown-menu">
-              @foreach ($menu as $data)
-              <li>
-                <a class="rotateIcon dropdown-item fw-bolder" href="#">{{ $data->CategoryName }} <i
-                    class="icon bi bi-caret-right-fill"></i>
+            <ul class="parentdropdown dropdown-menu">
+              <h5 class="px-4  p-2"><a href="" class="text-decoration-none text-white-50"><i class="bi bi-shop pe-2"></i>Visit Furniture Store </a></h3>
+                @foreach ($menu as $data)
+                <li>
+                  <a class="rotateIcon dropdown-item fw-bolder pt-2 pb-2" href="#">{{ $data->CategoryName }} <i
+                      class="icon bi bi-caret-right-fill"></i>
                     <div>
                       {{-- <p style="font-size: 12px; font-weight: normal">{{ $data->Description }}</p> --}}
                     </div>
-                </a>
-              
-                <ul class="dropdown-menu dropdown-submenu">
-                  @foreach ($menuchild as $dataSub)
-                  @if ($data->id == $dataSub->category_id)
-                  <li>
-                    <a class="dropdown-item" href="">{{ $dataSub->product_name }}</a>
-                  </li>           
-                  @endif
-                  @endforeach
-                </ul>
-              </li>
-              @endforeach
+                  </a>
+
+                  <ul class="dropdown-menu dropdown-submenu">
+                    @foreach ($menuchild as $dataSub)
+
+                    @if ($data->id == $dataSub->category_id)
+                    <li>
+                      <a class="dropdown-item" href="">{{ $dataSub->product_name }}</a>
+                    </li>
+                    @endif
+                    @endforeach
+                    <div class="catename">
+                      <h4>{{ $data->CategoryName }}</h4>
+                    </div>
+                  </ul>
+                </li>
+                @endforeach
             </ul>
 
           </li>

@@ -38,20 +38,22 @@
         </div>
         <div class="row-cols-md pt-2">
             <label for="upload" class="form-label text-black">Image</label>
-            <input type="file" class="form-control shadow-none" name="txtImage" id="upload" onchange="loadFile(event)">
+            <input type="file" class="form-control shadow-none" name="txtImage" id="upload" onchange="loadFile(event)" value="{{ old('txtImage') }}">
             <div class="shadow-sm d-flex position-relative rounded border-0 mt-2" style="width: 100% ; height:280px;">
                 <span style="z-index: 1 ;" class="align-self-center text-black-50 position-absolute top-50 start-50 translate-middle fs-4">Image Review...</span>
-                <img class="w-100" class="p-1" id="output" style="z-index: 2;">
+                <img class="w-100" src="{{ old('txtImage') }}" class="p-1" id="output" style="z-index: 2;">
             </div>
-            <input type="hidden" name="txtImage" id="file">
+            <input type="hidden" name="txtImage" id="file" value="{{ old('txtImage') }}">
             @error('txtImage')
             <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
         <div class="row-cols-md">
             <label for="content" class="form-label text-black">Content</label>
-            <textarea class="form-control shadow-none" name="txtContent" id="content" cols="30" rows="5"></textarea>
-
+            <textarea class="form-control shadow-none" name="txtContent" id="content" cols="30" rows="5">{{ old('txtContent') }}</textarea>
+            @error('txtContent')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
         </div>
 
         <div class="py-2 d-flex">
