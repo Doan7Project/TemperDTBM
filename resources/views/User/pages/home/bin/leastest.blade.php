@@ -67,24 +67,20 @@
         position: absolute;
         left: 8%;
         top: 10%;
-        color: rgba(49, 145, 235, 0.952);
-
-
+        font-size: 20px;
+        color: rgba(22, 162, 204, 0.952);
     }
 
-    .icons ul li i:hover {
-        font-weight: bolder;
-        color: rgb(19, 173, 211);
-        transition: 0.4s ease-in-out;
-    }
-
+ 
     .cardStyle {
         background-color: rgba(233, 233, 233, 0.267);
     }
+
 </style>
+
 <section id="carouselExampleCaptions" class="carousel slide pb-3" data-bs-ride="false">
-    <div class="container  mb-5 bg-body rounded pt-5 pb-5">
-        <h3 class="mb-3 text-center"><i class="bi bi-award pe-2 text-success"></i>Leatest Products</h3>
+    <div class=" mb-5 bg-body rounded pt-5 pb-5">
+        <p class="mb-3 text-center fs-2"><i class="bi bi-award pe-2 text-success"></i>Leatest Products</p>
         <hr>
         <div class="carousel-indicators">
             <button id="no1" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
@@ -96,13 +92,16 @@
             <button id="no4" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
                 aria-label="Slide 4">Top</button>
         </div>
-        <div class="pt-5">
+        <div class="container pt-4">
             <div class="carousel-inner">
                 <div class="carousel-item active ">
                     <div class="row m-auto justify-content-center">
                         @foreach ($menuchild as $key => $data)
                         @if ($data->models == "New arrival" && $data->status == "Active")
                         <div class="cardStyle col-md-3 m-2 pt-2 px-2 card border-0">
+                            <div class="cover">
+
+                            </div>
                             <img class="img-fluid" alt="100%x280" src="{{ $data->images }}">
                             <div class="icons">
                                 <ul class="list-unstyled">
@@ -252,4 +251,14 @@
     </div>
     <hr>
     </div>
+    <footer class="text-muted py-5">
+        <div class="container">
+            <p class="float-end mb-1">
+                <a href="#">Back to top</a>
+            </p>
+            <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+            <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a
+                    href="/docs/5.2/getting-started/introduction/">getting started guide</a>.</p>
+        </div>
+    </footer>
 </section>

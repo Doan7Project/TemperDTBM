@@ -49,6 +49,21 @@ $arrmodels = [
         'id' => '7',
         'model' => 'Featured_2'
     ]
+    ,
+    [
+        'id' => '8',
+        'model' => 'popular_1'
+    ]
+    ,
+    [
+        'id' => '9',
+        'model' => 'popular_2'
+    ]
+    ,
+    [
+        'id' => '10',
+        'model' => 'popular_3'
+    ]
 ];
 
 $arrmade = [

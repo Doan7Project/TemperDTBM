@@ -307,8 +307,6 @@
                         <li>Made in: <span>{{ $menudetail->made_in }}</span></li>
                         @foreach ($menu as $data)
                         @if ($menudetail->category_id == $data->id)
-
-
                         <li>Category: <span>{{ $data->CategoryName }}</span></li>
                         @endif
                         @endforeach

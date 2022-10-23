@@ -45,6 +45,7 @@
     <div class="carousel-inner">
         <?php $count = 1?>
         @foreach ($slide as $key=> $data)
+        @if($data->status == "Active")
         <?php 
         if($count == 1):
         $var = "active";
@@ -64,6 +65,7 @@
             </div>
             <?php $count++?>
         </div>
+        @endif
         @endforeach
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"

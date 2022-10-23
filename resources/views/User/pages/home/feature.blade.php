@@ -1,11 +1,18 @@
 <style>
+  section {
+    position: relative;
+    margin-top: 90px;
+  }
+
   .imgstyle {
     cursor: pointer;
     position: relative;
+    overflow: hidden;
 
   }
 
   .card {
+    height: auto;
     transition: 0.4s;
     border: 1px solid rgb(238, 238, 238);
     position: relative;
@@ -13,12 +20,12 @@
   }
 
   .cover {
-    background-color: #62889e48;
+    background-color: #2423231e;
+
     position: absolute;
     width: 100%;
     height: 100%;
     opacity: 0;
-
   }
 
   .card:hover .cover {
@@ -28,40 +35,83 @@
   }
 
   .card:hover {
-    box-shadow: 0px 0px 10px 0px #e2e2e2;
-    /* transform: translateY(-3px); */
     transition: 0.4s;
-    cursor: pointer;
 
+
+  }
+
+  .card:hover img {
+    transform: scale(1.05);
+    transition: 0.4s ease-in-out;
   }
 
   .imgstyle .btn {
     position: absolute;
     left: 50%;
-    top:  100%;
+    top: 100%;
     transform: translate(-50%, -100%);
     border: none;
-    background-color: #2da9beb0;
+    background-color: transparent;
     border-radius: 5px;
-    color: white;
+    color: rgb(39, 131, 216);
     padding: 6px 10px;
     transition: 0.4s;
     opacity: 0;
   }
 
+
+
   .imgstyle .btn:hover {
-    background-color: #50a4aff6;
+    /* background-color: #50a4aff6; */
+    color: rgb(13, 87, 172);
   }
 
   .card:hover .btn {
     opacity: 1;
     z-index: 2;
   }
+
+  .boxLogo {
+    width: 140px;
+    height: auto;
+    position: absolute;
+    top: 0%;
+    left: 10%;
+    padding: 2px;
+  }
+
+  .cursor {
+    cursor: pointer;
+  }
+
+  .cursor:hover {
+    color: #4d9385;
+    transition: 0.4s ease-in-out;
+  }
+
+  .mymove {
+    position: relative;
+    animation: mymoves 2s infinite;
+    color: rgb(250, 250, 250);
+    font-size: 18px;
+  }
+
+  @keyframes mymoves {
+    from {
+      left: 0px;
+    }
+
+    to {
+      left: 20px;
+    }
+  }
 </style>
-<section class="pt-5 pb-2">
-  <div class="container shadow-sm p-3 mb-5 bg-body rounded">
-    <h3 class="mt-3 text-start fw-bolder">FEATURED PRODUCTS<i class="bi bi-award px-2 text-success"></i></h3>
-    <hr>
+
+<section class="pt-5 pb-3">
+  <div class=" p-3 mb-5 bg-body rounded">
+    <div class="boxLogo  rounded">
+      <img class="img-fluid" src="images/logochair.webp" alt="">
+    </div>
     <div class="row">
       <div class="text-right pe-4">
         <a class="btn btn-outline-secondary shadow-none mb-3 mr-1" href="#carouselExampleIndicators2" role="button"
@@ -74,104 +124,125 @@
         </a>
       </div>
       <!-- start -->
-      <div class="col-12">
+      <div class="col-lg-3">
+        <div class="shadow-none px-4 py-4">
+          <div class="cursor">
+            <span class="fs-5 fw-bolder">FEATURED PRODUCTS</span>
+            {{-- <span class="fs-5">Why we were are the best store</span> --}}
+            <p class="py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. In sint nostrum deleniti ipsa sunt
+              atque unde
+              est sapiente odit accusamus, ipsam suscipit soluta a quam, recusandae corporis reprehenderit. Eos, esse!
+            </p>
+            <div class="d-flex">
+              <div>
+                <a href="" class="text-decoration-none text-secondary">See all products</a>
+              </div>
+
+              <i class="mymove bi bi-arrow-right-short fw-bolder text-secondary"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9">
+
         <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             {{-- formain --}}
             <div class="carousel-item active">
-              <div class="row ">
+              <div class="row">
                 {{-- --repeat --}}
-      
-  
-                @foreach ($menuchild as $key => $data)                                
+                @foreach ($menuchild as $key => $data)
                 @if ($data->models == "Featured_1" && $data->status == "Active") <div class="col-md-3 mb-3">
-                  <div class="card">
+                  <div class="card shadow-none">
                     <div class="cover">
 
                     </div>
- 
+
                     <div class="imgstyle">
                       <img class="img-fluid" alt="100%x280" src="{{ $data->images }}">
 
-                      <a href="{{url("/orderdetail/{$data->id}")}}" class="btn btn-success shadow-none">View Detail</a>
+                      <a href="{{url("/orderdetail/{$data->id}")}}" class="btn btn-success shadow-none">Shopping now
+
+                      </a>
                     </div>
                     <div class="card-body text-center">
                       <div>
                         <ul class="list-unstyled">
                           <li>
-                            <span class="card-title fs-5" style="color: #505c59;">{{ $data->product_name }}</span>
+                            <h5>{{ $data->product_name }}</h5>
                           </li>
+
+                          @foreach ($menu as $dataCt)
+                          @if ($data->category_id == $dataCt->id)
+                          <li><small class="text-muted">{{ $dataCt->CategoryName }}</small></li>
+                          @endif
+                          @endforeach
                           <li>
-                            <span><i class="bi bi-dash fs-3" style="color: #4d9385;"></i></span>
-                            <span><i class="bi bi-dash fs-3" style="color: #e61cba;"></i></span>
-                            <span><i class="bi bi-dash fs-3" style="color: #e48416;"></i></span>
-                          </li>
-                          <li>
-                            <span class="fs-6" style="color: rgb(90, 90, 90)">{{ $data->product_code }}</span>
-                          </li>
-                          <li>
-                            <span class="fw-bolder fs-5" style="color: rgb(240, 109, 21)">${{ $data->price }}.00</span>
+                            <h6 class="fw-bolder fs-5" style="color: rgb(61, 61, 61)"><span
+                                class="fw-bolder-none fs-6">$</span>{{ $data->price }}<span
+                                class="fw-bolder-none fs-6">.00</span> </h6>
                           </li>
                         </ul>
                       </div>
                     </div>
                   </div>
-          
+
+                </div>
+
+                @endif
+                @endforeach
+                {{-- end repeat --}}
               </div>
-
-              @endif
-              @endforeach
-              {{-- end repeat --}}
             </div>
-          </div>
 
-          <div class="carousel-item">
-            <div class="row ">
-              @foreach ($menuchild as $key => $data)
-              @if ($data->models == "Featured_2" && $data->status == "Active") 
-              <div class="col-md-3 mb-3">
-                <div class="card">
-                  <div class="cover">
+            <div class="carousel-item">
+              <div class="row ">
+                @foreach ($menuchild as $key => $data)
+                @if ($data->models == "Featured_2" && $data->status == "Active")
+                <div class="col-md-3 mb-3">
+                  <div class="card">
+                    <div class="cover">
 
-                  </div>
-     
-                  <div class="imgstyle">
-                    <img class="img-fluid" alt="100%x280" src="{{ $data->images }}">
-                    <a href="{{url("/orderdetail/{$data->id}")}}" class="btn btn-success shadow-none">View Detail</a>
-                  </div>
-                  <div class="card-body text-center">
-                    <div>
-                      <ul class="list-unstyled">
-                        <li>
-                          <span class="card-title fs-5" style="color: #505c59;">{{ $data->product_name }}</span>
-                        </li>
-                        <li>
-                          <span><i class="bi bi-dash fs-3" style="color: #4d9385;"></i></span>
-                          <span><i class="bi bi-dash fs-3" style="color: #e61cba;"></i></span>
-                          <span><i class="bi bi-dash fs-3" style="color: #e48416;"></i></span>
-                        </li>
-                        <li>
-                          <span class="fs-6" style="color: rgb(90, 90, 90)">{{ $data->product_code }}</span>
-                        </li>
-                        <li>
-                          <span class="fw-bolder fs-5" style="color: rgb(240, 109, 21)">${{ $data->price }}</span>
-                        </li>
-                      </ul>
+                    </div>
+
+                    <div class="imgstyle">
+                      <img class="img-fluid" alt="100%x280" src="{{ $data->images }}">
+                      <a href="{{url("/orderdetail/{$data->id}")}}" class="btn btn-success shadow-none">Shopping Now</a>
+                    </div>
+                    <div class="card-body text-center">
+                      <div>
+                        <ul class="list-unstyled">
+                          <li>
+                            <h5>{{ $data->product_name }}</h5>
+                          </li>
+                          <li>
+                          </li>
+                          @foreach ($menu as $dataCt)
+                          @if ($data->category_id == $dataCt->id)
+                          <li><small class="text-muted">{{ $dataCt->CategoryName }}</small></li>
+                          @endif
+                          @endforeach
+                          <li>
+                            <h6 class="fw-bolder fs-5" style="color: rgb(61, 61, 61)"><span
+                                class="fw-bolder-none fs-6">$</span>{{ $data->price }}<span
+                                class="fw-bolder-none fs-6">.00</span> </h6>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
+
+                @endif
+                @endforeach
+                {{-- end repeat --}}
               </div>
-
-              @endif
-              @endforeach
-              {{-- end repeat --}}
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
   </div>
   </div>
