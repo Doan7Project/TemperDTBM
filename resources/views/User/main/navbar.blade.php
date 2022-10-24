@@ -186,7 +186,7 @@
               Furniture <i class="iconfur bi bi-caret-down-fill"></i>
             </a>
             <ul class="parentdropdown dropdown-menu">
-              <h5 class="px-4  p-2"><a href="" class="text-decoration-none text-white-50"><i class="bi bi-shop pe-2"></i>Visit Furniture Store </a></h3>
+              <h5 class="px-4  p-2"><a href="{{ url('/product') }}" class="text-decoration-none text-white-50"><i class="bi bi-shop pe-2"></i>Visit Furniture Store </a></h3>
                 @foreach ($menu as $data)
                 <li>
                   <a class="rotateIcon dropdown-item fw-bolder pt-2 pb-2" href="#">{{ $data->CategoryName }} <i
@@ -239,7 +239,7 @@
               <ul class="dropdown-menu dropbgcolor">
                 <li><a class="dropdown-item" href="{{ url('/account') }}"><i class="bi bi-person pe-1"></i>Account
                     detail</a></li>
-                <li><a class="dropdown-item" href="{{ url('/orders') }}"><i class="bi bi-cart pe-1"></i>Orders</a></li>
+                <li><a class="dropdown-item" href="{{ url('/order') }}"><i class="bi bi-cart pe-1"></i>Orders</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>

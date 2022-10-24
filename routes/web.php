@@ -172,6 +172,7 @@ Route::controller(UserRegisterController::class)->group(function () {
 Route::controller(CartController::class)->group(function () {
 
     route::get('/cart', 'cart');
+    route::get('/order', 'order');
     route::get('/orderdetail/{data}','orderdetail');
 });
 # 8 Account
