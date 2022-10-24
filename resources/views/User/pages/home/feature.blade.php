@@ -72,7 +72,7 @@
   }
 
   .boxLogo {
-    width: 140px;
+    width: 100px;
     height: auto;
     position: absolute;
     top: 0%;
@@ -110,7 +110,7 @@
 <section class="pt-5 pb-3">
   <div class=" p-3 mb-5 bg-body rounded">
     <div class="boxLogo  rounded">
-      <img class="img-fluid" src="images/logochair.webp" alt="">
+      <img class="img-fluid" src="images/1390.webp" alt="">
     </div>
     <div class="row">
       <div class="text-right pe-4">

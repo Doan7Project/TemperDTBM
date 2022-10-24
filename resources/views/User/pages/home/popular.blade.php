@@ -68,7 +68,7 @@
 
     .boxcard1 {
         transform: translateY(15%);
-        background-color: rgb(93, 204, 255);
+        background-color: rgb(43, 225, 238);
     }
 
     .boxcard2 {
