@@ -74,11 +74,30 @@
   }
 
   .dropdown-menu .dropdown-submenu {
-    display: none;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    background-color: #1c6f7cc5;
     position: absolute;
+    height: 300px;
+    left: 110%;
+    top: -40%;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 450px;
+  }
+
+  .dropdown-menu .dropdown-submenu li a {
+    background-color: transparent;
+  }
+
+  .dropdown-menu>li:hover>.dropdown-submenu {
     left: 100%;
-    top: -9px;
-    background-color: #2c2c2c;
+    opacity: 1;
+    visibility: visible;
+    transition: 0.4s;
   }
 
   .dropdown-menu .dropdown-submenu-left {
@@ -88,18 +107,8 @@
 
 
 
-  .dropdown-menu>li:hover>.dropdown-submenu {
-    display: grid;
-    grid-template-columns: 0.5fr 1fr;
-    background-color: #427981;
-  }
 
-  .dropdown-submenu {
-    padding-top: 70px;
-    padding-bottom: 30px;
-    width: 500px;
-  
-  }
+  .dropdown-submenu {}
 
   .dropdown-submenu li a {
     font-size: 14px;
@@ -109,7 +118,9 @@
   .parentdropdown {
     width: 300px;
     padding-bottom: 100px;
+    position: relative;
   }
+
   .catename {
     width: 100%;
     text-align: center;
@@ -127,7 +138,7 @@
       background-color: #525252;
 
     }
-  
+
     .icon {
       transform: rotate(90deg);
       right: 20px;
@@ -140,12 +151,19 @@
     }
 
     .dropdown-menu .dropdown-submenu {
-      /* display: none; */
+      width: 100%;
+      height: auto;
+      display: none;
       position: relative;
       left: 0px;
       top: 0px;
       border: none;
       border-top: 1px solid rgba(78, 78, 78, 0.555);
+
+    }
+
+    .dropdown-menu>li:hover>.dropdown-submenu {
+      left: 0%;
 
     }
 
@@ -158,6 +176,7 @@
     .dropdown-menu>li:hover>.dropdown-submenu {
       display: grid;
       grid-template-columns: auto;
+
     }
 
   }
@@ -186,7 +205,8 @@
               Furniture <i class="iconfur bi bi-caret-down-fill"></i>
             </a>
             <ul class="parentdropdown dropdown-menu">
-              <h5 class="px-4  p-2"><a href="{{ url('/product') }}" class="text-decoration-none text-white-50"><i class="bi bi-shop pe-2"></i>Visit Furniture Store </a></h3>
+              <h5 class="px-4  p-2"><a href="{{ url('/product') }}" class="text-decoration-none text-white-50"><i
+                    class="bi bi-shop pe-2"></i>Visit Furniture Store </a></h3>
                 @foreach ($menu as $data)
                 <li>
                   <a class="rotateIcon dropdown-item fw-bolder pt-2 pb-2" href="#">{{ $data->CategoryName }} <i
@@ -197,17 +217,24 @@
                   </a>
 
                   <ul class="dropdown-menu dropdown-submenu">
+                    <?php $count = 1?>
                     @foreach ($menuchild as $dataSub)
+                    @if ($data->id == $dataSub->category_id && $count <= 10) <?php $count++?>
+                      <li>
+                        <a class="dropdown-item" href="">{{ $dataSub->product_name }}</a>
+                      </li>
 
-                    @if ($data->id == $dataSub->category_id)
-                    <li>
-                      <a class="dropdown-item" href="">{{ $dataSub->product_name }}</a>
-                    </li>
-                    @endif
-                    @endforeach
-                    <div class="catename">
-                      <h4>{{ $data->CategoryName }}</h4>
-                    </div>
+                      @endif
+                      @endforeach
+                      @if($count >= 10)
+
+                      <a class="px-4 bg-transparent" href="">More...</a>
+
+                      @else
+
+                      <a href=""></a>
+
+                      @endif
                   </ul>
                 </li>
                 @endforeach
