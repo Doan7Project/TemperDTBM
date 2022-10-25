@@ -20,7 +20,7 @@
   }
 
   .cover {
-    background-color: #2423231e;
+    background-color: #158fb41e;
 
     position: absolute;
     width: 100%;
@@ -110,7 +110,7 @@
 <section class="pt-5 pb-3">
   <div class=" p-3 mb-5 bg-body rounded">
     <div class="boxLogo  rounded">
-      <img class="img-fluid" src="images/1390.webp" alt="">
+      <img style="width:130px; "  src="images/mim.png" alt="">
     </div>
     <div class="row">
       <div class="text-right pe-4">

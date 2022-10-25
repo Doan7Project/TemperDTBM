@@ -223,7 +223,7 @@
         }
 
         .card-wrapper {
-            height: 100vh;
+            /* height: 100vh; */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -320,6 +320,7 @@
                 <button type="button" class="btn btn-primary">
                     Add to Cart <i class="bi bi-cart-fill"></i>
                 </button>
+                {{-- <h1>{{ $productdetail->id }}</h1> --}}
                 <input type="number" min="0" value="1">
             </div>
 

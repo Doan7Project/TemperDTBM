@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\User\AboutController as UserAboutController;
 use App\Http\Controllers\User\AccountController;
 use App\Http\Controllers\User\CartController;
+use App\Http\Controllers\User\ClearSessionController;
 use App\Http\Controllers\User\ContactController as UserContactController;
 use App\Http\Controllers\User\DropListController;
 use App\Http\Controllers\User\FeedbackController as UserFeedbackController;
@@ -139,7 +140,7 @@ Route::controller(FeedbackController::class)->group(function () {
 ## Droplist
 
 Route::controller(NavbarController::class)->group(function(){
-Route::get('link/{id}','link');
+Route::get('link/{data}','link');
 
 });
 #1 Home
@@ -190,5 +191,10 @@ Route::controller(AccountController::class)->group(function () {
 # 9 Product
 Route::controller(UserProductController::class)->group(function () {
 
-    route::get('/product', 'product');
+    route::get('/product', 'product')->name('product');
+});
+# Clear Session
+Route::controller(ClearSessionController::class)->group(function () {
+
+    route::get('/clearsession', 'clearsession');
 });
