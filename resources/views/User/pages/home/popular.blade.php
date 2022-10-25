@@ -139,15 +139,15 @@
 
             </div>
             <div class="boxout">
-                @foreach ($menuchild as $key => $data)
-                @if ($data->models == "popular_1" && $data->status == "Active")
+                @foreach ($product as $key => $products)
+                @if ($products->models == "popular_1" && $products->status == "Active")
                 <div id="boxcard1" class="boxcard1 shadow-none card bg-gradient">
                     <div>
-                        <img class="img-fluid" src="{{ $data->images }}" alt="">
+                        <img class="img-fluid" src="{{ $products->images }}" alt="">
                     </div>
                     <div class="boxcontent pt-3 px-4">
-                        <h4>{{ $data->product_name }}</h4>
-                        <p class="text-justify">{{ $data->description }}</p>
+                        <h4>{{ $products->product_name }}</h4>
+                        <p class="text-justify">{{ $products->description }}</p>
                         <div class="d-flex">
                             <div>
                                 <a href="">Continue to shopping</a>
@@ -159,15 +159,15 @@
                 </div>
                 @endif
                 @endforeach
-                @foreach ($menuchild as $key => $data)
-                @if ($data->models == "popular_2" && $data->status == "Active")
+                @foreach ($product as $key => $products)
+                @if ($products->models == "popular_2" && $products->status == "Active")
                 <div id="boxcard2" class="boxcard2 shadow-none card bg-gradient">
                     <div>
-                        <img class="img-fluid" src="{{ $data->images }}" alt="">
+                        <img class="img-fluid" src="{{ $products->images }}" alt="">
                     </div>
                     <div class="boxcontent pt-3 px-4">
-                        <h4>{{ $data->product_name }}</h4>
-                        <p class="text-justify">{{$data->description}}</p>
+                        <h4>{{ $products->product_name }}</h4>
+                        <p class="text-justify">{{$products->description}}</p>
                         <div class="d-flex">
                             <div>
                                 <a href="">Continue to shopping</a>
@@ -179,15 +179,15 @@
                 </div>
                 @endif
                 @endforeach
-                @foreach ($menuchild as $key => $data)
-                @if ($data->models == "popular_3" && $data->status == "Active")
+                @foreach ($product as $key => $products)
+                @if ($products->models == "popular_3" && $products->status == "Active")
                 <div id="boxcard3" class="boxcard3 shadow-none card bg-gradient">
                     <div>
-                        <img class="img-fluid" src="{{ $data->images }}" alt="">
+                        <img class="img-fluid" src="{{ $products->images }}" alt="">
                     </div>
                     <div class="boxcontent pt-3 px-4">
-                        <h4>{{ $data->product_name }}</h4>
-                        <p class="text-justify">{{ $data->description }}</p>
+                        <h4>{{ $products->product_name }}</h4>
+                        <p class="text-justify">{{ $products->description }}</p>
                         <div class="d-flex">
                             <div>
                                 <a href="">Continue to shopping</a>

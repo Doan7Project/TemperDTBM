@@ -16,8 +16,7 @@ class AboutController extends Controller
     }
     public function about(){
         return view('User.pages.about.about',[        
-            'menu'=>$this->productservice->getCategoryName(),
-            'menuchild'=>$this->productservice->getAll(),
+            'category'=>$this->productservice->getCategoryName(),
            ]);
     }
 }

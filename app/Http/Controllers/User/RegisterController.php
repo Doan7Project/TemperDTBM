@@ -16,8 +16,7 @@ class RegisterController extends Controller
     }
     public function register(){
         return view('User.pages.register.register',[        
-            'menu'=>$this->productservice->getCategoryName(),
-            'menuchild'=>$this->productservice->getAll(),
+            'category'=>$this->productservice->getCategoryName(),
            ]);
     }
 

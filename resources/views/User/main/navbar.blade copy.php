@@ -69,11 +69,56 @@
 
   .navbar-nav .dropdown-menu {
     position: static;
-    width: 300px;
-    padding-bottom: 100px;
     top: 122%;
     float: none;
-    background-color: #31727cc7;
+  }
+
+  .dropdown-menu .dropdown-submenu {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    background-color: #1c6f7cc5;
+    position: absolute;
+    height: 300px;
+    left: 110%;
+    top: -40%;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 450px;
+  }
+
+  .dropdown-menu .dropdown-submenu li a {
+    background-color: transparent;
+  }
+
+  .dropdown-menu>li:hover>.dropdown-submenu {
+    left: 100%;
+    opacity: 1;
+    visibility: visible;
+    transition: 0.4s;
+  }
+
+  .dropdown-menu .dropdown-submenu-left {
+    right: 100%;
+    left: auto;
+  }
+
+
+
+
+  .dropdown-submenu {}
+
+  .dropdown-submenu li a {
+    font-size: 14px;
+    color: #bdbdbd;
+  }
+
+  .parentdropdown {
+    width: 300px;
+    padding-bottom: 100px;
+    position: relative;
   }
 
   .catename {
@@ -162,10 +207,35 @@
             <ul class="parentdropdown dropdown-menu">
               <h5 class="px-4  p-2"><a href="{{ url('/product') }}" class="text-decoration-none text-white-50"><i
                     class="bi bi-shop pe-2"></i>Visit Furniture Store </a></h3>
-                @foreach ($category as $data)
+                @foreach ($menu as $data)
                 <li>
-                  <a class="rotateIcon dropdown-item   pt-2 pb-2" href="{{ url("link/{$data->id}") }}">{{ $data->CategoryName }} 
+                  <a class="rotateIcon dropdown-item fw-bolder pt-2 pb-2" href="#">{{ $data->CategoryName }} <i
+                      class="icon bi bi-caret-right-fill"></i>
+                    <div>
+                      {{-- <p style="font-size: 12px; font-weight: normal">{{ $data->Description }}</p> --}}
+                    </div>
                   </a>
+
+                  <ul class="dropdown-menu dropdown-submenu">
+                    <?php $count = 1?>
+                    @foreach ($menuchild as $dataSub)
+                    @if ($data->id == $dataSub->category_id && $count <= 10) <?php $count++?>
+                      <li>
+                        <a class="dropdown-item" href="">{{ $dataSub->product_name }}</a>
+                      </li>
+
+                      @endif
+                      @endforeach
+                      @if($count >= 10)
+
+                      <a class="px-4 bg-transparent" href="">More...</a>
+
+                      @else
+
+                      <a href=""></a>
+
+                      @endif
+                  </ul>
                 </li>
                 @endforeach
             </ul>

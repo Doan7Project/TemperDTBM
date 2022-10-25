@@ -20,10 +20,13 @@ class HomeController extends Controller
     public function index(){
 
         return view('User.pages.home.index',[        
-            'menu'=>$this->productservice->getCategoryName(),
-            'menuchild'=>$this->productservice->getAll(),
+            'category'=>$this->productservice->getCategoryName(),
+            'product'=>$this->productservice->getAll(),
             'slide'=>$this->slideservice->getAll(),
            ]);
     }
+
+
+    
 
 }

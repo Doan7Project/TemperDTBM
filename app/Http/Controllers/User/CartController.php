@@ -20,25 +20,23 @@ class CartController extends Controller
     public function cart()
     {
         return view('User.pages.cart.cart', [
-            'menu' => $this->productservice->getCategoryName(),
-            'menuchild' => $this->productservice->getAll(),
+            'category' => $this->productservice->getCategoryName(),
+
         ]);
     }
     public function order()
     {
         return view('User.pages.cart.order', [
-            'menu' => $this->productservice->getCategoryName(),
-            'menuchild' => $this->productservice->getAll(),
+            'category' => $this->productservice->getCategoryName(),
         ]);
     }
     public function orderdetail(Product $data)
     {
         return view('User.pages.cart.detail', [
-
             'title' => 'Detailed Product',
-            'menudetail' => $data,
-            'menu' => $this->productservice->getCategoryName(),
-            'menuchild' => $this->productservice->getAll(),
+            'productdetail' => $data,
+            'category' => $this->productservice->getCategoryName(),
+            'product' => $this->productservice->getAll(),
             'imagedata' => $this->imagepdservice->getAll(),
         ]);
     }

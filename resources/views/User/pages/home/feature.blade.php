@@ -151,17 +151,17 @@
             <div class="carousel-item active">
               <div class="row">
                 {{-- --repeat --}}
-                @foreach ($menuchild as $key => $data)
-                @if ($data->models == "Featured_1" && $data->status == "Active") <div class="col-md-3 mb-3">
+                @foreach ($product as $key => $products)
+                @if ($products->models == "Featured_1" && $products->status == "Active") <div class="col-md-3 mb-3">
                   <div class="card shadow-none">
                     <div class="cover">
 
                     </div>
 
                     <div class="imgstyle">
-                      <img class="img-fluid" alt="100%x280" src="{{ $data->images }}">
+                      <img class="img-fluid" alt="100%x280" src="{{ $products->images }}">
 
-                      <a href="{{url("/orderdetail/{$data->id}")}}" class="btn btn-success shadow-none">Shopping now
+                      <a href="{{url("/orderdetail/{$products->id}")}}" class="btn btn-success shadow-none">Shopping now
 
                       </a>
                     </div>
@@ -169,17 +169,17 @@
                       <div>
                         <ul class="list-unstyled">
                           <li>
-                            <h5>{{ $data->product_name }}</h5>
+                            <h5>{{ $products->product_name }}</h5>
                           </li>
 
-                          @foreach ($menu as $dataCt)
-                          @if ($data->category_id == $dataCt->id)
-                          <li><small class="text-muted">{{ $dataCt->CategoryName }}</small></li>
+                          @foreach ($category as $categorys)
+                          @if ($products->category_id == $categorys->id)
+                          <li><small class="text-muted">{{ $categorys->CategoryName }}</small></li>
                           @endif
                           @endforeach
                           <li>
                             <h6 class="fw-bolder fs-5" style="color: rgb(61, 61, 61)"><span
-                                class="fw-bolder-none fs-6">$</span>{{ $data->price }}<span
+                                class="fw-bolder-none fs-6">$</span>{{ $products->price }}<span
                                 class="fw-bolder-none fs-6">.00</span> </h6>
                           </li>
                         </ul>
@@ -197,8 +197,8 @@
 
             <div class="carousel-item">
               <div class="row ">
-                @foreach ($menuchild as $key => $data)
-                @if ($data->models == "Featured_2" && $data->status == "Active")
+                @foreach ($product as $key => $products)
+                @if ($products->models == "Featured_2" && $products->status == "Active")
                 <div class="col-md-3 mb-3">
                   <div class="card">
                     <div class="cover">
@@ -206,25 +206,25 @@
                     </div>
 
                     <div class="imgstyle">
-                      <img class="img-fluid" alt="100%x280" src="{{ $data->images }}">
-                      <a href="{{url("/orderdetail/{$data->id}")}}" class="btn btn-success shadow-none">Shopping Now</a>
+                      <img class="img-fluid" alt="100%x280" src="{{ $products->images }}">
+                      <a href="{{url("/orderdetail/{$products->id}")}}" class="btn btn-success shadow-none">Shopping Now</a>
                     </div>
                     <div class="card-body text-center">
                       <div>
                         <ul class="list-unstyled">
                           <li>
-                            <h5>{{ $data->product_name }}</h5>
+                            <h5>{{ $products->product_name }}</h5>
                           </li>
                           <li>
                           </li>
-                          @foreach ($menu as $dataCt)
-                          @if ($data->category_id == $dataCt->id)
-                          <li><small class="text-muted">{{ $dataCt->CategoryName }}</small></li>
+                          @foreach ($category as $categorys)
+                          @if ($products->category_id == $categorys->id)
+                          <li><small class="text-muted">{{ $categorys->CategoryName }}</small></li>
                           @endif
                           @endforeach
                           <li>
                             <h6 class="fw-bolder fs-5" style="color: rgb(61, 61, 61)"><span
-                                class="fw-bolder-none fs-6">$</span>{{ $data->price }}<span
+                                class="fw-bolder-none fs-6">$</span>{{ $products->price }}<span
                                 class="fw-bolder-none fs-6">.00</span> </h6>
                           </li>
                         </ul>

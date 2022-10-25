@@ -21,6 +21,7 @@ use App\Http\Controllers\User\DropListController;
 use App\Http\Controllers\User\FeedbackController as UserFeedbackController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\LoginController as UserLoginController;
+use App\Http\Controllers\User\NavbarController;
 use App\Http\Controllers\User\ProductController as UserProductController;
 use App\Http\Controllers\User\RegisterController as UserRegisterController;
 use Illuminate\Routing\Router;
@@ -135,6 +136,12 @@ Route::controller(FeedbackController::class)->group(function () {
 });
 
 # II User---------------------------------------
+## Droplist
+
+Route::controller(NavbarController::class)->group(function(){
+Route::get('link/{id}','link');
+
+});
 #1 Home
 Route::controller(HomeController::class)->group(function () {
 

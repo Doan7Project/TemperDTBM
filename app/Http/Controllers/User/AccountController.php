@@ -16,8 +16,7 @@ class AccountController extends Controller
     }
     public function account(){
         return view('User.pages.account.account',[        
-            'menu'=>$this->productservice->getCategoryName(),
-            'menuchild'=>$this->productservice->getAll(),
+            'category'=>$this->productservice->getCategoryName(),
            ]);
     }
 

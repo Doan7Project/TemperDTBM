@@ -16,8 +16,7 @@ class LoginController extends Controller
     }
     public function login(){
         return view('User.pages.login.login',[        
-            'menu'=>$this->productservice->getCategoryName(),
-            'menuchild'=>$this->productservice->getAll(),
+            'category'=>$this->productservice->getCategoryName(),
            ]);
     }
 

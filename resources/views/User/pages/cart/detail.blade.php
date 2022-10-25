@@ -247,11 +247,11 @@
             <div class="img-display">
                 <div class="img-showcase">
                     <?php $count=1?>
-                    <img src="{{ $menudetail->images }}" alt="shoe image">
-                    @foreach ($imagedata as $data)
-                    @if ($data->product_id == $menudetail->product_code)
+                    <img src="{{ $productdetail->images }}" alt="shoe image">
+                    @foreach ($imagedata as $imagedatas)
+                    @if ($imagedatas->product_id == $productdetail->product_code)
                     <?php $count++?>
-                    <img src="{{ $data->image }}" alt="shoe image">
+                    <img src="{{ $imagedatas->image }}" alt="shoe image">
                     @endif
                     @endforeach
                 </div>
@@ -260,23 +260,23 @@
                 @if ($count>1)
                 <div class="img-item">
                     <a href="#" data-id="1">
-                        <img class="img-fluid" src="{{ $menudetail->images }}" alt="shoe image">
+                        <img class="img-fluid" src="{{ $productdetail->images }}" alt="shoe image">
                     </a>
                 </div>
                 @else
                 <div class="img-item d-none">
                     <a href="#" data-id="1">
-                        <img class="img-fluid" src="{{ $menudetail->images }}" alt="shoe image">
+                        <img class="img-fluid" src="{{ $productdetail->images }}" alt="shoe image">
                     </a>
                 </div>
                 @endif
                 <?php $i=1?>
-                @foreach ($imagedata as $key=> $data)
-                @if ($data->product_id == $menudetail->product_code)
+                @foreach ($imagedata as $key=> $imagedatas)
+                @if ($imagedatas->product_id == $productdetail->product_code)
                 <?php $i++ ?>
                 <div class="img-item">
                     <a href="#" data-id="<?= $i ?>">
-                        <img class="img-fluid" src="{{ $data->image  }}" alt="shoe image">
+                        <img class="img-fluid" src="{{ $imagedatas->image  }}" alt="shoe image">
                     </a>
                 </div>
                 @endif
@@ -285,7 +285,7 @@
         </div>
         <!-- card right -->
         <div class="product-content">
-            <h2 class="product-title">{{ $menudetail->product_name }}</h2>
+            <h2 class="product-title">{{ $productdetail->product_name }}</h2>
             <a href="#" class="product-link py-1 px-4 rounded btn btn-primary">visit furniture store</a>
             <div class="product-rating">
 
@@ -297,20 +297,20 @@
                 <span>4.7(21)</span>
             </div>
             <div class="product-price">
-                <p class="new-price">New Price: <span>${{ $menudetail->price }}</span></p>
+                <p class="new-price">New Price: <span>${{ $productdetail->price }}</span></p>
             </div>
             <div class="product-detail">
                 <h3>Product Information </h2>
-                    <p>{{ $menudetail->content }}</p>
-                    <div>{{ $menudetail->description }}</div>
+                    <p>{{ $productdetail->content }}</p>
+                    <div>{{ $productdetail->description }}</div>
                     <ul>
-                        <li>Made in: <span>{{ $menudetail->made_in }}</span></li>
-                        @foreach ($menu as $data)
-                        @if ($menudetail->category_id == $data->id)
-                        <li>Category: <span>{{ $data->CategoryName }}</span></li>
+                        <li>Made in: <span>{{ $productdetail->made_in }}</span></li>
+                        @foreach ($category as $categorys)
+                        @if ($productdetail->category_id == $categorys->id)
+                        <li>Category: <span>{{ $categorys->CategoryName }}</span></li>
                         @endif
                         @endforeach
-                        <li>Product Code: <span>{{ $menudetail->product_code }}</span></li>
+                        <li>Product Code: <span>{{ $productdetail->product_code }}</span></li>
                         <li>Shipping Area: <span>All over the world</span></li>
                     </ul>
             </div>

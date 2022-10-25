@@ -16,8 +16,7 @@ class ContactController extends Controller
     }
     public function contact(){
         return view('User.pages.contact.contact',[        
-            'menu'=>$this->productservice->getCategoryName(),
-            'menuchild'=>$this->productservice->getAll(),
+            'category'=>$this->productservice->getCategoryName(),
         ]);
     }
 }

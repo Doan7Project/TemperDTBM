@@ -16,8 +16,7 @@ class FeedbackController extends Controller
     }
     public function feedback(){
         return view('User.pages.feedback.feedback',[        
-            'menu'=>$this->productservice->getCategoryName(),
-            'menuchild'=>$this->productservice->getAll(),
+            'category'=>$this->productservice->getCategoryName(),
            ]);
     }
 }

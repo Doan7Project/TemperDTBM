@@ -12,7 +12,6 @@
     <div>
         @include('User.pages.home.slide')
     </div>
-    <!-- feature -->
     <div>
         @include('User.pages.home.feature')
     </div>
@@ -20,9 +19,6 @@
         @include('User.pages.home.popular')
     </div>
     <div class="line bg-gradient"></div>
-    <div>
-        {{-- @include('User.pages.home.leastest') --}}
-    </div>
     <div>
         @include('User.pages.home.latest')
     </div>

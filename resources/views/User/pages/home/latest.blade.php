@@ -69,28 +69,28 @@
     <div class="carousel-inner">
         <div id="slide1" class="carousel-item active" data-bs-interval="10000">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                @foreach ($menuchild as $key => $data)
-                @if ($data->models == "New arrival" && $data->status == "Active")
+                @foreach ($product as $key => $products)
+                @if ($products->models == "New arrival" && $products->status == "Active")
                 <div class="col-lg-3">
                     <div class="card shadow-sm">
                         <div class="cover">
 
                         </div>
                         <div class="boximge">
-                            <img class="img-fluid" src="{{ $data->images }}" alt="">
+                            <img class="img-fluid" src="{{ $products->images }}" alt="">
                         </div>
                         <div class="card-body">
-                            <h5>{{ $data->product_name }}</h5>
-                            @foreach ($menu as $dataCt)
-                            @if ($data->category_id == $dataCt->id)
-                            <small class="text-muted">{{ $dataCt->CategoryName }}</small>
+                            <h5>{{ $products->product_name }}</h5>
+                            @foreach ($category as $categorys)
+                            @if ($products->category_id == $categorys->id)
+                            <small class="text-muted">{{ $categorys->CategoryName }}</small>
                             @endif
                             @endforeach
                             <div class="d-flex justify-content-between align-items-center pt-3">
                                 <div class="btn-group">
-                                    <a href="{{url("/orderdetail/{$data->id}")}}" class="btn btn-sm btn-outline-secondary">Shopping Now</a>
+                                    <a href="{{url("/orderdetail/{$products->id}")}}" class="btn btn-sm btn-outline-secondary">Shopping Now</a>
                                 </div>
-                                <small class="">${{ $data->price }}.00</small>
+                                <small class="">${{ $products->price }}.00</small>
                             </div>
                         </div>
                     </div>
@@ -101,28 +101,28 @@
         </div>
         <div id="slide2" class="carousel-item" data-bs-interval="2000">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                @foreach ($menuchild as $key => $data)
-                @if ($data->models == "Trending" && $data->status == "Active")
+                @foreach ($product as $key => $products)
+                @if ($products->models == "Trending" && $products->status == "Active")
                 <div class="col-lg-3">
                     <div class="card shadow-sm">
                         <div class="cover">
 
                         </div>
                         <div class="boximge">
-                            <img class="img-fluid" src="{{ $data->images }}" alt="">
+                            <img class="img-fluid" src="{{ $products->images }}" alt="">
                         </div>
                         <div class="card-body">
-                            <h5>{{ $data->product_name }}</h5>
-                            @foreach ($menu as $dataCt)
-                            @if ($data->category_id == $dataCt->id)
-                            <small class="text-muted">{{ $dataCt->CategoryName }}</small>
+                            <h5>{{ $products->product_name }}</h5>
+                            @foreach ($category as $categorys)
+                            @if ($products->category_id == $categorys->id)
+                            <small class="text-muted">{{ $categorys->CategoryName }}</small>
                             @endif
                             @endforeach
                             <div class="d-flex justify-content-between align-items-center pt-3">
                                 <div class="btn-group">
-                                    <a href="{{url("/orderdetail/{$data->id}")}}" class="btn btn-sm btn-outline-secondary">Shopping Now</a>
+                                    <a href="{{url("/orderdetail/{$products->id}")}}" class="btn btn-sm btn-outline-secondary">Shopping Now</a>
                                 </div>
-                                <small class="">${{ $data->price }}.00</small>
+                                <small class="">${{ $products->price }}.00</small>
                             </div>
                         </div>
                     </div>
@@ -133,28 +133,28 @@
         </div>
         <div id="slide3" class="carousel-item">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                @foreach ($menuchild as $key => $data)
-                @if ($data->models == "Featured" && $data->status == "Active")
+                @foreach ($product as $key => $products)
+                @if ($products->models == "Featured" && $products->status == "Active")
                 <div class="col-lg-3">
                     <div class="card shadow-sm">
                         <div class="cover">
 
                         </div>
                         <div class="boximge">
-                            <img class="img-fluid" src="{{ $data->images }}" alt="">
+                            <img class="img-fluid" src="{{ $products->images }}" alt="">
                         </div>
                         <div class="card-body">
-                            <h5>{{ $data->product_name }}</h5>
-                            @foreach ($menu as $dataCt)
-                            @if ($data->category_id == $dataCt->id)
-                            <small class="text-muted">{{ $dataCt->CategoryName }}</small>
+                            <h5>{{ $products->product_name }}</h5>
+                            @foreach ($category as $categorys)
+                            @if ($products->category_id == $categorys->id)
+                            <small class="text-muted">{{ $categorys->CategoryName }}</small>
                             @endif
                             @endforeach
                             <div class="d-flex justify-content-between align-items-center pt-3">
                                 <div class="btn-group">
-                                    <a href="{{url("/orderdetail/{$data->id}")}}" class="btn btn-sm btn-outline-secondary">Shopping Now</a>
+                                    <a href="{{url("/orderdetail/{$products->id}")}}" class="btn btn-sm btn-outline-secondary">Shopping Now</a>
                                 </div>
-                                <small class="">${{ $data->price }}.00</small>
+                                <small class="">${{ $products->price }}.00</small>
                             </div>
                         </div>
                     </div>
@@ -165,28 +165,28 @@
         </div>
         <div id="slide3" class="carousel-item">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                @foreach ($menuchild as $key => $data)
-                @if ($data->models == "Top" && $data->status == "Active")
+                @foreach ($product as $key => $products)
+                @if ($products->models == "Top" && $products->status == "Active")
                 <div class="col-lg-3">
                     <div class="card shadow-sm">
                         <div class="cover">
 
                         </div>
                         <div class="boximge">
-                            <img class="img-fluid" src="{{ $data->images }}" alt="">
+                            <img class="img-fluid" src="{{ $products->images }}" alt="">
                         </div>
                         <div class="card-body">
-                            <h5>{{ $data->product_name }}</h5>
-                            @foreach ($menu as $dataCt)
-                            @if ($data->category_id == $dataCt->id)
-                            <small class="text-muted">{{ $dataCt->CategoryName }}</small>
+                            <h5>{{ $products->product_name }}</h5>
+                            @foreach ($category as $categorys)
+                            @if ($products->category_id == $categorys->id)
+                            <small class="text-muted">{{ $categorys->CategoryName }}</small>
                             @endif
                             @endforeach
                             <div class="d-flex justify-content-between align-items-center pt-3">
                                 <div class="btn-group">
-                                    <a href="{{url("/orderdetail/{$data->id}")}}" class="btn btn-sm btn-outline-secondary">Shopping Now</a>
+                                    <a href="{{url("/orderdetail/{$products->id}")}}" class="btn btn-sm btn-outline-secondary">Shopping Now</a>
                                 </div>
-                                <small class="">${{ $data->price }}.00</small>
+                                <small class="">${{ $products->price }}.00</small>
                             </div>
                         </div>
                     </div>
