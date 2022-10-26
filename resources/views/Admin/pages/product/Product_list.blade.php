@@ -81,7 +81,7 @@
                         <th VALIGN=Middle Align=Left>
                             <div style="width: 200px;">Product Name</div>
                         </th>
-                        <th VALIGN=Middle Align=Left>
+                        {{-- <th VALIGN=Middle Align=Left>
                             <div style="width: 50px;">Price</div>
                         </th>
                         <th VALIGN=Middle Align=Left>
@@ -89,7 +89,7 @@
                         </th>
                         <th VALIGN=Middle Align=Middle>
                             <div class="text-center" style="width: 50px;">Qty</div>
-                        </th>
+                        </th> --}}
                         <th VALIGN=Middle Align=Middle>
                             <div class="text-center" style="width: 70px;">Status</div>
                         </th>
@@ -122,9 +122,9 @@
                         </td>
                         <td VALIGN=Middle Align=Left>{{$data->product_code}}</td>
                         <td VALIGN=Middle Align=Left>{{$data->product_name}}</td>
-                        <td VALIGN=Middle Align=Left>{{$data->price}}</td>
+                        {{-- <td VALIGN=Middle Align=Left>{{$data->price}}</td>
                         <td VALIGN=Middle Align=Middle>{{$data->unit}}</td>
-                        <td VALIGN=Middle Align=Middle>{{$data->quantity}}</td>
+                        <td VALIGN=Middle Align=Middle>{{$data->quantity}}</td> --}}
                         @if($data->status=="Active")
                         <td VALIGN=Middle Align=Left>
                             <div class="text-center py-2 text-white rounded bg-success">{{$data->status}}</div>

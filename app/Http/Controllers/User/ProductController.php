@@ -20,5 +20,9 @@ class ProductController extends Controller
             'product'=>$this->productservice->getAll(),
            ]);
     }
-
+    public function productRedirect(){
+        // Session()->flush();
+        // Session()->forget('category_id');
+        return redirect()->route('product');
+    }
 }

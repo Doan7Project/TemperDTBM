@@ -192,9 +192,10 @@ Route::controller(AccountController::class)->group(function () {
 Route::controller(UserProductController::class)->group(function () {
 
     route::get('/product', 'product')->name('product');
+    route::get('/productRedirect', 'productRedirect');
 });
 # Clear Session
-Route::controller(ClearSessionController::class)->group(function () {
+// Route::controller(ClearSessionController::class)->group(function () {
 
-    route::get('/clearsession', 'clearsession');
-});
+//     route::get('/clearsession', 'clearsession');
+// });

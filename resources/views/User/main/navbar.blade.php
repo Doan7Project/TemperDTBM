@@ -161,7 +161,7 @@
               Furniture <i class="iconfur bi bi-caret-down-fill"></i>
             </a>
             <ul class="parentdropdown dropdown-menu">
-              <h5 class="px-4  p-2"><a href="{{ url('/clearsession') }}" class="text-decoration-none text-white-50"><i
+              <h5 class="px-4  p-2"><a href="{{ url('/productRedirect') }}" class="text-decoration-none text-white-50"><i
                     class="bi bi-shop pe-2"></i>Visit Furniture Store </a></h3>
                 @foreach ($category as $data)
                 <li>
