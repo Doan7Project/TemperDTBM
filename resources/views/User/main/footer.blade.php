@@ -5,7 +5,7 @@
     -----------------------*/
     
     .footer {
-        background: #fff;
+        background: rgb(29, 200, 212);
         padding-top: 30px;
         padding-bottom: 0;
         font-family: "Cairo", sans-serif;
@@ -98,12 +98,12 @@
         height: 41px;
         width: 41px;
         font-size: 16px;
-        color: #404040;
-        border: 1px solid #ededed;
+        color: #e9e9e9;
+        /* border: 1px solid #ededed; */
         border-radius: 50%;
         line-height: 38px;
         text-align: center;
-        background: #ffffff;
+        /* background: #ffffff; */
         -webkit-transition: all, 0.3s;
         -moz-transition: all, 0.3s;
         -ms-transition: all, 0.3s;
@@ -112,15 +112,19 @@
         margin-right: 10px;
     
     }
-    
+    .color{
+        color: white;
+    }
     d .footer__widget .footer__widget__social a:last-child {
         margin-right: 0;
     }
     
     .footer__widget .footer__widget__social a:hover {
-        background: #17a2b8;
+        /* background: #17a2b8;
         color: #ffffff;
-        border-color: #ffffff;
+        border-color: #ffffff; */
+        color: white;
+        transform: scale(1.1);
     }
     
     .footer__copyright {
@@ -132,7 +136,7 @@
     
     .footer__copyright__text {
         font-size: 14px;
-        color: #1c1c1c;
+        color: #ffffff;
         float: left;
         line-height: 25px;
     }
@@ -186,7 +190,7 @@
     
                         <div class="footer__widget__social">
                             <ul>
-                                <li> <a href="#"><i class="fa fa-facebook"></i> </a>Facebook</li>
+                                <li> <a class="" href="#"><i class="fa fa-facebook"></i> </a>Facebook</li>
                                 <li><a href="#"><i class="fa fa-instagram"></i></a>Instagram</li>
                                 <li> <a href="#"><i class="fa fa-twitter"></i> </a>Twitter</li>
                                 <li> <a href="#"><i class="fa fa-linkedin"></i> </a>Linkedin</li>

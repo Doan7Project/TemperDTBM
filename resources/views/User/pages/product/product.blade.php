@@ -109,10 +109,10 @@
     }
   </style>
 <!-- feature -->
-<div class="text-center pt-5">
+<div class="container pt-3">
 
-</div>
-<div class="container">
+  @include('User.pages.product.search')
+
     <div class="row ">
         @php $count = 0;
         @endphp
