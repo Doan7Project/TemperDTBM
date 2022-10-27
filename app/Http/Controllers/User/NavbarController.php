@@ -24,6 +24,7 @@ class NavbarController extends Controller
         return view('User.pages.product.product', [
             'category' => $category,
             'product' => $this->productservice->getAll(),
+            'getproduct' =>$this->productservice->getProduct(),
             'datas' => $data,
             session()->flash('link', $data->id)
         ]);

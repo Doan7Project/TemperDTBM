@@ -1,92 +1,130 @@
 <style>
     .filter {
-        background: rgba(125, 221, 35, 0.795);
+        background: rgba(10, 130, 199, 0.767);
 
         border: none;
 
     }
 
-    .box {
-        width: 130px;
-        margin-left: 3px;
-        padding: 10px;
+    .btns {
         background-color: white;
-    }
-    .box input{
-        width: 100%;
-        height: 100%;
         border: none;
-        outline: none;
-        padding-left: 10px;
-    }
-    .boxsearch {
-        width:auto;
-        margin-left: 3px;
-        background-color: white;
+        color: rgb(65, 65, 65);
     }
 
-    .boxsearch input {
-        width: 100%;
-        height: 100%;
-        border: none;
-        outline: none;
-        padding-left: 20px;
+    .btns:hover {
+        background-color: rgb(150, 151, 148);
+        box-shadow: 2px 2px 10px 0px gray;
+        color: white;
+        transition: 0.4s ease-in-out;
     }
-    .boxCategory{
+
+    .input-group:hover {
+        box-shadow: 2px 2px 10px 0px gray;
+        transition: 0.4s ease-in-out;
+    }
+
+    .input-group-text,
+    .form-control {
+        border: none;
+        cursor: pointer;
+    }
+
+    .boxCategory {
         width: auto;
         margin-left: 3px;
-        padding: 10px;
+        padding: 8px 10px;
         background-color: white;
     }
-    #sort>div>a:hover {
-        color: rgb(82, 82, 82);
+
+    .boxCategory>a {
+        text-decoration: none;
+        color: rgb(65, 65, 65);
+    }
+
+    .boxCategory:hover {
+        background-color: rgb(150, 151, 148);
+        box-shadow: 2px 2px 10px 0px gray;
+        color: white;
         transition: 0.4s ease-in-out;
+    }
+
+    .boxCategory:hover>a {
+
+        color: white;
+
+    }
+
+    .form-check-label {
+        color: white;
     }
 </style>
 
 <div class="py-4">
-    <button class="btn btn-outline-secondary shadow-none" type="button" data-bs-toggle="collapse"
-        data-bs-target="#filter" aria-expanded="false" aria-controls="collapseExample">
-        <i class="bi bi-funnel"></i> Filter
-    </button>
-
-    <div class="collapse mt-1" id="filter">
-        <div class="filter card card-body bg-gradient d-flex">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="d-flex text-center" id="sort">
-                        <div class="box">
-                            <a href="">Sort down <i class="bi bi-sort-down"></i></a>
-                        </div>
-                        <div class="box">
-                            <a href="">Sort up <i class="bi bi-sort-up"></i></a>
-                        </div>
-                        <div class="box">
-                            <input type="text" placeholder="From...">
-                        </div>
-                        <div class="box">
-                            <input type="text" placeholder="To...">
-                        </div>
-                        <div class="boxsearch">
-                            <input type="text" placeholder="Search something...">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <h4 class="mx-2 text-white">Searched by category</h4>
-                <div class="col-lg-12 d-flex">
-                   
-                    @foreach ( $category as $categorys )
-                    <div class="boxCategory">
-                        <a href="">{{ $categorys->CategoryName }}</a>
-                    </div>
-                    @endforeach
-                 
-                </div>
-
+    <form action="" name="sortProducts" id="sortProducts">
+        <div class="d-flex justify-content-between">
+            <button class="btn btn-outline-secondary shadow-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#filter" aria-expanded="false" aria-controls="collapseExample">
+                <i class="bi bi-funnel"></i> Filter
+            </button>
+            <div class="d-flex align-items-end">
+                <a href="{{ url('/productRedirect') }}" class="text-secondary">Default</a>
             </div>
         </div>
-    </div>
+        <div class="collapse pt-1" id="filter">
+            <div class="filter card card-body bg-gradient d-flex">
+                <div>
+                    <h5 class="text-white text-center fw-bolder px-1">Quickly Searching</h4>
+                        <div class="row">
+                            <div class="text-start m-1" style="width: 300px ;">
+                                <label for="sort" class="form-label px-1 text-white fw-bolder">Sort by price</label>
+                                <select class="form-select p-2  shadow-none" name="price_sort" id="price_sort">
+                                        <option selected value="">-- Please choose something --</option>
+                                        <option value="price_a">$0 - $300</option>
+                                        <option value="price_b">$300 - $600</option>
+                                        <option value="price_c">$600 - $900</option>
+                                        <option value="price_d">$900 - $1200</option>
+                                        <option value="price_e">$1500 - $1800</option>
+                                        <option value="price_f">$1800 - Over</option>                           
+                                </select>
+                            </div>
+                        </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="text-start m-1" style="width: 300px ;">
+                        <label for="sort" class="form-label px-1 text-white fw-bolder">Sort By</label>
+                        <select class="form-select p-2  shadow-none" name="sort" id="sort">
+                            <option selected value="">-- Please choose something --</option>
+                            <option value="product_latest">Sort by: Latest</option>
+                            <option value="product_new_arrival">Sort by: New arrival</option>
+                            <option value="product_featured">Sort by: Featured</option>
+                            <option value="product_trending">Sort by: Trending</option>
+                            <option value="product_top">Sort by: The Best seller</option>
+                            <option value="price_lowest">Sort by: Lowest Price</option>
+                            <option value="price_highest">Sort by: Highest Price</option>
+                            <option value="name_a_z">Sort by: A - Z</option>
+                            <option value="name_z_a">Sort by: Z - A</option>
+                        </select>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="row">
+                    <label  class="form-label px-3 m-1 text-white fw-bolder">Sort by category</label>
+                    <div class="col-lg-12 d-flex">
+
+                        @foreach ( $category as $categorys )
+                        <div class="boxCategory">
+                            <a href="{{ url("link/{$categorys->id}") }}">{{ $categorys->CategoryName }}</a>
+                        </div>
+                        @endforeach
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
+@include('User.pages.product.js')
