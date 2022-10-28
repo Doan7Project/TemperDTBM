@@ -150,7 +150,7 @@
                         <p class="text-justify">{{ $products->description }}</p>
                         <div class="d-flex">
                             <div>
-                                <a href="">Continue to shopping</a>
+                                <a href="{{ url('/productRedirect') }}">Continue to shopping</a>
                             </div>
 
                             <i class="mymove bi bi-arrow-right-short fw-bolder"></i>
@@ -170,7 +170,7 @@
                         <p class="text-justify">{{$products->description}}</p>
                         <div class="d-flex">
                             <div>
-                                <a href="">Continue to shopping</a>
+                                <a href="{{ url('/productRedirect') }}">Continue to shopping</a>
                             </div>
 
                             <i class="mymove bi bi-arrow-right-short fw-bolder"></i>
@@ -190,7 +190,7 @@
                         <p class="text-justify">{{ $products->description }}</p>
                         <div class="d-flex">
                             <div>
-                                <a href="">Continue to shopping</a>
+                                <a href="{{ url('/productRedirect') }}">Continue to shopping</a>
                             </div>
 
                             <i class="mymove bi bi-arrow-right-short fw-bolder"></i>

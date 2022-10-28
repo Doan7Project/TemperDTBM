@@ -107,17 +107,16 @@
       left: 20px;
     }
   }
-  .pagination{
-    list-style: none;
-    float: left;
-    margin-left: 5px;
-    display: none;
-  }
+
 </style>
 <!-- feature -->
-<div class="container pt-3">
-
-  @include('User.pages.product.search')
+<div class="container mt-5">
+  <div>
+    @include('User.pages.product.header')
+  </div>
+  <div>
+    @include('User.pages.product.search')
+  </div>
 
   <div class="row ">
     @php $count = 0;

@@ -135,7 +135,7 @@
             </p>
             <div class="d-flex">
               <div>
-                <a href="" class="text-decoration-none text-secondary">See all products</a>
+                <a href="{{ url('/productRedirect') }}" class="text-decoration-none text-secondary">See all products</a>
               </div>
 
               <i class="mymove bi bi-arrow-right-short fw-bolder text-secondary"></i>

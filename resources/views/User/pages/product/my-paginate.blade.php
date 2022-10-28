@@ -1,32 +1,13 @@
-{{-- <div class="row mt-5">
-    <div class="col text-center">
-        <div class="block-27">
-            <ul>
-                <li>
-                    <a href="">&lt;</a>
-                </li>
-                <li>
-                    <a class="active" href=""><span>1</span></a>
-                </li>
-                <li>
-                    <a href="">1</a>
-                </li>
-                <li>
-                    <a href="">2</a>
-                </li>
-                <li>
-                    <a href="">3</a>
-                </li>
-                <li>
-                    <a href="">&lt;</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div> --}}
 
+   
+   <style>
+
+    .pagination-nav {
+        background-color: transparent;
+    }
+</style>
 @if ($paginator->hasPages())
-    <nav class="d-flex justify-items-center justify-content-between">
+    <nav class="pagination-nav d-flex justify-items-center justify-content-between">
         <div class="d-flex justify-content-between flex-fill d-sm-none">
             <ul class="pagination">
                 {{-- Previous Page Link --}}
@@ -113,11 +94,7 @@
         </div>
     </nav>
 @endif
-
-
-
-
-
+   
 
 
 

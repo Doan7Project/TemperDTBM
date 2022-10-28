@@ -286,7 +286,7 @@
         <!-- card right -->
         <div class="product-content">
             <h2 class="product-title">{{ $productdetail->product_name }}</h2>
-            <a href="#" class="product-link py-1 px-4 rounded btn btn-primary">visit furniture store</a>
+            <a href="{{ url('/productRedirect') }}" class="product-link py-1 px-4 rounded btn btn-primary">visit furniture store</a>
             <div class="product-rating">
 
                 <i class="bi bi-star-fill"></i>

@@ -13,20 +13,6 @@ class ProductService
     public function getAll()
     {
         $products = Product::all();
-        // if (isset($_GET['sort']) && !empty($_GET['sort'])) :
-        //     if ($_GET['sort'] == "product_latest") :
-        //         return $products->orderby('id', 'Desc')->paginate(20);
-        //     elseif ($_GET['sort'] == "price_lowest") :
-        //         return $products->orderby('price', 'Asc')->paginate(20);
-        //     elseif ($_GET['sort'] == "price_highest") :
-        //         return $products->orderby('price', 'Desc')->paginate(20);
-        //     elseif ($_GET['sort'] == "name_a_z") :
-        //         return $products->orderby('product_name', 'Asc')->paginate(20);
-        //     elseif ($_GET['sort'] == "name_a_z") :
-        //         return $products->orderby('product_name', 'Desc')->paginate(20);
-        //     endif;
-        // endif;
-
         return $products;
     }
 
@@ -35,46 +21,46 @@ class ProductService
         $products = Product::where('status', 'Active');
         if (isset($_GET['sort']) && !empty($_GET['sort'])) :
             if ($_GET['sort'] == "product_latest") :
-                return $products->orderby('id', 'Desc')->paginate(20);
+                return $products->orderby('id', 'Desc')->paginate(12);
             elseif ($_GET['sort'] == "price_lowest") :
-                return $products->orderby('price', 'Asc')->paginate(20);
+                return $products->orderby('price', 'Asc')->paginate(12);
             elseif ($_GET['sort'] == "price_highest") :
-                return $products->orderby('price', 'Desc')->paginate(20);
+                return $products->orderby('price', 'Desc')->paginate(12);
             elseif ($_GET['sort'] == "name_a_z") :
-                return $products->orderby('product_name', 'Asc')->paginate(20);
+                return $products->orderby('product_name', 'Asc')->paginate(12);
             elseif ($_GET['sort'] == "name_a_z") :
-                return $products->orderby('product_name', 'Desc')->paginate(20);
+                return $products->orderby('product_name', 'Desc')->paginate(12);
             elseif ($_GET['sort'] == "product_featured") :
-                return $products->where('models', 'featured')->paginate(20);
+                return $products->where('models', 'featured')->paginate(12);
             elseif ($_GET['sort'] == "product_new_arrival") :
-                return $products->where('models', 'New arrival')->paginate(20);
+                return $products->where('models', 'New arrival')->paginate(12);
             elseif ($_GET['sort'] == "product_trending") :
-                return $products->where('models', 'Trending')->paginate(20);
+                return $products->where('models', 'Trending')->paginate(12);
             elseif ($_GET['sort'] == "product_top") :
-                return $products->where('models', 'top')->paginate(20);
+                return $products->where('models', 'top')->paginate(12);
             elseif ($_GET['price_sort'] == "price_a") :
-                return $products->where('models', 'top')->paginate(20);
+                return $products->where('models', 'top')->paginate(12);
             endif;
         endif;
 
         if (isset($_GET['price_sort']) && !empty($_GET['price_sort'])) :
             if ($_GET['price_sort'] == "price_a") :
-                return $products->whereBetween('price',[0,300])->orderby('price', 'Asc')->paginate(20);
+                return $products->whereBetween('price',[0,300])->orderby('price', 'Asc')->paginate(12);
             elseif ($_GET['price_sort'] == "price_b") :
-                return $products->whereBetween('price',[300,600])->orderby('price', 'Asc')->paginate(20);
+                return $products->whereBetween('price',[300,600])->orderby('price', 'Asc')->paginate(12);
             elseif ($_GET['price_sort'] == "price_c") :
-                return $products->whereBetween('price',[600,900])->orderby('price', 'Asc')->paginate(20);
+                return $products->whereBetween('price',[600,900])->orderby('price', 'Asc')->paginate(12);
             elseif ($_GET['price_sort'] == "price_d") :
-                return $products->whereBetween('price',[900,1200])->orderby('price', 'Asc')->paginate(20);
+                return $products->whereBetween('price',[900,1200])->orderby('price', 'Asc')->paginate(12);
             elseif ($_GET['price_sort'] == "price_e") :
-                return $products->whereBetween('price',[1200,1800])->orderby('price', 'Asc')->paginate(20);
+                return $products->whereBetween('price',[1200,1800])->orderby('price', 'Asc')->paginate(12);
             elseif ($_GET['price_sort'] == "price_f") :
-                return $products->where('price','=>',1800)->orderby('price', 'Asc')->paginate(20);
+                return $products->where('price','=>',1800)->orderby('price', 'Asc')->paginate(12);
             endif;
 
         endif;
 
-        return $products->paginate(20);
+        return $products->paginate(12);
     }
 
     public function getCategoryName()
