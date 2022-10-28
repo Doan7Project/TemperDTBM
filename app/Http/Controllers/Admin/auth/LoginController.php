@@ -27,20 +27,6 @@ class LoginController extends Controller
         //
         return view('auth.login');
     }
-    public function registration(){
-
-        return view ('auth.registration');
-    }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -61,7 +47,7 @@ class LoginController extends Controller
             'password' => $request->input('password')
 
         ], $request->input('remember'))) :
-
+            $request->session()->put('user', $request->input('email'));
             return redirect()->route('index');
         else :
             session()->flash('error', 'Email or password is incorrect');
@@ -121,6 +107,6 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect()->route('login');
     }
 }

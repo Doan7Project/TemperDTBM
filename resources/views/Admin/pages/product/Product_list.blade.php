@@ -64,7 +64,7 @@
     <div class="d-flex mt-5 justify-content-between align-items-end">
         <div>
             <a class="btn btn-success mb-3" href="{{url("product/create")}}">
-                <i class="bi bi-plus-square text-white" pe-3"></i> Add more
+                <i class="bi bi-plus-square text-white pe-2"></i> Add more
             </a>
         </div>
     </div>
@@ -75,9 +75,9 @@
                 <thead class="bg-primary bg-opacity-75 text-white">
                     <tr VALIGN=Middle Align=Middle>
                         <th VALIGN=Middle Align=Middle>No.</th>
-                        <th VALIGN=Middle Align=Left>
+                        {{-- <th VALIGN=Middle Align=Left>
                             <div style="width: 120px;">Product Code</div>
-                        </th>
+                        </th> --}}
                         <th VALIGN=Middle Align=Left>
                             <div style="width: 200px;">Product Name</div>
                         </th>
@@ -96,10 +96,10 @@
                         <th VALIGN=Middle Align=Left>
                             <div style="width: 100px;">Models</div>
                         </th>
-                        <th VALIGN=Middle Align=Left>
+                        {{-- <th VALIGN=Middle Align=Left>
                             <div style="width: 100px;">Made in</div>
-                        </th>
-                        <th VALIGN=Middle Align=Middle>Category_id</th>
+                        </th> --}}
+                        {{-- <th VALIGN=Middle Align=Middle>Category_id</th> --}}
                         <th VALIGN=Middle Align=Left>
                             <div class="text-center" style="width: 100px;">Image</div>
                         </th>
@@ -120,7 +120,7 @@
                                 <i class="bi bi-pencil-square text-primary pe-2"></i>
                             </a>
                         </td>
-                        <td VALIGN=Middle Align=Left>{{$data->product_code}}</td>
+                        {{-- <td VALIGN=Middle Align=Left>{{$data->product_code}}</td> --}}
                         <td VALIGN=Middle Align=Left>{{$data->product_name}}</td>
                         {{-- <td VALIGN=Middle Align=Left>{{$data->price}}</td>
                         <td VALIGN=Middle Align=Middle>{{$data->unit}}</td>
@@ -136,8 +136,8 @@
                         @endif
 
                         <td VALIGN=Middle Align=Left>{{$data->models}}</td>
-                        <td VALIGN=Middle Align=Left>{{$data->made_in}}</td>
-                        <td VALIGN=Middle Align=Middle>{{$data->category_id}}</td>
+                        {{-- <td VALIGN=Middle Align=Left>{{$data->made_in}}</td> --}}
+                        {{-- <td VALIGN=Middle Align=Middle>{{$data->category_id}}</td> --}}
                         <td VALIGN=Middle Align=Left><img src="{{$data->images}}" style="width: 100%;" alt=""></td>             
                         <td VALIGN=Middle Align=Middle>
                             <a class="btn btn-primary" href="{{url("product/show/{$data->id}")}}">

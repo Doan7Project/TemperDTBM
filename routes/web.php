@@ -139,9 +139,8 @@ Route::controller(FeedbackController::class)->group(function () {
 # II User---------------------------------------
 ## Droplist
 
-Route::controller(NavbarController::class)->group(function(){
-Route::get('link/{data}','link');
-
+Route::controller(NavbarController::class)->group(function () {
+    Route::get('link/{data}', 'link');
 });
 #1 Home
 Route::controller(HomeController::class)->group(function () {
@@ -168,8 +167,8 @@ Route::controller(UserContactController::class)->group(function () {
 });
 # 5 Login
 Route::controller(UserLoginController::class)->group(function () {
-
     route::get('/login', 'login');
+    route::post('user','signin')->name('signin');
 });
 # 6 Register
 Route::controller(UserRegisterController::class)->group(function () {
@@ -181,7 +180,7 @@ Route::controller(CartController::class)->group(function () {
 
     route::get('/cart', 'cart');
     route::get('/order', 'order');
-    route::get('/orderdetail/{data}','orderdetail');
+    route::get('/orderdetail/{data}', 'orderdetail');
 });
 # 8 Account
 Route::controller(AccountController::class)->group(function () {

@@ -8,7 +8,7 @@
     <div class="btn-group">
       <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
         aria-expanded="false">
-        <i class="bi bi-person-circle pe-2"></i>
+        <i class="bi bi-person-circle pe-2"></i>{{ session('user') }}
       </button>
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="{{url('Admin/pages/Feedback_list')}}">Register</a></li>
