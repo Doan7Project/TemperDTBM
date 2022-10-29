@@ -17,8 +17,8 @@
     .loginPage .card {
         background-color: transparent;
         border: none;
-        width: 22rem;
-        margin:  auto;
+        width: 24rem;
+        margin: auto;
     }
 
     .loginPage .content-pass {
@@ -101,7 +101,7 @@
 </style>
 <div class="loginPage bg-gradient">
     <div class="card rounded-3 p-2">
-        <form class="card-body" action="user" method="post">
+        <form class="card-body" action="{{ route('signin') }}" method="post">
             <div class="row-cols-1 py-0 text-center">
                 <i class="bi bi-person-bounding-box fs-1 text-black-50"></i>
             </div>
@@ -131,7 +131,7 @@
                     </label>
                 </div>
             </div>
-            @include('auth.alert')
+            @include('User.pages.login.alert')
             <div class="row-cols-1 pb-4 pt-3">
                 <input type="submit" class="btn btn-secondary fw-bold" value="Sign In">
             </div>

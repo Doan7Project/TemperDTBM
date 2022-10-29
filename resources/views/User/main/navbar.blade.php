@@ -161,11 +161,13 @@
               Furniture <i class="iconfur bi bi-caret-down-fill"></i>
             </a>
             <ul class="parentdropdown dropdown-menu">
-              <h5 class="px-4  p-2"><a href="{{ url('/productRedirect') }}" class="text-decoration-none text-white-50"><i
-                    class="bi bi-shop pe-2"></i>Visit Furniture Store </a></h3>
+              <h5 class="px-4  p-2"><a href="{{ url('/productRedirect') }}"
+                  class="text-decoration-none text-white-50"><i class="bi bi-shop pe-2"></i>Visit Furniture Store </a>
+                </h3>
                 @foreach ($category as $data)
                 <li>
-                  <a class="rotateIcon dropdown-item   pt-2 pb-2" href="{{ url("link/{$data->id}") }}">{{ $data->CategoryName }} 
+                  <a class="rotateIcon dropdown-item   pt-2 pb-2" href="{{ url("link/{$data->id}") }}">{{
+                    $data->CategoryName }}
                   </a>
                 </li>
                 @endforeach
@@ -181,19 +183,10 @@
         </ul>
         <div class="#">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-            <li class="nav-item">
-              <a href="{{ url('/login') }}" class="nav-link">Login</a>
-            </li>
-            <li class="nav-item">
-              <a href="{{ url('/register') }}" class="nav-link">Register</a>
-            </li>
-            <li class="nav-item">
-              <a href="{{ url('/feedback') }}" class="nav-link">Feedback</a>
-            </li>
-            <li class="nav-item dropdown">
+            @if (session('LoggedUser') == 0)
+            <li class="nav-item dropdown d-none">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false"><i class="bi bi-person-circle pe-1"></i>Acount</a>
+                aria-expanded="false"><i class="bi bi-person-circle pe-1"></i>{{session('LoggedUser') }}</a>
               <ul class="dropdown-menu dropbgcolor">
                 <li><a class="dropdown-item" href="{{ url('/account') }}"><i class="bi bi-person pe-1"></i>Account
                     detail</a></li>
@@ -201,11 +194,44 @@
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="{{ url('/logout') }}"><i
+                <li><a class="dropdown-item" href="{{ url('LogoutUser') }}"><i
                       class="bi bi-box-arrow-left pe-1"></i>Logout</a></li>
 
               </ul>
             </li>
+            @else
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false"><i class="bi bi-person-circle pe-1"></i>{{ session('LoggedUser')}}</a>
+              <ul class="dropdown-menu dropbgcolor">
+                <li class="pt-2"><a class="dropdown-item" href="{{ url('/account') }}"><i class="bi bi-person pe-1"></i>Account
+                    detail</a></li>
+                <li><a class="dropdown-item" href="{{ url('/order') }}"><i class="bi bi-cart pe-1"></i>Orders</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="{{ url('LogoutUser') }}"><i
+                      class="bi bi-box-arrow-left pe-1"></i>Logout</a></li>
+
+              </ul>
+            </li>
+            @endif
+            @if (session('LoggedUser') != 0)
+            <li class="nav-item d-none">
+              <a href="{{ url('/login') }}" class="nav-link">Sign in</a>
+            </li>
+            @else
+            <li class="nav-item">
+              <a href="{{ url('/login') }}" class="nav-link "><i class="bi bi-box-arrow-in-right pe-1"></i>Sign in</a>
+            </li>
+            @endif
+            <li class="nav-item">
+              <a href="{{ url('/register') }}" class="nav-link"><i class="bi bi-person-plus pe-1"></i>Register</a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ url('/feedback') }}" class="nav-link">Feedback</a>
+            </li>
+            
             <li class="nav-item">
               <a href="{{ url('/cart') }}" class="nav-link"><i class="bi bi-cart-fill"></i></a>
             </li>

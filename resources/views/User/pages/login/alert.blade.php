@@ -1,10 +1,10 @@
 @if ($errors->any())
-<div class="alert alert-danger">
+<div class="alert alert-danger pb-0">
     <ul>
         @foreach ($errors->all() as $error)
         <li>{{ $error }}</li>
         @endforeach
-        </ul>
+    </ul>
 </div>
 @endif
 
@@ -17,5 +17,11 @@
 @if (Session::has('success'))
 <div class="alert alert-success">
     {{Session::get('success')}}
+</div>
+@endif
+
+@if (Session::has('fail'))
+<div class="alert alert-danger">
+    {{Session::get('fail')}}
 </div>
 @endif

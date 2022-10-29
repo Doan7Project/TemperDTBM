@@ -141,6 +141,7 @@ Route::controller(FeedbackController::class)->group(function () {
 
 Route::controller(NavbarController::class)->group(function () {
     Route::get('link/{data}', 'link');
+    Route::get('LogoutUser','logout');
 });
 #1 Home
 Route::controller(HomeController::class)->group(function () {
@@ -168,7 +169,7 @@ Route::controller(UserContactController::class)->group(function () {
 # 5 Login
 Route::controller(UserLoginController::class)->group(function () {
     route::get('/login', 'login');
-    route::post('user','signin')->name('signin');
+    route::post('signin','signin')->name('signin');
 });
 # 6 Register
 Route::controller(UserRegisterController::class)->group(function () {
@@ -193,8 +194,3 @@ Route::controller(UserProductController::class)->group(function () {
     route::get('/product', 'product')->name('product');
     route::get('/productRedirect', 'productRedirect');
 });
-# Clear Session
-// Route::controller(ClearSessionController::class)->group(function () {
-
-//     route::get('/clearsession', 'clearsession');
-// });
