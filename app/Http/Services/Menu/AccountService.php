@@ -10,9 +10,9 @@ use Exception;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Stmt\TryCatch;
 
-class LoginService
+class AccountService
 {
-    public function GetInfo()
+    public function GetAccountInfo()
     {   
         return Customer::all();
     }

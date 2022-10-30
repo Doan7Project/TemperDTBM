@@ -132,13 +132,5 @@ class ProductController extends Controller
         Product::where('id', $id)->delete();
         return redirect()->route('list');
     }
-    // public function view(Product $data)
-    // {
 
-    //     return view('Admin.pages.product.product_view', [
-    //         'title' => 'Product Update',
-    //         'Menus' => $this->productservice->getCategoryName(),
-    //         'menu' => $data
-    //     ]);
-    // }
 }

@@ -25,10 +25,6 @@ class LoginController extends Controller
     public function signin(Request $request)
     {
 
-        //   return  $request->input();
-
-
-
         $this->validate($request, [
 
             'email' => 'required|email:filter',
@@ -42,22 +38,11 @@ class LoginController extends Controller
         else :
             if ($request->password == $userInfo->password) :
                 $request->session()->put('LoggedUser',$userInfo->email);
+                $request->session()->put('LoggedUserid',$userInfo->id);
                 return redirect()->route('userIndex');
             else :
                 return back()->with('fail', 'Incorrect password');
             endif;
         endif;
-        // if (Auth::attempt([
-
-        //     'email' => $request->input('email'),
-        //     'password' => $request->input('password')
-
-        // ], $request->input('remember'))) :
-        //     $request->session()->put('user', $request->input('email'));
-        //     return redirect()->route('index');
-        // else :
-        //     session()->flash('error', 'Email or password is incorrect');
-        //     return redirect()->back();
-        // endif;
     }
 }

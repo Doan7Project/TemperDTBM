@@ -203,14 +203,16 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false"><i class="bi bi-person-circle pe-1"></i>{{ session('LoggedUser')}}</a>
+                <a class="d-none" href="">{{ session('LoggedUserid') }}</a>
               <ul class="dropdown-menu dropbgcolor">
-                <li class="pt-2"><a class="dropdown-item" href="{{ url('/account') }}"><i class="bi bi-person pe-1"></i>Account
+                <li class="pt-2"><a class="dropdown-item py-2" href="{{ url('/account') }}"><i class="bi bi-person pe-1"></i>Account
                     detail</a></li>
-                <li><a class="dropdown-item" href="{{ url('/order') }}"><i class="bi bi-cart pe-1"></i>Orders</a></li>
+                    <li><a class="dropdown-item py-2" href=""><i class="bi bi-wrench-adjustable pe-1"></i>Change your password</a></li>
+                <li><a class="dropdown-item py-2" href="{{ url('/order') }}"><i class="bi bi-cart pe-1"></i>Orders</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="{{ url('LogoutUser') }}"><i
+                <li><a class="dropdown-item py-2" href="{{ url('LogoutUser') }}"><i
                       class="bi bi-box-arrow-left pe-1"></i>Logout</a></li>
 
               </ul>

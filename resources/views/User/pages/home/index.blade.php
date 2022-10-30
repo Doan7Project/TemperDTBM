@@ -8,6 +8,9 @@
         background-color: rgba(241, 241, 241, 0.822);
     }
 </style>
+{{-- <div>
+    {{ $loggedUserInfor['email'] }}
+</div> --}}
 <div class="index">
     <div>
         @include('User.pages.home.slide')

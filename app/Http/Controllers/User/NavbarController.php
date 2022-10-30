@@ -22,9 +22,9 @@ class NavbarController extends Controller
 
     public function link(ProductCategory $data)
     {
-        $accountData = ['loggedUserInfo' => Customer::where('id', '=', session('LoggedUser'))->first()];
+    
         $category = $this->productservice->getCategoryName();
-        return view('User.pages.product.product',  $accountData, [
+        return view('User.pages.product.product',[
             'category' => $category,
             'product' => $this->productservice->getAll(),
             'getproduct' => $this->productservice->getProduct(),
