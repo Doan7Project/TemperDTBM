@@ -186,7 +186,11 @@ Route::controller(CartController::class)->group(function () {
 # 8 Account
 Route::controller(AccountController::class)->group(function () {
 
-    route::get('/account', 'account');
+    // route::get('/account', 'account');
+    route::get('/account/{data}','account');
+    route::get('/getpassword/{data}','getpassword');
+    route::post('/getpassword/{data}','changepassword')->name('account.changepassword');
+   
 });
 # 9 Product
 Route::controller(UserProductController::class)->group(function () {

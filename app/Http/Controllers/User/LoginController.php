@@ -37,8 +37,10 @@ class LoginController extends Controller
             return back()->with('fail', 'We do not recognize you email address');
         else :
             if ($request->password == $userInfo->password) :
+
                 $request->session()->put('LoggedUser',$userInfo->email);
                 $request->session()->put('LoggedUserid',$userInfo->id);
+                
                 return redirect()->route('userIndex');
             else :
                 return back()->with('fail', 'Incorrect password');

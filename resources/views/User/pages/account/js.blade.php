@@ -1,16 +1,18 @@
 <script type="text/javascript">
+    $(document).ready(function () {
+    $("#confirmedpassword").keyup(function () { 
+    if ($("#confirmedpassword").val() === $("#newpassword").val()){
 
-$(document).ready(function () {
-    
-    $("#showAndHide").click(function () { 
-        $("#functionShow").addClass("showButton");
-        $("#showAndHide").addClass("showButton");
-       
-    });
-    $("#closeChange").click(function () { 
-       $("#functionShow").removeClass("showButton");
-       $("#showAndHide").removeClass("showButton");
-      ;
-    });
+        $("#match").removeClass('showHide');
+        $("#notmatch").addClass('showHide');
+        return true;
+    }
+    else{
+        $("#match").addClass('showHide');
+        $("#notmatch").removeClass('showHide');
+
+        return false;
+    }
+});
 });
 </script>

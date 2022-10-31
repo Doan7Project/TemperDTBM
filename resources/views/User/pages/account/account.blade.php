@@ -18,6 +18,7 @@
     display: none;
 
   }
+
 </style>
 @php
 $path = storage_path() . "/json/city.json";
@@ -27,45 +28,41 @@ $country = json_decode(file_get_contents($path), true);
 $path = storage_path() . "/json/gender.json";
 $gender = json_decode(file_get_contents($path), true);
 @endphp
+
 <div class="account">
   <div class="row container  m-auto">
     <div class="col-md-6 align-items-center">
-      <img class=" w-100 " src="images/account.png" alt="">
-
+      <img class="w-100" src="images/account.png" alt="">
     </div>
-
     <main class="col-md-6">
-
-      <form>
-        @foreach ($accinfo as $accinfos)
-        @if ($accinfos->id == session('LoggedUserid'))
-
-        <h4 class="text-start g-0">Your detail account information</h4>
+      <form method="post" action="">
+        @csrf
+              <h4 class="text-start g-0">Your detail account information</h4>
         <div class="row pt-3">
           <div class="col-sm-4">
             <label for="firstName" class="form-label">First name</label>
             <input type="text" class="form-control" name="firstname" id="firstName" placeholder=""
-              value="{{ $accinfos->first_name }}" required>
+              value="{{ $accinfo->first_name }}" required>
 
           </div>
           <div class="col-sm-8">
             <label for="lastName" class="form-label">Last name</label>
             <input type="text" class="form-control" name="lastname" id="lastName" placeholder=""
-              value="{{ $accinfos->last_name }}" required>
+              value="{{ $accinfo->last_name }}" required>
           </div>
         </div>
         <div class="row pt-3 pb-3">
           <div class="col-md-7">
             <label for="email" class="form-label">Email <span class="text-muted">(Account)</span></label>
-            <input type="email" class="form-control" name="email" id="email" value="{{ $accinfos->email }}"
+            <input type="email" class="form-control" name="email" id="email" value="{{ $accinfo->email }}"
               placeholder="you@example.com">
 
           </div>
           <div class="col-md-5">
             <label for="gender" class="form-label">Gender</label>
-            <select class="form-select" id="gender" required>
+            <select name="gender" class="form-select" id="gender" required>
               @foreach ($gender as $genders)
-              @if ($genders['id'] == $accinfos->gender)
+              @if ($genders['id'] == $accinfo->gender)
               <option value="{{ $genders['id'] }}" selected>{{ $genders['gender'] }}</option>
               @else
               <option value="{{ $genders['id'] }}">{{ $genders['gender'] }}</option>
@@ -78,13 +75,13 @@ $gender = json_decode(file_get_contents($path), true);
         <div class="row pb-3">
           <div class="col-md-6">
             <label for="phone" class="form-label">Phone number <span class="text-muted">(Account)</span></label>
-            <input type="phone" class="form-control" id="phone" value="{{ $accinfos->phone }}"
+            <input type="phone" class="form-control" id="phone" value="{{ $accinfo->phone }}"
               placeholder="Enter you phone number">
 
           </div>
           <div class="col-md-6">
             <label for="birthday" class="form-label">Birthday</label>
-            <input type="date" class="form-control" value="{{ $accinfos->birthday }}" name="birthday" id="birthday"
+            <input type="date" class="form-control" value="{{ $accinfo->birthday }}" name="birthday" id="birthday"
               placeholder="Enter you phone number">
 
           </div>
@@ -92,10 +89,10 @@ $gender = json_decode(file_get_contents($path), true);
         <div class="row pb-3">
           <div class="col-md-6">
             <label for="country" class="form-label">Country</label>
-            <select class="form-select" id="country" required>
+            <select class="form-select" id="country" name="country">
               <option value="">Choose...</option>
               @foreach ( $country as $jsons)
-              @if ($jsons['name'] == $accinfos->country)
+              @if ($jsons['name'] == $accinfo->country)
               <option value="{{ $jsons['name'] }}" selected>{{ $jsons['name'] }}</option>
               @else
               <option value="{{ $jsons['name'] }}">{{ $jsons['name'] }}</option>
@@ -109,10 +106,10 @@ $gender = json_decode(file_get_contents($path), true);
           <div class="col-md-6 ">
 
             <label for="city" class="form-label">City</label>
-            <select class="form-select" id="city" required>
+            <select class="form-select" id="city" name="city">
               <option value="">Choose...</option>
               @foreach ( $city as $jsons)
-              @if ($jsons['city'] == $accinfos->city)
+              @if ($jsons['city'] == $accinfo->city)
               <option value="{{ $jsons['city'] }}" selected>{{ $jsons['city'] }}</option>
               @else
               <option value="{{ $jsons['city'] }}">{{ $jsons['city'] }}</option>
@@ -126,24 +123,11 @@ $gender = json_decode(file_get_contents($path), true);
         <div class="row pb-3">
           <div class="col-md-12">
             <label for="address" class="form-label">Address</label>
-            <input type="text" class="form-control" id="address" value="{{ $accinfos->address }}"
-              placeholder="1234 Main St" required>
+            <input type="text" class="form-control" id="address" name="address" value="{{ $accinfo->address }}"
+              placeholder="1234 Main St">
           </div>
         </div>
 
-        <div class="row pb-3">
-          <div class="col-md-12">
-             <a class="text-primary" id="showAndHide" data-bs-toggle="collapse" href="#changePassWord" role="button"
-              aria-expanded="false" aria-controls="changePassWord">
-              If do you want to change your password, please click here!
-            </a>
-
-            @include('User.pages.account.changepassmodal')</div>
-        </div>
-        @endif
-        @endforeach
-
-       
         <div class="row" id="functionShow">
           <div class="col-md-12 d-flex">
             <div class="me-3">

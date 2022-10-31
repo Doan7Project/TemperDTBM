@@ -38,7 +38,7 @@
                     <td class="px-3" VALIGN=Middle Align=Left>{{$data->Detail}}</td>
                     <td VALIGN=Middle Align=Left>
                         <a class="btn btn-primary text-white" href="{{url("Admin/pages/Category_update/{$data->id}")}}">
-                            <i class="bi bi-pencil-square pe-2" pe-3"></i>Edit
+                            <i class="bi bi-pencil-square pe-2"></i>Edit
                         </a>
                     </td>
                     <td VALIGN=Middle Align=Left>
