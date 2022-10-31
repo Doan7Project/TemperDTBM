@@ -105,8 +105,8 @@ $arrmade = [
                 <label for="categoryid" class="form-label text-black">Category preferences</label>
                 <select class="form-select shadow-none" name="txtCategoryID" id="categoryid">
                     <option value="">Please choose category...</option>
-                    @foreach($Menus as $key=> $data)
-                    <option value="{{$data->id}}" {{ old('txtCategoryID') == $data->id ? 'selected' : '' }}>{{$data->CategoryName}}</option>
+                    @foreach($category as $key=> $categorys)
+                    <option value="{{$categorys->id}}" {{ old('txtCategoryID') == $categorys->id ? 'selected' : '' }}>{{$categorys->CategoryName}}</option>
                     @endforeach
                 </select>
                 @error('txtCategoryID')

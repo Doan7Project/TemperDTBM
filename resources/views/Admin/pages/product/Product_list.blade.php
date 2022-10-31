@@ -75,9 +75,9 @@
                 <thead class="bg-primary bg-opacity-75 text-white">
                     <tr VALIGN=Middle Align=Middle>
                         <th VALIGN=Middle Align=Middle>No.</th>
-                        {{-- <th VALIGN=Middle Align=Left>
-                            <div style="width: 120px;">Product Code</div>
-                        </th> --}}
+                        <th VALIGN=Middle Align=Left>
+                            <div style="width: 120px;">category Name</div>
+                        </th>
                         <th VALIGN=Middle Align=Left>
                             <div style="width: 200px;">Product Name</div>
                         </th>
@@ -120,7 +120,7 @@
                                 <i class="bi bi-pencil-square text-primary pe-2"></i>
                             </a>
                         </td>
-                        {{-- <td VALIGN=Middle Align=Left>{{$data->product_code}}</td> --}}
+                        <td VALIGN=Middle Align=Left>{{$data->product_categories->CategoryName}}</td>
                         <td VALIGN=Middle Align=Left>{{$data->product_name}}</td>
                         {{-- <td VALIGN=Middle Align=Left>{{$data->price}}</td>
                         <td VALIGN=Middle Align=Middle>{{$data->unit}}</td>

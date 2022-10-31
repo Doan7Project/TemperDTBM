@@ -25,7 +25,7 @@ class CreateFormRequest extends FormRequest
     {
         return [
          
-            'txtCategoryName' => 'required|min:2|regex:/([A-Za-z])/',
+            'txtCategoryName' => 'required|unique:product_categories,CategoryName|min:2|regex:/([A-Za-z])/',
             'txtDescription' => 'required|max:200'
         ];
     }
@@ -34,6 +34,7 @@ class CreateFormRequest extends FormRequest
     {
         return [
             'txtCategoryName.required' => 'Category name is required',
+            'txtCategoryName.unique' => 'Category name has already been taken',
             'txtCategoryName.regex' => 'Category name is not format',
             'txtCategoryName.min' => 'Category must have 2 charater',
             'txtDescription.required' => 'Description is required',

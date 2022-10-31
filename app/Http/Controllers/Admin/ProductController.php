@@ -29,8 +29,9 @@ class ProductController extends Controller
 
         return view('Admin.pages.product.Product_list', [
             'title' => "Product List",
-            'items' => $this->productservice->getAll(),
+            'items' => $this->productservice->getAll(),       
         ]);
+        
     }
     // public function search(Request $request)
     // {
@@ -72,7 +73,8 @@ class ProductController extends Controller
 
         return view('Admin.pages.product.Product_create', [
             'title' => 'Category Name',
-            'Menus' => $this->productservice->getCategoryName()
+            'category' => $this->productservice->getCategoryName(),
+     
         ]);
     }
 
@@ -114,7 +116,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $data, CreateFormProductRequest $request)
+    public function edit(Product $data, Request $request)
     {
         $this->productservice->edit($request, $data);
         return redirect()->route('list');

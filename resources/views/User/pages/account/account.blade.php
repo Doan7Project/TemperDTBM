@@ -32,7 +32,7 @@ $gender = json_decode(file_get_contents($path), true);
 <div class="account">
   <div class="row container  m-auto">
     <div class="col-md-6 align-items-center">
-      <img class="w-100" src="images/account.png" alt="">
+      <img class="w-100" src="{{ asset('images/account.png') }}" alt=""> 
     </div>
     <main class="col-md-6">
       <form method="post" action="">

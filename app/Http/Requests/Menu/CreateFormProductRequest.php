@@ -25,7 +25,7 @@ class CreateFormProductRequest extends FormRequest
     {
         return [
             'txtCategoryID' => 'required',
-            'txtProductName' => 'required',
+            'txtProductName' => 'required|unique:products,product_name',
             'txtUnit' => 'required|regex:/([A-Za-z])/',
             'txtPrice' => 'required',
             'txtQuantity' => 'required',
@@ -41,6 +41,7 @@ class CreateFormProductRequest extends FormRequest
        return [
         'txtCategoryID.required'=>'Category is required',
         'txtProductName.required'=>'Product name is required',
+        'txtProductName.unique'=>'Product name has already taken',
         'txtPrice.required' => 'Price is required',
         'txtUnit.required'=>'Unit is required',   
         'txtUnit.regex'=>'Unit is not format', 

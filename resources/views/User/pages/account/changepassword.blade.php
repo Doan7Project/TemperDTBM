@@ -23,6 +23,7 @@
 
     @csrf
     <div class="px-4 pb-4 card bg-gradient card body-card">
+        
         <div class="text-center pt-5">
           
             <label for="" class="fw-bolder fs-5"><i class="bi bi-gear-wide-connected pe-2"></i>Password Changing</label>

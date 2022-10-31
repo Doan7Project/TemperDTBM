@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+    protected $table = 'products';
+    protected $primaryKey = 'id';
     protected $fillable = [
         'product_name',
         'product_code',
@@ -22,4 +24,11 @@ class Product extends Model
         'content',
         'description',
     ];
+
+    public function product_categories(){
+        return $this->belongsTo(ProductCategory::class,'category_id','id');
+    }
+    public function product_images(){
+        return $this->hasMany(product_image::class);
+    }
 }

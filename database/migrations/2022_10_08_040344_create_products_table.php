@@ -23,7 +23,9 @@ return new class extends Migration
             $table->string('status');
             $table->string('models');
             $table->string('made_in');
-            $table->integer('category_id');
+            $table->bigInteger('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('product_categories')->onDelete('cascade');
+            // $table->integer('category_id');
             $table->string('images');
             $table->longText('content');
             $table->longText('description');

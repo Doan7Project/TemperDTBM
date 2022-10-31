@@ -25,7 +25,7 @@ class CategoryController extends Controller
     {
         // $rs = ProductCategory::all();
         // return view('Admin.pages.category.Category_list')->with(['rs' => $rs]);
-
+   
         return view('Admin.pages.category.Category_list',[
             'title' => 'Danh sach moi',
             'rs' => $this->categoryservice->getAll()
@@ -56,7 +56,7 @@ class CategoryController extends Controller
         ]);
     }
     # 5 Thực hiện lệnh chỉnh sữa dữ liệu
-    public function CategoryUpdateProcess(ProductCategory $menu, CreateFormRequest $request)
+    public function CategoryUpdateProcess(ProductCategory $menu, Request $request)
     {
         
         $this->categoryservice->update($request, $menu);
