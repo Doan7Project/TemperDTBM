@@ -94,7 +94,7 @@
                 @foreach($items as $key => $data)
                 <tr>
                     <td VALIGN=Middle Align=Middle>{{$key+1}}</td>
-                    <td VALIGN=Middle Align=Left>{{$data->product_id}}</td>
+                    <td VALIGN=Middle Align=Left>{{$data->products->product_name}}</td>
                     <td VALIGN=Middle Align=Left>
                         <div class="m-auto" style="width:150px ;">
                             <img src="{{$data->image}}" style="width: 100%;" alt="">

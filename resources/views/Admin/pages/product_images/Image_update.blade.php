@@ -29,13 +29,13 @@
 
         <div class="row-cols-md py-2">
             <label for="productid" class="form-label text-black fw-bolder">Product Name - </label>
-            <span  id="productIdConference">{{ $menu->product_id  }}</span>
+            <span  id="productIdConference">{{ $productImage->product_id  }}</span>
             <select class="form-select shadow-none" name="txtProductID" id="productid">
-                @foreach($menuPd as $data)
-                    @if($menu->product_id ==$data->product_code)
-                    <option value="{{$data->product_code}}" selected>{{$data->product_name}} - {{$data->product_code}}</option>
+                @foreach($getAllImage as $getAllImages)
+                    @if($getAllImages->product_id ==$getAllImages->products->id)
+                    <option value="{{$getAllImages->product_id}}" selected>{{$getAllImages->products->product_name}} - {{$getAllImages->products->product_code}}</option>
                     @else
-                    <option value="{{$data->product_code}}">{{$data->product_name}} - {{$data->product_code}}</option>
+                    <option value="{{$getAllImages->product_id}}">{{$getAllImages->products->product_name}} - {{$getAllImages->products->product_code}}</option>
                     @endif
                 @endforeach
             </select>
@@ -45,19 +45,19 @@
         </div>
         <div class="row-cols-md pt-2">
             <label for="upload" class="form-label text-black">Image</label>
-            <input type="file" class="form-control shadow-none" name="txtImage" id="upload" onchange="loadFile(event)" value="{{$menu->image}}">
+            <input type="file" class="form-control shadow-none" name="txtImage" id="upload" onchange="loadFile(event)" value="{{$productImage->image}}">
             <div class="shadow-sm d-flex position-relative rounded border-0 mt-2" style="width: 100% ; height:280px;">
                 <span style="z-index: 1 ;" class="align-self-center text-black-50 position-absolute top-50 start-50 translate-middle fs-4">Image Review...</span>
-                <img src="{{$menu->image}}" class="w-100" class="p-1" id="output" style="z-index: 2;">
+                <img src="{{$productImage->image}}" class="w-100" class="p-1" id="output" style="z-index: 2;">
             </div>
-            <input type="hidden" name="txtImage" id="file" value="{{$menu->image}}">
+            <input type="hidden" name="txtImage" id="file" value="{{$productImage->image}}">
             @error('txtImage')
             <span class="text-danger">{{$message}}</span>
             @enderror
         </div>
         <div class="row-cols-md">
             <label for="content" class="form-label text-black">Content</label>
-            <textarea class="form-control shadow-none" name="txtContent" id="content" cols="30" rows="5">{{$menu->content}}</textarea>
+            <textarea class="form-control shadow-none" name="txtContent" id="content" cols="30" rows="5">{{$productImage->content}}</textarea>
 
         </div>
 

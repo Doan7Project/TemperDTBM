@@ -28,12 +28,12 @@
         width: 100%;
         margin: auto;
         transition: all 0.5s ease;
-       
+
         /* justify-content:center ; */
     }
 
     .img-showcase img {
-      
+
         min-width: 100%;
     }
 
@@ -240,6 +240,7 @@
         }
     }
 </style>
+
 <div class="card-wrapper">
     <div class="card cards">
         <!-- card left -->
@@ -247,9 +248,9 @@
             <div class="img-display">
                 <div class="img-showcase">
                     <?php $count=1?>
-                    <img src="{{ $productdetail->images }}" alt="shoe image">
+                    <img src="{{ $product->images }}" alt="shoe image">
                     @foreach ($imagedata as $imagedatas)
-                    @if ($imagedatas->product_id == $productdetail->product_code)
+                    @if ($imagedatas->product_id == $product->id)
                     <?php $count++?>
                     <img src="{{ $imagedatas->image }}" alt="shoe image">
                     @endif
@@ -257,22 +258,24 @@
                 </div>
             </div>
             <div class="img-select">
+
                 @if ($count>1)
                 <div class="img-item">
                     <a href="#" data-id="1">
-                        <img class="img-fluid" src="{{ $productdetail->images }}" alt="shoe image">
+                        <img class="img-fluid" src="{{ $product->images }}" alt="shoe image">
                     </a>
                 </div>
                 @else
                 <div class="img-item d-none">
                     <a href="#" data-id="1">
-                        <img class="img-fluid" src="{{ $productdetail->images }}" alt="shoe image">
+                        <img class="img-fluid" src="{{ $product->images }}" alt="shoe image">
                     </a>
                 </div>
                 @endif
+
                 <?php $i=1?>
                 @foreach ($imagedata as $key=> $imagedatas)
-                @if ($imagedatas->product_id == $productdetail->product_code)
+                @if ($imagedatas->product_id == $product->id)
                 <?php $i++ ?>
                 <div class="img-item">
                     <a href="#" data-id="<?= $i ?>">
@@ -285,8 +288,9 @@
         </div>
         <!-- card right -->
         <div class="product-content">
-            <h2 class="product-title">{{ $productdetail->product_name }}</h2>
-            <a href="{{ url('/productRedirect') }}" class="product-link py-1 px-4 rounded btn btn-primary">visit furniture store</a>
+            <h2 class="product-title">{{ $product->product_name }}</h2>
+            <a href="{{ url('/productRedirect') }}" class="product-link py-1 px-4 rounded btn btn-primary">visit
+                furniture store</a>
             <div class="product-rating">
 
                 <i class="bi bi-star-fill"></i>
@@ -297,20 +301,16 @@
                 <span>4.7(21)</span>
             </div>
             <div class="product-price">
-                <p class="new-price">New Price: <span>${{ $productdetail->price }}</span></p>
+                <p class="new-price">New Price: <span>${{ $product->price }}</span></p>
             </div>
             <div class="product-detail">
                 <h3>Product Information </h2>
-                    <p>{{ $productdetail->content }}</p>
-                    <div>{{ $productdetail->description }}</div>
+                    <p>{{ $product->content }}</p>
+                    <div>{{ $product->description }}</div>
                     <ul>
-                        <li>Made in: <span>{{ $productdetail->made_in }}</span></li>
-                        @foreach ($category as $categorys)
-                        @if ($productdetail->category_id == $categorys->id)
-                        <li>Category: <span>{{ $categorys->CategoryName }}</span></li>
-                        @endif
-                        @endforeach
-                        <li>Product Code: <span>{{ $productdetail->product_code }}</span></li>
+                        <li>Made in: <span>{{ $product->made_in }}</span></li>
+                        <li>Category: <span>{{ $product->product_categories->CategoryName }}</span></li>
+                        <li>Product Code: <span>{{ $product->product_code }}</span></li>
                         <li>Shipping Area: <span>All over the world</span></li>
                     </ul>
             </div>
@@ -320,7 +320,6 @@
                 <button type="button" class="btn btn-primary">
                     Add to Cart <i class="bi bi-cart-fill"></i>
                 </button>
-                {{-- <h1>{{ $productdetail->id }}</h1> --}}
                 <input type="number" min="0" value="1">
             </div>
 

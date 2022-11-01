@@ -38,7 +38,7 @@ class ProductImageController extends Controller
     public function create()
     {
         return view('Admin.pages.product_images.Image_create', [
-            'menu' => $this->imagepdservice->getProductid(),
+            'productname' => $this->imagepdservice->getProductid(),
         ]);
     }
 
@@ -63,12 +63,13 @@ class ProductImageController extends Controller
      */
     public function show(product_image $data)
     {
+        // dd($data);
         //
         return view('Admin.pages.product_images.Image_update',[
-
+            
             'title'=>'Update furniture images',
-            'menuPd' => $this->imagepdservice->getProductid(),
-            'menu' => $data
+            'getAllImage' => $this->imagepdservice->getAll(),
+            'productImage' => $data
 
         ]);
     }

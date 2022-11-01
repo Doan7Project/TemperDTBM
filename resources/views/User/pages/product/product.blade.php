@@ -107,18 +107,25 @@
       left: 20px;
     }
   }
-
+  .body{
+    background-color: #f3f3f310;
+  }
 </style>
 <!-- feature -->
-<div class="container mt-5">
-  <div>
-    @include('User.pages.product.header')
-  </div>
+<div>
+  <img class="w-100" src="{{ asset('images/salesoff4.jpg') }}" alt="">
+ </div>
+<div class="body pt-5 pb-5">
+<div>
+  @include('User.pages.product.header')
+</div>
+<div class="container bg-white">
+
   <div>
     @include('User.pages.product.search')
   </div>
-
-  <div class="row ">
+  {{-- {{ $getproduct->links('User.pages.product.my-paginate')}} --}}
+  <div class="row">
     @php $count = 0;
     @endphp
     @foreach ($getproduct as $key => $products)
@@ -159,6 +166,7 @@
         </div>
       </div>
     </div>
+
     @endif
 
     @else
@@ -203,7 +211,9 @@
 
   </div>
   <div>
-    {{ $getproduct->links('User.pages.product.my-paginate') }}
+
+
   </div>
+</div>
 </div>
 @endsection

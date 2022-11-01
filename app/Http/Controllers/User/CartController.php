@@ -34,9 +34,9 @@ class CartController extends Controller
     {
         return view('User.pages.cart.detail', [
             'title' => 'Detailed Product',
-            'productdetail' => $data,
+            'product' => $data,
             'category' => $this->productservice->getCategoryName(),
-            'product' => $this->productservice->getAll(),
+            // 'product' => $this->productservice->getAll(),
             'imagedata' => $this->imagepdservice->getAll(),
         ]);
     }

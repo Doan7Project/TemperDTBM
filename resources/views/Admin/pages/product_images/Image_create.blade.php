@@ -28,8 +28,8 @@
             <label for="productid" class="form-label text-black fw-bolder">Product Name</label>
             <select class="form-select shadow-none" name="txtProductID" id="productid">
                 <option value="">Please choose product name...</option>
-                @foreach($menu as $data)
-                <option value="{{$data->product_code}}" {{ old('txtProductID') == $data->product_code ? 'selected' : '' }}>{{$data->product_name}}</option>
+                @foreach($productname as $productnames)
+                <option value="{{$productnames->id}}" {{ old('txtProductID') == $productnames->id ? 'selected' : '' }}>{{$productnames->product_name .' - '. $productnames->product_code}}</option>
                 @endforeach
             </select>
             @error('txtProductID')

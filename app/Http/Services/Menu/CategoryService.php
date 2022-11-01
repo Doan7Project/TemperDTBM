@@ -12,7 +12,7 @@ class CategoryService
 
     public function getAll(){
 
-       return ProductCategory::orderbyDesc('id')->paginate(20);
+       return ProductCategory::orderbyDesc('id');
 
     }
 
