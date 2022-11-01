@@ -25,7 +25,6 @@ return new class extends Migration
             $table->string('made_in');
             $table->bigInteger('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('product_categories')->onDelete('cascade');
-            // $table->integer('category_id');
             $table->string('images');
             $table->longText('content');
             $table->longText('description');

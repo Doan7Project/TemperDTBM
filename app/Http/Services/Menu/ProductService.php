@@ -18,49 +18,50 @@ class ProductService
 
     public function getProduct()
     {
-        return Product::all();
-        // $products = Product::first()->where('status', 'Active');
+        
+        $products = Product::where('status', 'Active');
 
         if (isset($_GET['sort']) && !empty($_GET['sort'])) :
             if ($_GET['sort'] == "product_latest") :
-               return Product::all()->orderby('id', 'Desc');
-            elseif ($_GET['sort'] == "price_lowest") :
-                return Product::all()->orderby('price', 'Asc');
+               return  $products->orderby('id', 'Desc')->paginate(100);
+            elseif ($_GET['sort'] == "price_lowest"):
+                return  $products->orderby('price', 'Asc')->paginate(100);
             elseif ($_GET['sort'] == "price_highest") :
-                return Product::all()->orderby('price', 'Desc');
+                return  $products->orderby('price', 'Desc')->paginate(100);
             elseif ($_GET['sort'] == "name_a_z") :
-                return Product::all()->orderby('product_name', 'Asc');
+                return  $products->orderby('product_name', 'Asc')->paginate(100);
             elseif ($_GET['sort'] == "name_a_z") :
-                return Product::all()->orderby('product_name', 'Desc');
+                return  $products->orderby('product_name', 'Desc')->paginate(100);
             elseif ($_GET['sort'] == "product_featured") :
-                return Product::all()->where('models', 'featured');
+                return  $products->where('models', 'featured')->paginate(100);
             elseif ($_GET['sort'] == "product_new_arrival") :
-                return Product::all()->where('models', 'New arrival');
+                return  $products->where('models', 'New arrival')->paginate(100);
             elseif ($_GET['sort'] == "product_trending") :
-                return Product::all()->where('models', 'Trending');
+                return  $products->where('models', 'Trending')->paginate(100);
             elseif ($_GET['sort'] == "product_top") :
-                return Product::all()->where('models', 'top');
+                return  $products->where('models', 'top')->paginate(100);
             elseif ($_GET['price_sort'] == "price_a") :
-                return Product::all()->where('models', 'top');
+                return  $products->where('models', 'top')->paginate(100);
             endif;
         endif;
 
         if (isset($_GET['price_sort']) && !empty($_GET['price_sort'])) :
             if ($_GET['price_sort'] == "price_a") :
-                return Product::all()->whereBetween('price', [0, 300])->orderby('price', 'Asc');
+                return  $products->whereBetween('price', [0, 300])->orderby('price', 'Asc')->paginate(100);
             elseif ($_GET['price_sort'] == "price_b") :
-                return Product::all()->whereBetween('price', [300, 600])->orderby('price', 'Asc');
+                return  $products->whereBetween('price', [300, 600])->orderby('price', 'Asc')->paginate(100);
             elseif ($_GET['price_sort'] == "price_c") :
-                return Product::all()->whereBetween('price', [600, 900])->orderby('price', 'Asc');
+                return  $products->whereBetween('price', [600, 900])->orderby('price', 'Asc')->paginate(100);
             elseif ($_GET['price_sort'] == "price_d") :
-                return Product::all()->whereBetween('price', [900, 1200])->orderby('price', 'Asc');
+                return  $products->whereBetween('price', [900, 1200])->orderby('price', 'Asc')->paginate(100);
             elseif ($_GET['price_sort'] == "price_e") :
-                return Product::all()->whereBetween('price', [1200, 1800])->orderby('price', 'Asc');
+                return  $products->whereBetween('price', [1200, 1800])->orderby('price', 'Asc')->paginate(100);
             elseif ($_GET['price_sort'] == "price_f") :
-                return Product::all()->where('price', '=>', 1800)->orderby('price', 'Asc');
+                return  $products->where('price', '=>', 1800)->orderby('price', 'Asc')->paginate(100);
             endif;
 
         endif;
+        return Product::all();
     }
 
     public function getCategoryName()

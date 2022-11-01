@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('order_masters', function (Blueprint $table) {
             $table->id();
-            $table->string('customer_id');
+            $table->bigInteger('customer_id')->unsigned();
+            $table->foreign('customer_id')->references('id')->on('customers')->onUpdate('cascade');
             $table->date('date_required');
             $table->string('order_number');
             $table->string('notes');

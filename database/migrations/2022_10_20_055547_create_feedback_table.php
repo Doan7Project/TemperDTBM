@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('feedback', function (Blueprint $table) {          
             $table->id();
-            $table->string('product_id');
-            $table->string('name');
-            $table->string('phone');
-            $table->string('email');
+            $table->bigInteger('customer_id')->unsigned();
+            $table->foreign('customer_id')->references('id')->on('customers')->onUpdate('cascade');
+            $table->bigInteger('order_detail_id');
             $table->string('content');
             $table->timestamps();
         });
