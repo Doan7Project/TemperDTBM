@@ -62,7 +62,7 @@
 
 
   .imgstyle .btn:hover {
-    /* background-color: #50a4aff6; */
+
     color: rgb(13, 87, 172);
   }
 
