@@ -23,6 +23,7 @@ use App\Http\Controllers\User\FeedbackController as UserFeedbackController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\User\LoginController as UserLoginController;
 use App\Http\Controllers\User\NavbarController;
+use App\Http\Controllers\User\OrderAccountController;
 use App\Http\Controllers\User\ProductController as UserProductController;
 use App\Http\Controllers\User\RegisterController as UserRegisterController;
 use Illuminate\Routing\Router;
@@ -180,7 +181,7 @@ Route::controller(UserRegisterController::class)->group(function () {
 Route::controller(CartController::class)->group(function () {
 
     route::get('/cart', 'cart');
-    route::get('/order', 'order');
+    // route::get('/order', 'order');
     route::get('/orderdetail/{data}', 'orderdetail');
 });
 # 8 Account
@@ -197,4 +198,9 @@ Route::controller(UserProductController::class)->group(function () {
 
     route::get('/product', 'product')->name('product');
     route::get('/productRedirect', 'productRedirect');
+});
+#10 Order Guest Account
+
+Route::controller(OrderAccountController::class)->group(function(){
+   route::get('/order', 'order')->name('account.order');
 });

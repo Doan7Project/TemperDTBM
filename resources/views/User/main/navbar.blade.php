@@ -245,9 +245,9 @@
             <li class="nav-item">
               <a href="{{ url('/register') }}" class="nav-link"><i class="bi bi-person-plus pe-1"></i>Register</a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a href="{{ url('/feedback') }}" class="nav-link">Feedback</a>
-            </li>
+            </li> --}}
 
             <li class="nav-item">
               <a href="{{ url('/cart') }}" class="nav-link"><i class="bi bi-cart-fill"></i></a>
